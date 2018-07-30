@@ -1,0 +1,16 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\api\tileMap\CTileMap.cs">
+    <Files>
+      <File FileName="Assets\Script\game\entities\CAndy.cs" Line="55" Column="3" />
+      <File FileName="Assets\Script\api\tileMap\CTileMap.cs" Line="231" Column="8" />
+      <File FileName="Assets\Script\api\tileMap\CTile.cs" Line="64" Column="26" />
+      <File FileName="Assets\Script\api\sprites\CGameObject.cs" Line="466" Column="33" />
+      <File FileName="Assets\Script\game\entities\CScorpion.cs" Line="150" Column="19" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
