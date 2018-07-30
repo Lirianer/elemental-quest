@@ -1,0 +1,17 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\game\entities\CEnemyShip.cs">
+    <Files>
+      <File FileName="Assets\Script\game\entities\CEnemyShip.cs" Line="37" Column="4" />
+      <File FileName="Assets\Script\api\framework\CGame.cs" Line="9" Column="1" />
+      <File FileName="Assets\Script\game\states\CLevelState.cs" Line="28" Column="34" />
+      <File FileName="Assets\Script\game\entities\CEnemyBullet.cs" Line="8" Column="2" />
+      <File FileName="Assets\Script\api\math\CVector.cs" Line="143" Column="2" />
+      <File FileName="Assets\Script\api\sprites\CGameObject.cs" Line="177" Column="17" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
