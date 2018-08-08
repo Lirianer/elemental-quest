@@ -1,0 +1,26 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\game\entities\levels\CItemInfo.cs">
+    <Files>
+      <File FileName="Assets\Script\game\states\CPlatformGameState.cs" Line="31" Column="25" />
+      <File FileName="Assets\Script\api\tileMap\CTileMap.cs" Line="166" Column="19" />
+      <File FileName="Assets\Script\game\entities\levels\CEnemyInfo.cs" Line="54" Column="1" />
+      <File FileName="Assets\Script\game\entities\CScorpion.cs" Line="19" Column="9" />
+      <File FileName="Assets\Script\game\entities\CItem.cs" Line="176" Column="3" />
+      <File FileName="Assets\Script\game\managers\CEnemyManager.cs" Line="8" Column="9" />
+      <File FileName="Assets\Script\game\managers\CItemManager.cs" Line="5" Column="2" />
+      <File FileName="Assets\Script\game\entities\CCoin.cs" Line="174" Column="20" />
+      <File FileName="Assets\Script\api\sprites\CAnimatedSprite.cs" Line="35" Column="1" />
+      <File FileName="Assets\Script\game\managers\CParticleManager.cs" Line="8" Column="9" />
+      <File FileName="Assets\Script\game\states\CAsteroidGameState.cs" Line="32" Column="25" />
+      <File FileName="Assets\Script\game\entities\CExplosion.cs" Line="11" Column="34" />
+      <File FileName="Assets\Script\game\entities\CAsteroid.cs" Line="104" Column="3" />
+      <File FileName="Assets\Script\game\entities\CSpark.cs" Line="21" Column="19" />
+      <File FileName="Assets\Script\game\entities\levels\CItemInfo.cs" Line="53" Column="18" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
