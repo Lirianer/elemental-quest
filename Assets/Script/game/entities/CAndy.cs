@@ -102,12 +102,12 @@ public class CAndy : CAnimatedSprite
 				return;
 			}
 
-			if (CKeyboard.pressed (CKeyboard.LEFT) && !isWallLeft (getX () - 1, getY ())) {
+			if (CKeyboard.pressed (CKeyboard.KEY_A) && !isWallLeft (getX () - 1, getY ())) {
 				setState (STATE_WALKING);
 				return;
 			}
 
-			if (CKeyboard.pressed (CKeyboard.RIGHT) && !isWallRight (getX () + 1, getY ())) {
+			if (CKeyboard.pressed (CKeyboard.KEY_D) && !isWallRight (getX () + 1, getY ())) {
 				setState (STATE_WALKING);
 				return;
 			}
@@ -132,11 +132,11 @@ public class CAndy : CAnimatedSprite
 				return;
 			}
 
-			if (!(CKeyboard.pressed (CKeyboard.LEFT) || CKeyboard.pressed (CKeyboard.RIGHT))) {
+			if (!(CKeyboard.pressed (CKeyboard.KEY_A) || CKeyboard.pressed (CKeyboard.KEY_D))) {
 				setState (STATE_STAND);
 				return;
 			} else {
-				if (CKeyboard.pressed (CKeyboard.LEFT)) {
+				if (CKeyboard.pressed (CKeyboard.KEY_A)) {
 					// Chequear pared a la izquierda.
 					// Si hay pared a la izquierda vamos a stand.
 					if (isWallLeft (getX (), getY ())) {
@@ -215,7 +215,7 @@ public class CAndy : CAnimatedSprite
 		if (getX () + getWidth () / 2 > CTileMap.WORLD_WIDTH) 
 		{
 			// Se fue por la derecha.
-			map.changeRoom(CGameConstants.RIGHT);
+			map.changeRoom(CGameConstants.D);
 
 			// Aparece por la izquierda.
 			setX(-getWidth () / 2);
@@ -223,21 +223,21 @@ public class CAndy : CAnimatedSprite
 		else if (getX () + getWidth () / 2 < 0) 
 		{
 			// Se fue por la izquierda.
-			map.changeRoom(CGameConstants.LEFT);
+			map.changeRoom(CGameConstants.A);
 
 			setX (CTileMap.WORLD_WIDTH - getWidth () / 2);
 		} 
 		else if (getY () + getHeight () / 2 > CTileMap.WORLD_HEIGHT) 
 		{
 			// Se fue por abajo.
-			map.changeRoom(CGameConstants.DOWN);
+			map.changeRoom(CGameConstants.S);
 
 			setY (-getHeight () / 2);
 		} 
 		else if (getY () + getHeight () / 2 < 0) 
 		{
 			// Se fue por arriba.
-			map.changeRoom(CGameConstants.UP);
+			map.changeRoom(CGameConstants.W);
 
 			setY(CTileMap.WORLD_HEIGHT - getHeight() / 2);
 		}
@@ -260,13 +260,13 @@ public class CAndy : CAnimatedSprite
 		} 
 
 		// Chequeamos si podemos movernos.
-		if (!(CKeyboard.pressed (CKeyboard.LEFT) || CKeyboard.pressed (CKeyboard.RIGHT))) 
+		if (!(CKeyboard.pressed (CKeyboard.KEY_A) || CKeyboard.pressed (CKeyboard.KEY_D))) 
 		{
 			setVelX (0);
 		} 
 		else 
 		{
-			if (CKeyboard.pressed (CKeyboard.LEFT)) 
+			if (CKeyboard.pressed (CKeyboard.KEY_A)) 
 			{
 				// Chequear pared a la izquierda.
 				// Si hay pared a la izquierda vamos a stand.

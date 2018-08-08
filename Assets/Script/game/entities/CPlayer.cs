@@ -34,16 +34,16 @@ public class CPlayer : CAnimatedSprite
 
 		base.update ();
 
-		if (CKeyboard.pressed (CKeyboard.LEFT)) 
+		if (CKeyboard.pressed (CKeyboard.KEY_A)) 
 		{
 			turnLeft (ROTATION_SPEED);
 		}
-		if (CKeyboard.pressed (CKeyboard.RIGHT)) 
+		if (CKeyboard.pressed (CKeyboard.KEY_D)) 
 		{
 			turnRight (ROTATION_SPEED);
 		}
 
-		if (CKeyboard.pressed(CKeyboard.UP) /*|| CMouse.pressed()*/)
+		if (CKeyboard.pressed(CKeyboard.KEY_W) /*|| CMouse.pressed()*/)
 		{
 			float angRad = CMath.degToRad(getRotation());
 			setAccelX(500.0f * Mathf.Cos (angRad));
