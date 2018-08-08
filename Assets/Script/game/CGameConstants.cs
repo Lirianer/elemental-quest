@@ -10,8 +10,8 @@ public class CGameConstants
 	public const float JUMP_SPEED = -500.0f * 2;
 
 	// General constants for gameplay programming.
-	public const int LEFT = 0;
-	public const int RIGHT = 1;
-	public const int DOWN = 2;
-	public const int UP = 3;
+	public const int A = 0;
+	public const int D = 1;
+	public const int S = 2;
+	public const int W = 3;
 }

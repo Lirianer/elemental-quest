@@ -5,12 +5,13 @@ public class CKeyboard
 {
 	static private bool mInitialized = false;
 
-	public const KeyCode RIGHT = KeyCode.RightArrow;
-	public const KeyCode LEFT = KeyCode.LeftArrow;
+    //  A 97 , D 100 S 115 W 119
+	public const KeyCode KEY_D = KeyCode.D;
+	public const KeyCode KEY_A = KeyCode.A;
 	public const KeyCode SPACE = KeyCode.Space;
 	public const KeyCode ESCAPE = KeyCode.Escape;
-	public const KeyCode UP = KeyCode.UpArrow;
-	public const KeyCode DOWN = KeyCode.DownArrow;
+	public const KeyCode KEY_W = KeyCode.W;
+	public const KeyCode KEY_S = KeyCode.S;
 
 	// TODO: HACER TODO EL TECLADO.
 	public const KeyCode KEY_G = KeyCode.G;

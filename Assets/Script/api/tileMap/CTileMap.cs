@@ -10,8 +10,8 @@ public class CTileMap
 	public const int MAP_HEIGHT = 13;
 
 	// La imagen es de 48x48 pixeles mide cada tile.
-	public const int TILE_WIDTH = 48*2;
-	public const int TILE_HEIGHT = 48*2;
+	public const int TILE_WIDTH = 64*2;
+	public const int TILE_HEIGHT = 64*2;
 
 	// Ancho y alto del nivel en pixeles.
 	public const int WORLD_WIDTH = MAP_WIDTH * TILE_WIDTH;
@@ -29,16 +29,16 @@ public class CTileMap
 	// Mapa con el indice de cada tile.
 	public static int[] LEVEL_001 = {
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,
-		1, 1, 1, 1, 1, 1, 0, 0, 0, 2, 0, 1, 1, 1, 1, 1, 1	,
-		1, 1, 1, 0, 0, 0, 0, 0, 0, 3, 0, 2, 2, 0, 1, 1, 1		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 3, 0, 0, 1, 1		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 3, 0, 0, 1, 1		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 3, 0, 0, 1, 1		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 3, 0, 0, 0, 0		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 3, 3, 0, 0, 0, 0		,
-		1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 0, 0, 0, 0,
-		1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0,
-		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1	,
+		1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1		,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1		,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1		,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1		,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0		,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0		,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 	};
@@ -71,7 +71,7 @@ public class CTileMap
 	{
 		mTiles = new Sprite [NUM_TILES];
 		mTiles [0] = Resources.Load<Sprite> ("Sprites/tiles/tile000");
-		mTiles [1] = Resources.Load<Sprite> ("Sprites/tiles/tile001");
+		mTiles [1] = Resources.Load<Sprite> ("Sprites/tiles/Piedra");
 		mTiles [2] = Resources.Load<Sprite> ("Sprites/tiles/tile002");
 		mTiles [3] = Resources.Load<Sprite> ("Sprites/tiles/tile003");
 		mTiles [4] = Resources.Load<Sprite> ("Sprites/tiles/tile004");
@@ -151,6 +151,8 @@ public class CTileMap
 
 	private void loadEnemies(int aLevel)
 	{
+
+        ///Cargo el Niveles 
 		if (aLevel == 1) 
 		{
 			CScorpion s = new CScorpion (CScorpion.TYPE_DONT_FALL);
@@ -189,14 +191,14 @@ public class CTileMap
 
 		if (mCurrentLevel == 1) 
 		{
-			if (aDir == CGameConstants.RIGHT) 
+			if (aDir == CGameConstants.D) 
 			{
 				loadLevel (2);
 			}
 		} 
 		else if (mCurrentLevel == 2) 
 		{
-			if (aDir == CGameConstants.LEFT) 
+			if (aDir == CGameConstants.A) 
 			{
 				loadLevel (1);
 			}
@@ -216,7 +218,10 @@ public class CTileMap
 		int col = (int) (CMouse.getX () / TILE_WIDTH);
 		int row = (int) (CMouse.getY () / TILE_HEIGHT);
 		CTile tile = getTile (col, row);
-		if (tile != null) 
+
+        //Aca TENGO LO DEL EL CLICK PARA LOS PODERES
+        /*
+        if (tile != null) 
 		{
 			if (CMouse.firstPress())
 			{
@@ -224,15 +229,19 @@ public class CTileMap
 				if (index == 0) 
 				{
 					tile.setTileIndex (1);
-					tile.setImage (mTiles[1]);
+					tile.setImage (mTiles[3]);
 				}
+
 				else if (index == 1)
 				{
 					tile.setTileIndex(0);
 					tile.setImage(mTiles[0]);
 				}
 			}
+
 		}
+
+        */
 	}
 
 	public void render()
