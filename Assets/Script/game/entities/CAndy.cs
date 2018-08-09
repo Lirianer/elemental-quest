@@ -15,11 +15,22 @@ public class CAndy : CAnimatedSprite
 	private CSprite mRect;
 	private CSprite mRect2;
 
+    private CText cText;
+
+
 	// coordenada y que tenia en el frame anterior. Usada para chequear en la horizontal antes que en la vertical...
 	private float mOldY;
 
 	private const int X_OFFSET_BOUNDING_BOX = 8 * 2;
 	private const int Y_OFFSET_BOUNDING_BOX = 13 * 2;
+
+    private enum Powers
+    {
+        Earth,
+        Water,
+        Air,
+        Fire
+    }
 
 	public CAndy()
 	{

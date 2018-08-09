@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using TMPro;
+
 
 public class CPlatformGameState : CGameState
 {
@@ -10,9 +13,11 @@ public class CPlatformGameState : CGameState
 	private CBulletManager mBulletManager;
 	private CParticleManager mParticleManger;
     private Tierra mTierra;
+    private CText ruletapoderes = new CText("");
 
 
-	private CAndy mAndy;
+
+    private CAndy mAndy;
 
 
 
@@ -42,15 +47,20 @@ public class CPlatformGameState : CGameState
 
 		mAndy = new CAndy ();
 		mAndy.setXY (400, 400);
+        this.ruletapoderes.setColor(Color.white);
+        this.ruletapoderes.setAlignment(TextAlignmentOptions.Left);
+        this.ruletapoderes.setFontSize(450f);
+        this.ruletapoderes.setWrapping(false);
 
-		//createAsteroids ();
 
-		/*CEnemyShip e = new CEnemyShip ();
+        //createAsteroids ();
+
+        /*CEnemyShip e = new CEnemyShip ();
 		e.setXY (200, 200);
 		CEnemyManager.inst ().add (e);*/
-	}
+    }
 
-	override public void update()
+    override public void update()
 	{
 		base.update (); 
 
@@ -60,7 +70,10 @@ public class CPlatformGameState : CGameState
 
         mTierra.update();
 
-		mEnemyManager.update ();
+        this.ruletapoderes.setText("Personaje: ");
+
+
+        mEnemyManager.update ();
 		mItemManager.update ();
 		mBulletManager.update ();
 		mParticleManger.update ();
@@ -85,7 +98,9 @@ public class CPlatformGameState : CGameState
 		mItemManager.render ();
 		mBulletManager.render ();
 		mParticleManger.render ();
-	}
+        ruletapoderes.render();
+
+    }
 
 	override public void destroy()
 	{
@@ -112,9 +127,14 @@ public class CPlatformGameState : CGameState
 
         mTierra.destroy();
         mTierra = null;
+
+        this.ruletapoderes.destroy();
+        this.ruletapoderes = null;
+
+
     }
 
-	/*private void createAsteroids()
+    /*private void createAsteroids()
 	{
 		CAsteroid asteroid;
 
@@ -130,5 +150,5 @@ public class CPlatformGameState : CGameState
 	}*/
 
 
-     
+
 }
