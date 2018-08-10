@@ -2,19 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Tierra : CAnimatedSprite
+public class Water : Power
 {
-    public Tierra()
+    public Water()
     {
-        setFrames(Resources.LoadAll<Sprite>("Sprites/tierra"));
-       
-        setName("PoderTierra");
-        setSortingLayerName("Player");
-        setScale(2);
- 
+        this.name = "Water";
     }
-
-
 
     override public void update()
     {
@@ -26,7 +19,7 @@ public class Tierra : CAnimatedSprite
         base.render();
     }
 
-    override public void destroy()
+    public void destroy()
     {
         base.destroy();
     }

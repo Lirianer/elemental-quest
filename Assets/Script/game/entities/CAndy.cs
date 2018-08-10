@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CAndy : CAnimatedSprite
 {
@@ -15,7 +16,9 @@ public class CAndy : CAnimatedSprite
 	private CSprite mRect;
 	private CSprite mRect2;
 
-    private CText cText;
+    private CText textoPoderes;
+    private List<Power> powers;
+    private int selectedPower;
 
 
 	// coordenada y que tenia en el frame anterior. Usada para chequear en la horizontal antes que en la vertical...
@@ -23,14 +26,6 @@ public class CAndy : CAnimatedSprite
 
 	private const int X_OFFSET_BOUNDING_BOX = 8 * 2;
 	private const int Y_OFFSET_BOUNDING_BOX = 13 * 2;
-
-    private enum Powers
-    {
-        Earth,
-        Water,
-        Air,
-        Fire
-    }
 
 	public CAndy()
 	{
@@ -72,6 +67,21 @@ public class CAndy : CAnimatedSprite
 		mRect2.setAlpha (0.5f);
 		mRect2.setName ("player_debug_rect2");
 
+        this.powers = new List<Power>();
+        this.powers.Add(new Earth());
+        this.powers.Add(new Air());
+        this.powers.Add(new Water());
+        this.powers.Add(new Fire());
+
+        this.selectedPower = 0;
+
+
+        textoPoderes = new CText(this.powers[this.selectedPower].getName());
+        textoPoderes.setWidth(this.getWidth());
+        textoPoderes.setWrapping(false);
+        textoPoderes.setFontSize(400f);
+        textoPoderes.setXY(this.getX(), this.getY() - textoPoderes.getHeight());
+        textoPoderes.setAlignment(TMPro.TextAlignmentOptions.Center);
 	}
 
 	private void setOldYPosition()
@@ -87,9 +97,18 @@ public class CAndy : CAnimatedSprite
 		// Guardar la posicion anterior del objeto.
 		setOldYPosition ();
 
-		base.update ();
+        base.update();
 
-		if (getState () == STATE_STAND) {
+        if (CKeyboard.firstPress(KeyCode.E))
+        {
+            this.selectNextPower();
+        }
+        else if (CKeyboard.firstPress(KeyCode.Q))
+        {
+            this.selectPreviousPower();
+        }
+
+        if (getState () == STATE_STAND) {
 			// En stand no deberia pasar nunca que quede metido en una pared.
 			// Si estamos en una pared, corregirnos. 
 			if (isWallLeft (getX (), getY ())) {
@@ -217,7 +236,11 @@ public class CAndy : CAnimatedSprite
 
 		// Chequear el paso entre pantallas.
 		controlRooms ();
-	}
+
+        textoPoderes.setXY(this.getX(), this.getY() - textoPoderes.getHeight());
+        textoPoderes.setText(this.powers[this.selectedPower].getName());
+        textoPoderes.update();
+    }
 
 	private void controlRooms()
 	{
@@ -331,6 +354,8 @@ public class CAndy : CAnimatedSprite
 		mRect2.update ();
 
 		mRect2.render ();
+
+        textoPoderes.render();
 	}
 
 	override public void destroy()
@@ -373,4 +398,29 @@ public class CAndy : CAnimatedSprite
 			stopMove();
 		}
 	}
+
+    private void selectPower(int power)
+    {
+        this.selectedPower = power;
+        if(this.selectedPower > this.powers.Count - 1)
+        {
+            this.selectedPower = 0;
+        }
+        else if(this.selectedPower < 0)
+        {
+            this.selectedPower = this.powers.Count - 1;
+        }
+
+        Debug.Log(this.selectedPower);
+    }
+
+    private void selectNextPower()
+    {
+        this.selectPower(this.selectedPower + 1);
+    }
+
+    private void selectPreviousPower()
+    {
+        this.selectPower(this.selectedPower - 1);
+    }
 }
