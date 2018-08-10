@@ -12,8 +12,6 @@ public class CPlatformGameState : CGameState
 	private CItemManager mItemManager;
 	private CBulletManager mBulletManager;
 	private CParticleManager mParticleManger;
-    private Tierra mTierra;
-    private CText ruletapoderes = new CText("");
 
 
 
@@ -36,7 +34,6 @@ public class CPlatformGameState : CGameState
 		mItemManager = new CItemManager ();
 		mBulletManager = new CBulletManager ();
 		mParticleManger = new CParticleManager ();
-        mTierra = new Tierra();
 
 
 		// El mapa crea enemigos. Crear los managers antes que el mapa.
@@ -47,10 +44,6 @@ public class CPlatformGameState : CGameState
 
 		mAndy = new CAndy ();
 		mAndy.setXY (400, 400);
-        this.ruletapoderes.setColor(Color.white);
-        this.ruletapoderes.setAlignment(TextAlignmentOptions.Left);
-        this.ruletapoderes.setFontSize(450f);
-        this.ruletapoderes.setWrapping(false);
 
 
         //createAsteroids ();
@@ -67,11 +60,6 @@ public class CPlatformGameState : CGameState
 		mMap.update ();
 
 		mAndy.update ();
-
-        mTierra.update();
-
-        this.ruletapoderes.setText("Personaje: ");
-
 
         mEnemyManager.update ();
 		mItemManager.update ();
@@ -92,14 +80,11 @@ public class CPlatformGameState : CGameState
 		mMap.render ();
 
 		mAndy.render ();
-        mTierra.render();
 
 		mEnemyManager.render ();
 		mItemManager.render ();
 		mBulletManager.render ();
 		mParticleManger.render ();
-        ruletapoderes.render();
-
     }
 
 	override public void destroy()
@@ -123,15 +108,6 @@ public class CPlatformGameState : CGameState
 
 		mParticleManger.destroy ();
 		mParticleManger = null;
-
-
-        mTierra.destroy();
-        mTierra = null;
-
-        this.ruletapoderes.destroy();
-        this.ruletapoderes = null;
-
-
     }
 
     /*private void createAsteroids()
