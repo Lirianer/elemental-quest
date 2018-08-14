@@ -265,8 +265,12 @@ public class CAndy : CAnimatedSprite
 
         if (this.selectedPower == 0 )
         {
-            estatierra = true;
-            muestro.MuestroTierra();
+            //estatierra = true;
+            if (CMouse.firstPress())
+            {
+                muestro.MuestroTierra();
+            }
+            
 
         }
     }

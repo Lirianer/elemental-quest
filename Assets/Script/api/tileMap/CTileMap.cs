@@ -27,7 +27,13 @@ public class CTileMap
 
 	// Array con los sprites de los tiles.
 	private Sprite[] mTiles;
-    public bool estatierra = false;
+
+    //Aca tengo para controlar  si  tengo el poder tierra
+    //public bool estatierra = false;
+
+    //Contador de Tierra para que no sea mas de 2 
+    private int contadorTierra;
+
 
 
 
@@ -214,6 +220,9 @@ public class CTileMap
 
 	public void update()
 	{
+
+        
+
 		for (int y = 0; y < MAP_HEIGHT; y++) 
 		{
 			for (int x = 0; x < MAP_WIDTH; x++) 
@@ -221,20 +230,10 @@ public class CTileMap
 				mMap [y] [x].update ();
 			}
 		}
+        
+             
 
-        if (estatierra == true)
-        {
-
-            MuestroTierra();
-
-        }
-           
-      
-
-
-
-
-
+        
 
     }
 
@@ -258,15 +257,22 @@ public class CTileMap
                 int index = tile.getTileIndex();
                 if (index == 0)
                 {
-                    tile.setTileIndex(1);
-                    tile.setImage(mTiles[3]);
+                    if (contadorTierra < 4)
+                    {
+                        contadorTierra = contadorTierra + 1;
+                        tile.setTileIndex(3);
+                        tile.setImage(mTiles[3]);
+                    }
+                    else
+                    {
+                        Debug.Log("YA HAY 4 TIERRA");
+                    }
                 }
-                
-              else if (index == 1)
+                else if (index == 3)
                 {
                     tile.setTileIndex(0);
                     tile.setImage(mTiles[0]);
-                }  
+                    contadorTierra = contadorTierra - 1;                }
             }
 
           
