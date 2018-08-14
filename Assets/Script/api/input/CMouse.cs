@@ -30,20 +30,25 @@ public class CMouse
 			mInitialized = false;
 		}
 	}
+    
 
-	public static bool firstPress()
-	{
-		if (Input.GetMouseButtonDown (0) || Input.GetMouseButtonDown (1) || Input.GetMouseButtonDown (2)) 
-		{
-			return true;
-		}
-		else 
-		{
-			return false;
-		}
-	}
+    public static bool firstPress()
+    {
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
-	public static bool pressed()
+   
+
+
+
+    public static bool pressed()
 	{
 		if (Input.GetMouseButton (0) || Input.GetMouseButton (1) || Input.GetMouseButton (2)) 
 		{

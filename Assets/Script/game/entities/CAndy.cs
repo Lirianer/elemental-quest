@@ -21,8 +21,16 @@ public class CAndy : CAnimatedSprite
     private int selectedPower;
 
 
-	// coordenada y que tenia en el frame anterior. Usada para chequear en la horizontal antes que en la vertical...
-	private float mOldY;
+
+    //Pruebo
+    public CTileMap muestro;
+    public bool estatierra = false;
+
+
+
+
+    // coordenada y que tenia en el frame anterior. Usada para chequear en la horizontal antes que en la vertical...
+    private float mOldY;
 
 	private const int X_OFFSET_BOUNDING_BOX = 8 * 2;
 	private const int Y_OFFSET_BOUNDING_BOX = 13 * 2;
@@ -72,8 +80,10 @@ public class CAndy : CAnimatedSprite
         this.powers.Add(new Air());
         this.powers.Add(new Water());
         this.powers.Add(new Fire());
-
+     
         this.selectedPower = 0;
+ 
+
 
 
         textoPoderes = new CText(this.powers[this.selectedPower].getName());
@@ -82,7 +92,12 @@ public class CAndy : CAnimatedSprite
         textoPoderes.setFontSize(400f);
         textoPoderes.setXY(this.getX(), this.getY() - textoPoderes.getHeight());
         textoPoderes.setAlignment(TMPro.TextAlignmentOptions.Center);
-	}
+
+ 
+
+
+
+    }
 
 	private void setOldYPosition()
 	{
@@ -234,12 +249,26 @@ public class CAndy : CAnimatedSprite
 			}
 		}
 
-		// Chequear el paso entre pantallas.
-		controlRooms ();
+
+
+         
+
+        // Chequear el paso entre pantallas.
+        controlRooms ();
 
         textoPoderes.setXY(this.getX(), this.getY() - textoPoderes.getHeight());
         textoPoderes.setText(this.powers[this.selectedPower].getName());
         textoPoderes.update();
+
+
+        //Chequeo poder tierra 
+
+        if (this.selectedPower == 0 )
+        {
+            estatierra = true;
+            muestro.MuestroTierra();
+
+        }
     }
 
 	private void controlRooms()
@@ -276,6 +305,27 @@ public class CAndy : CAnimatedSprite
 			setY(CTileMap.WORLD_HEIGHT - getHeight() / 2);
 		}
 	}
+
+
+
+    //Voy hacer El poder de Tierra
+  
+    /*    public void  PoderTierra()
+        {
+            // CTileMap map = CGame.inst().getMap();
+
+
+         
+           
+        } 
+    */
+     
+    
+
+  
+
+
+
 
 
 	// Se llama desde los estados jumping y falling para movernos para los costados.

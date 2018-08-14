@@ -2,15 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class CTileMap
+public class CTileMap  
 {
 	// Cantidad de columnas.
 	public const int MAP_WIDTH = 17;
 	// Cantidad de filas.
 	public const int MAP_HEIGHT = 13;
 
-	// La imagen es de 48x48 pixeles mide cada tile.
-	public const int TILE_WIDTH = 64*2;
+    public CAndy mAndy;
+    
+
+    // La imagen es de 48x48 pixeles mide cada tile.
+    public const int TILE_WIDTH = 64*2;
 	public const int TILE_HEIGHT = 64*2;
 
 	// Ancho y alto del nivel en pixeles.
@@ -24,10 +27,14 @@ public class CTileMap
 
 	// Array con los sprites de los tiles.
 	private Sprite[] mTiles;
+    public bool estatierra = false;
 
-	// La pantalla tiene 17 columnas x 13 filas de tiles.
-	// Mapa con el indice de cada tile.
-	public static int[] LEVEL_001 = {
+
+
+
+    // La pantalla tiene 17 columnas x 13 filas de tiles.
+    // Mapa con el indice de cada tile.
+    public static int[] LEVEL_001 = {
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,
 		1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1	,
 		1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1		,
@@ -54,8 +61,8 @@ public class CTileMap
 		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
-		0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 	};
@@ -73,7 +80,7 @@ public class CTileMap
 		mTiles [0] = Resources.Load<Sprite> ("Sprites/tiles/tile000");
 		mTiles [1] = Resources.Load<Sprite> ("Sprites/tiles/Piedra");
 		mTiles [2] = Resources.Load<Sprite> ("Sprites/tiles/tile002");
-		mTiles [3] = Resources.Load<Sprite> ("Sprites/tiles/tile003");
+		mTiles [3] = Resources.Load<Sprite> ("Sprites/tiles/Tierra");
 		mTiles [4] = Resources.Load<Sprite> ("Sprites/tiles/tile004");
 		mTiles [5] = Resources.Load<Sprite> ("Sprites/tiles/tile005");
 
@@ -215,34 +222,63 @@ public class CTileMap
 			}
 		}
 
-		int col = (int) (CMouse.getX () / TILE_WIDTH);
-		int row = (int) (CMouse.getY () / TILE_HEIGHT);
-		CTile tile = getTile (col, row);
+        if (estatierra == true)
+        {
+
+            MuestroTierra();
+
+        }
+           
+      
+
+
+
+
+
+
+    }
+
+
+
+   public void MuestroTierra()
+    {
+         
+
+          
+        int col = (int)(CMouse.getX() / TILE_WIDTH);
+        int row = (int)(CMouse.getY() / TILE_HEIGHT);
+        CTile tile = getTile(col, row);
 
         //Aca TENGO LO DEL EL CLICK PARA LOS PODERES
-        /*
-        if (tile != null) 
-		{
-			if (CMouse.firstPress())
-			{
-				int index = tile.getTileIndex ();
-				if (index == 0) 
-				{
-					tile.setTileIndex (1);
-					tile.setImage (mTiles[3]);
-				}
 
-				else if (index == 1)
-				{
-					tile.setTileIndex(0);
-					tile.setImage(mTiles[0]);
-				}
-			}
+        if (tile != null)
+        {
+            if (CMouse.firstPress())
+            {
+                int index = tile.getTileIndex();
+                if (index == 0)
+                {
+                    tile.setTileIndex(1);
+                    tile.setImage(mTiles[3]);
+                }
+                
+              else if (index == 1)
+                {
+                    tile.setTileIndex(0);
+                    tile.setImage(mTiles[0]);
+                }  
+            }
 
-		}
+          
 
-        */
-	}
+
+
+
+
+        }
+
+    }
+
 
 	public void render()
 	{
