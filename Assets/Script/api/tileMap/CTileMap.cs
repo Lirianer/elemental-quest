@@ -2,15 +2,20 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class CTileMap
+public class CTileMap  
 {
+	public static CTileMap Instance {get;  private set;}
+
 	// Cantidad de columnas.
 	public const int MAP_WIDTH = 17;
 	// Cantidad de filas.
 	public const int MAP_HEIGHT = 13;
 
-	// La imagen es de 48x48 pixeles mide cada tile.
-	public const int TILE_WIDTH = 64*2;
+    public CAndy mAndy;
+    
+
+    // La imagen es de 48x48 pixeles mide cada tile.
+    public const int TILE_WIDTH = 64*2;
 	public const int TILE_HEIGHT = 64*2;
 
 	// Ancho y alto del nivel en pixeles.
@@ -25,18 +30,18 @@ public class CTileMap
 	// Array con los sprites de los tiles.
 	private Sprite[] mTiles;
 
-	// La pantalla tiene 17 columnas x 13 filas de tiles.
-	// Mapa con el indice de cada tile.
-	public static int[] LEVEL_001 = {
-		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,
-		1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1	,
-		1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0		,
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    // La pantalla tiene 17 columnas x 13 filas de tiles.
+    // Mapa con el indice de cada tile.
+    public static int[] LEVEL_001 = {
+		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -54,8 +59,8 @@ public class CTileMap
 		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
-		0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 	};
@@ -70,12 +75,12 @@ public class CTileMap
 	public CTileMap()
 	{
 		mTiles = new Sprite [NUM_TILES];
-		mTiles [0] = Resources.Load<Sprite> ("Sprites/tiles/tile000");
-		mTiles [1] = Resources.Load<Sprite> ("Sprites/tiles/Piedra");
-		mTiles [2] = Resources.Load<Sprite> ("Sprites/tiles/tile002");
-		mTiles [3] = Resources.Load<Sprite> ("Sprites/tiles/tile003");
-		mTiles [4] = Resources.Load<Sprite> ("Sprites/tiles/tile004");
-		mTiles [5] = Resources.Load<Sprite> ("Sprites/tiles/tile005");
+		mTiles [(int) CTile.Type.AIR] = Resources.Load<Sprite> ("Sprites/tiles/tile000");
+		mTiles [(int) CTile.Type.STONE] = Resources.Load<Sprite> ("Sprites/tiles/Piedra");
+		mTiles [(int) CTile.Type.WATER] = Resources.Load<Sprite> ("Sprites/tiles/Agua");
+		mTiles [(int) CTile.Type.EARTH] = Resources.Load<Sprite> ("Sprites/tiles/Tierra");
+		mTiles [(int) CTile.Type.ICE] = Resources.Load<Sprite> ("Sprites/tiles/Hielo");
+		mTiles [(int) CTile.Type.SOMETHING] = Resources.Load<Sprite> ("Sprites/tiles/tile005");
 
 		// TODO: CARGAR TODO JUNTO CON LOADALL.
 
@@ -84,6 +89,20 @@ public class CTileMap
 		mEmptyTile = new CTile (0, 0, 0, mTiles [0]);
 		mEmptyTile.setVisible (false);
 		mEmptyTile.setWalkable (true);
+
+		registerSingleton ();
+	}
+
+	private void registerSingleton()
+	{
+		if (Instance == null) 
+		{
+			Instance = this;
+		}
+		else 
+		{
+			throw new UnityException( "ERROR: Cannot create another instance of singleton class CEnemyManager.");
+		}
 	}
 
 	// Construye el mapa. Crear el array y carga el mapa aLevel.
@@ -206,7 +225,7 @@ public class CTileMap
 	}
 
 	public void update()
-	{
+    {
 		for (int y = 0; y < MAP_HEIGHT; y++) 
 		{
 			for (int x = 0; x < MAP_WIDTH; x++) 
@@ -214,35 +233,7 @@ public class CTileMap
 				mMap [y] [x].update ();
 			}
 		}
-
-		int col = (int) (CMouse.getX () / TILE_WIDTH);
-		int row = (int) (CMouse.getY () / TILE_HEIGHT);
-		CTile tile = getTile (col, row);
-
-        //Aca TENGO LO DEL EL CLICK PARA LOS PODERES
-        /*
-        if (tile != null) 
-		{
-			if (CMouse.firstPress())
-			{
-				int index = tile.getTileIndex ();
-				if (index == 0) 
-				{
-					tile.setTileIndex (1);
-					tile.setImage (mTiles[3]);
-				}
-
-				else if (index == 1)
-				{
-					tile.setTileIndex(0);
-					tile.setImage(mTiles[0]);
-				}
-			}
-
-		}
-
-        */
-	}
+    }
 
 	public void render()
 	{
@@ -294,5 +285,11 @@ public class CTileMap
 		{
 			return mMap [aY] [aX];
 		}
+	}
+
+	public void changeTile(CTile tile, CTile.Type type)
+	{
+		tile.setTileType(type);
+		tile.setImage(mTiles[(int)type]);
 	}
 }

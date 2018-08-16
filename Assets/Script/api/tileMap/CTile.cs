@@ -3,6 +3,15 @@ using System.Collections;
 
 public class CTile : CSprite
 {
+	public enum Type : int {
+		AIR,
+		STONE,
+		WATER,
+		EARTH,
+		ICE,
+		SOMETHING
+	}
+
 	// Tile index. Starting from 0. 0, 1, 2...
 	private int mTileIndex;
 
@@ -31,13 +40,25 @@ public class CTile : CSprite
 		// Set walkable information.
 		if (aTileIndex == 1)
 			mIsWalkable = false;
-		else
-			mIsWalkable = true;
+        else
+            mIsWalkable = true;
+        if (aTileIndex == 3)
+            mIsWalkable = false;
+	}
+
+	public void setTileType(Type type)
+	{
+		this.setTileIndex((int) type);
 	}
 
 	public int getTileIndex()
 	{
 		return mTileIndex;
+	}
+
+	public Type getTileType()
+	{
+		return (Type)this.getTileIndex();
 	}
 
 	override public void render()
