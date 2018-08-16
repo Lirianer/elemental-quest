@@ -13,12 +13,7 @@ public class CPlatformGameState : CGameState
 	private CBulletManager mBulletManager;
 	private CParticleManager mParticleManger;
 
-
-
     private CAndy mAndy;
-
-
-
 
 	public CPlatformGameState()
 	{

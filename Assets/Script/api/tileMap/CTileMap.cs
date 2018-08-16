@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class CTileMap  
 {
+	public static CTileMap Instance {get;  private set;}
+
 	// Cantidad de columnas.
 	public const int MAP_WIDTH = 17;
 	// Cantidad de filas.
@@ -28,28 +30,18 @@ public class CTileMap
 	// Array con los sprites de los tiles.
 	private Sprite[] mTiles;
 
-    //Aca tengo para controlar  si  tengo el poder tierra
-    //public bool estatierra = false;
-
-    //Contador de Tierra para que no sea mas de 2 
-    private int contadorTierra;
-
-
-
-
-
     // La pantalla tiene 17 columnas x 13 filas de tiles.
     // Mapa con el indice de cada tile.
     public static int[] LEVEL_001 = {
-		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,
-		1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1	,
-		1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0		,
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -83,12 +75,12 @@ public class CTileMap
 	public CTileMap()
 	{
 		mTiles = new Sprite [NUM_TILES];
-		mTiles [0] = Resources.Load<Sprite> ("Sprites/tiles/tile000");
-		mTiles [1] = Resources.Load<Sprite> ("Sprites/tiles/Piedra");
-		mTiles [2] = Resources.Load<Sprite> ("Sprites/tiles/tile002");
-		mTiles [3] = Resources.Load<Sprite> ("Sprites/tiles/Tierra");
-		mTiles [4] = Resources.Load<Sprite> ("Sprites/tiles/tile004");
-		mTiles [5] = Resources.Load<Sprite> ("Sprites/tiles/tile005");
+		mTiles [(int) CTile.Type.AIR] = Resources.Load<Sprite> ("Sprites/tiles/tile000");
+		mTiles [(int) CTile.Type.STONE] = Resources.Load<Sprite> ("Sprites/tiles/Piedra");
+		mTiles [(int) CTile.Type.WATER] = Resources.Load<Sprite> ("Sprites/tiles/Agua");
+		mTiles [(int) CTile.Type.EARTH] = Resources.Load<Sprite> ("Sprites/tiles/Tierra");
+		mTiles [(int) CTile.Type.ICE] = Resources.Load<Sprite> ("Sprites/tiles/Hielo");
+		mTiles [(int) CTile.Type.SOMETHING] = Resources.Load<Sprite> ("Sprites/tiles/tile005");
 
 		// TODO: CARGAR TODO JUNTO CON LOADALL.
 
@@ -97,6 +89,20 @@ public class CTileMap
 		mEmptyTile = new CTile (0, 0, 0, mTiles [0]);
 		mEmptyTile.setVisible (false);
 		mEmptyTile.setWalkable (true);
+
+		registerSingleton ();
+	}
+
+	private void registerSingleton()
+	{
+		if (Instance == null) 
+		{
+			Instance = this;
+		}
+		else 
+		{
+			throw new UnityException( "ERROR: Cannot create another instance of singleton class CEnemyManager.");
+		}
 	}
 
 	// Construye el mapa. Crear el array y carga el mapa aLevel.
@@ -219,10 +225,7 @@ public class CTileMap
 	}
 
 	public void update()
-	{
-
-        
-
+    {
 		for (int y = 0; y < MAP_HEIGHT; y++) 
 		{
 			for (int x = 0; x < MAP_WIDTH; x++) 
@@ -230,61 +233,7 @@ public class CTileMap
 				mMap [y] [x].update ();
 			}
 		}
-        
-             
-
-        
-
     }
-
-
-
-   public void MuestroTierra()
-    {
-         
-
-          
-        int col = (int)(CMouse.getX() / TILE_WIDTH);
-        int row = (int)(CMouse.getY() / TILE_HEIGHT);
-        CTile tile = getTile(col, row);
-
-        //Aca TENGO LO DEL EL CLICK PARA LOS PODERES
-
-        if (tile != null)
-        {
-            if (CMouse.firstPress())
-            {
-                int index = tile.getTileIndex();
-                if (index == 0)
-                {
-                    if (contadorTierra < 4)
-                    {
-                        contadorTierra = contadorTierra + 1;
-                        tile.setTileIndex(3);
-                        tile.setImage(mTiles[3]);
-                    }
-                    else
-                    {
-                        Debug.Log("YA HAY 4 TIERRA");
-                    }
-                }
-                else if (index == 3)
-                {
-                    tile.setTileIndex(0);
-                    tile.setImage(mTiles[0]);
-                    contadorTierra = contadorTierra - 1;                }
-            }
-
-          
-
-
-
-
-
-        }
-
-    }
-
 
 	public void render()
 	{
@@ -336,5 +285,11 @@ public class CTileMap
 		{
 			return mMap [aY] [aX];
 		}
+	}
+
+	public void changeTile(CTile tile, CTile.Type type)
+	{
+		tile.setTileType(type);
+		tile.setImage(mTiles[(int)type]);
 	}
 }

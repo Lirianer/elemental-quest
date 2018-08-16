@@ -5,6 +5,13 @@ public class CMouse
 {
 	static private bool mInitialized = false;
 
+    public enum BUTTONS : int {
+		LEFT = 0,
+		RIGHT = 1,
+		MIDDLE = 2,
+		ANY = 3
+	}
+
 	public CMouse()
 	{
 		throw new UnityException ("Error in CMouse(). You're not supposed to instantiate this class.");
@@ -32,9 +39,9 @@ public class CMouse
 	}
     
 
-    public static bool firstPress()
+    public static bool firstPress(BUTTONS value = BUTTONS.ANY)
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+        if ((value != BUTTONS.ANY && Input.GetMouseButtonDown((int)value)) || ( value == BUTTONS.ANY && (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))))
         {
             return true;
         }
@@ -44,13 +51,9 @@ public class CMouse
         }
     }
 
-   
-
-
-
-    public static bool pressed()
+    public static bool pressed(BUTTONS value = BUTTONS.ANY)
 	{
-		if (Input.GetMouseButton (0) || Input.GetMouseButton (1) || Input.GetMouseButton (2)) 
+		if ((value != BUTTONS.ANY && Input.GetMouseButtonDown((int)value)) || ( value == BUTTONS.ANY && (Input.GetMouseButton (0) || Input.GetMouseButton (1) || Input.GetMouseButton (2)))) 
 		{
 			return true;
 		}
@@ -60,9 +63,9 @@ public class CMouse
 		}
 	}
 
-	public static bool release()
+	public static bool release(BUTTONS value = BUTTONS.ANY)
 	{
-		if (Input.GetMouseButtonUp (0) || Input.GetMouseButtonUp (1) || Input.GetMouseButtonUp (2)) 
+		if ((value != BUTTONS.ANY && Input.GetMouseButtonDown((int)value)) || ( value == BUTTONS.ANY && (Input.GetMouseButtonUp (0) || Input.GetMouseButtonUp (1) || Input.GetMouseButtonUp (2))))
 		{
 			return true;
 		}
