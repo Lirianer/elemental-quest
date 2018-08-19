@@ -42,9 +42,14 @@ public class CTile : CSprite
 			mIsWalkable = false;
         else
             mIsWalkable = true;
+        //Tile de tierra 
         if (aTileIndex == 3)
             mIsWalkable = false;
-	}
+        //Tile de Hielo
+        if (aTileIndex == 4)
+            mIsWalkable = false;
+
+    }
 
 	public void setTileType(Type type)
 	{

@@ -74,10 +74,12 @@ public class CTileMap
 
 	public CTileMap()
 	{
+
+        //Los tiles arrancar de 0 a N 
 		mTiles = new Sprite [NUM_TILES];
-		mTiles [(int) CTile.Type.AIR] = Resources.Load<Sprite> ("Sprites/tiles/tile000");
-		mTiles [(int) CTile.Type.STONE] = Resources.Load<Sprite> ("Sprites/tiles/Piedra");
-		mTiles [(int) CTile.Type.WATER] = Resources.Load<Sprite> ("Sprites/tiles/Agua");
+		mTiles [(int) CTile.Type.AIR] = Resources.Load<Sprite> ("Sprites/tiles/tile000"); // TILE 000
+		mTiles [(int) CTile.Type.STONE] = Resources.Load<Sprite> ("Sprites/tiles/Piedra"); // TILE 001
+        mTiles [(int) CTile.Type.WATER] = Resources.Load<Sprite> ("Sprites/tiles/Agua");
 		mTiles [(int) CTile.Type.EARTH] = Resources.Load<Sprite> ("Sprites/tiles/Tierra");
 		mTiles [(int) CTile.Type.ICE] = Resources.Load<Sprite> ("Sprites/tiles/Hielo");
 		mTiles [(int) CTile.Type.SOMETHING] = Resources.Load<Sprite> ("Sprites/tiles/tile005");
