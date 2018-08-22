@@ -9,6 +9,8 @@ public class CSprite : CGameObject
 	// Caching of mSprite.transform.
 	private Transform mTransform;
 
+	// False = Derecha
+	// True = Izquierda
 	private bool mFlip = false;
 
 

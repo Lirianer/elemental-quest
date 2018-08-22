@@ -7,11 +7,12 @@ public class CAndy : CAnimatedSprite
 	private const int WIDTH = 64 * 2;
 	private const int HEIGHT = 74 * 2;
 
-	private const int STATE_STAND = 0;
-	private const int STATE_WALKING = 1;
-	private const int STATE_JUMPING = 2;
-	private const int STATE_FALLING = 3;
-	private const int STATE_HIT_ROOF = 4;
+	public const int STATE_STAND = 0;
+	public const int STATE_WALKING = 1;
+	public const int STATE_JUMPING = 2;
+	public const int STATE_FALLING = 3;
+	public const int STATE_HIT_ROOF = 4;
+	public const int STATE_DASHING = 5;
 
 	private CSprite mRect;
 	private CSprite mRect2;
@@ -72,7 +73,7 @@ public class CAndy : CAnimatedSprite
 
         this.powers = new List<Power>();
         this.powers.Add(new Earth());
-        this.powers.Add(new Air());
+        this.powers.Add(new Air(this));
         this.powers.Add(new Water());
         this.powers.Add(new Fire());
      
@@ -227,14 +228,42 @@ public class CAndy : CAnimatedSprite
 				return;
 			}
 		} 
-		else if (getState () == STATE_HIT_ROOF) 
-		{
+		else if (getState () == STATE_HIT_ROOF) {
 			if (getTimeState () > 0.02f * 5.0f) 
 			{
 				setState (STATE_FALLING);
 				return;
 			}
 		}
+		else if(getState() == STATE_DASHING) {
+			
+			// Si estamos en una pared, corregirnos.
+			if (isWallLeft (getX (), mOldY)) 
+			{
+				// Reposicionar el personaje contra la pared.
+				setX (((mLeftX + 1) * CTileMap.TILE_WIDTH) - X_OFFSET_BOUNDING_BOX);
+			} 
+			if (isWallRight (getX (), mOldY)) 
+			{
+				// Reposicionar el personaje contra la pared.
+				setX ((((mRightX) * CTileMap.TILE_WIDTH) - getWidth ()) + X_OFFSET_BOUNDING_BOX);
+			} 
+
+			if (isFloor (getX (), getY () + 1)) {
+				setY (mDownY * CTileMap.TILE_HEIGHT - getHeight ());
+			}
+
+			if (isRoof (getX (), getY () - 1)) 
+			{
+				setY (((mUpY + 1) * CTileMap.TILE_HEIGHT) - Y_OFFSET_BOUNDING_BOX);
+				setVelY (0);
+			}
+
+			if(this.getTimeState() >= 0.2f) {
+				this.setState(STATE_STAND);
+			}
+		}
+		
 
         // Chequear el paso entre pantallas.
         controlRooms ();
@@ -244,10 +273,7 @@ public class CAndy : CAnimatedSprite
         textoPoderes.update();
 
 
-		if( CMouse.firstPress() )
-		{
-			this.powers[this.selectedPower].update();
-		}
+		this.powers[this.selectedPower].update();
     }
 
 	private void controlRooms()
@@ -403,6 +429,10 @@ public class CAndy : CAnimatedSprite
 		else if (getState () == STATE_HIT_ROOF) 
 		{
 			stopMove();
+		}
+
+		if(getState() != STATE_DASHING) {
+			this.setFriction(1.0f);
 		}
 	}
 
