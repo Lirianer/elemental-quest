@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class Fire : Power
 {
@@ -19,12 +17,8 @@ public class Fire : Power
         base.render();
     }
 
-    public void destroy()
+    override public void destroy()
     {
         base.destroy();
     }
-
-
-
-   
 }

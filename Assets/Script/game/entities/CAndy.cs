@@ -79,6 +79,8 @@ public class CAndy : CAnimatedSprite
      
         this.selectedPower = 0;
 
+		this.powers[this.selectedPower].setActive();
+
         textoPoderes = new CText(this.powers[this.selectedPower].getName());
         textoPoderes.setWidth(this.getWidth());
         textoPoderes.setWrapping(false);
@@ -272,8 +274,10 @@ public class CAndy : CAnimatedSprite
         textoPoderes.setText(this.powers[this.selectedPower].getName());
         textoPoderes.update();
 
-
-		this.powers[this.selectedPower].update();
+		for (int i = 0; i < this.powers.Count; i++)
+		{
+			this.powers[i].update();
+		}
     }
 
 	private void controlRooms()
@@ -438,6 +442,7 @@ public class CAndy : CAnimatedSprite
 
     private void selectPower(int power)
     {
+		this.powers[this.selectedPower].setInactive();
         this.selectedPower = power;
         if(this.selectedPower > this.powers.Count - 1)
         {
@@ -448,7 +453,7 @@ public class CAndy : CAnimatedSprite
             this.selectedPower = this.powers.Count - 1;
         }
 
-        Debug.Log(this.selectedPower);
+		this.powers[this.selectedPower].setActive();
     }
 
     private void selectNextPower()
