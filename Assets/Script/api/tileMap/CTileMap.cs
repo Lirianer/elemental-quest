@@ -122,7 +122,6 @@ public class CTileMap
 			int x = i % mapWidth;
             // TODO: PONER UNA SOLA LINEA
             int index = tmxMap.Layers[0].Tiles[i].Gid;         // 0 a 21
-			Debug.Log(y + "," + x + ": " + index);
             getTile(x, y).setTileIndex(index);
 
             //getTile (x, y).setWalkable (mWalkable [index]); NO APLICA.

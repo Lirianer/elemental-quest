@@ -79,7 +79,7 @@ public class CAndy : CAnimatedSprite
         textoPoderes = new CText(this.powers[this.selectedPower].getName());
         textoPoderes.setWidth(this.getWidth());
         textoPoderes.setWrapping(false);
-        textoPoderes.setFontSize(400f);
+        textoPoderes.setFontSize(40f);
         textoPoderes.setXY(this.getX(), this.getY() - textoPoderes.getHeight());
         textoPoderes.setAlignment(TMPro.TextAlignmentOptions.Center);
 	}
@@ -415,8 +415,6 @@ public class CAndy : CAnimatedSprite
         {
             this.selectedPower = this.powers.Count - 1;
         }
-
-        Debug.Log(this.selectedPower);
     }
 
     private void selectNextPower()

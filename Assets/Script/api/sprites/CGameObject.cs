@@ -309,6 +309,11 @@ public class CGameObject
 		return mHeight;
 	}
 
+	public CVector getCenter()
+	{
+		return new CVector(getX() + getWidth() / 2, getY() + getHeight() / 2);
+	}
+
 	public bool collides(CGameObject aGameObject)
 	{
 		if (CMath.dist (getX (), getY (), aGameObject.getX (), aGameObject.getY ()) < (getRadius () + aGameObject.getRadius ()))

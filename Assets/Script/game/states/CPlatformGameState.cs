@@ -51,6 +51,8 @@ public class CPlatformGameState : CGameState
         /*CEnemyShip e = new CEnemyShip ();
 		e.setXY (200, 200);
 		CEnemyManager.inst ().add (e);*/
+
+		CCamera.inst().setSize(mMap.getTileHeight() * 8);
     }
 
     override public void update()
@@ -60,6 +62,8 @@ public class CPlatformGameState : CGameState
 		mMap.update ();
 
 		mAndy.update ();
+
+		CCamera.inst().lookAt(mAndy);
 
         mEnemyManager.update ();
 		mItemManager.update ();

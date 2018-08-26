@@ -9,18 +9,25 @@ public class CTile : CSprite
 	// True = se puede caminar. False = no se puede traspasar.
 	private bool mIsWalkable;
 
+	private static GameObject mMapObject;
+
 	// Parametros: coordenada del tile (x, y) y el indice del tile.
 	public CTile(int aX, int aY, int aTileIndex, Sprite aSprite, int aScale = 1)
 	{
+		if (mMapObject == null)
+        {
+            CTile.mMapObject = new GameObject();
+            mMapObject.setName("Map");
+        }
 		setXY (aX, aY);
 		setTileIndex(aTileIndex);
 
 		setImage (aSprite);
 		setSortingLayerName ("TileMap");
-		setName ("tile");
 
 		setScale (aScale);
 
+		setName ("Tile - " + (aY / this.getHeight()) + "/" + (aX / this.getWidth()) );
 		//hideInUnityHierarchy ();
 	}
 
