@@ -10,7 +10,7 @@ public class CTile : CSprite
 	private bool mIsWalkable;
 
 	// Parametros: coordenada del tile (x, y) y el indice del tile.
-	public CTile(int aX, int aY, int aTileIndex, Sprite aSprite)
+	public CTile(int aX, int aY, int aTileIndex, Sprite aSprite, int aScale = 1)
 	{
 		setXY (aX, aY);
 		setTileIndex(aTileIndex);
@@ -19,9 +19,9 @@ public class CTile : CSprite
 		setSortingLayerName ("TileMap");
 		setName ("tile");
 
-		setScale (2.0f);
+		setScale (aScale);
 
-		hideInUnityHierarchy ();
+		//hideInUnityHierarchy ();
 	}
 
 	public void setTileIndex(int aTileIndex)
@@ -29,7 +29,7 @@ public class CTile : CSprite
 		mTileIndex = aTileIndex;
 
 		// Set walkable information.
-		if (aTileIndex == 1)
+		if (aTileIndex == 2)
 			mIsWalkable = false;
 		else
 			mIsWalkable = true;

@@ -91,6 +91,9 @@ public class CAndy : CAnimatedSprite
 
 	override public void update()
 	{
+		int tileWidth = CGame.inst().getMap().getTileWidth();
+		int tileHeight = CGame.inst().getMap().getTileHeight();
+
 		//Debug.Log ("test left : " + CKeyboard.pressed (CKeyboard.LEFT) + CKeyboard.pressed (CKeyboard.UP) + CKeyboard.pressed (CKeyboard.SPACE));
 		//Debug.Log ("test right: " + CKeyboard.pressed (CKeyboard.RIGHT) + CKeyboard.pressed (CKeyboard.UP) + CKeyboard.pressed (CKeyboard.SPACE));
 
@@ -113,11 +116,11 @@ public class CAndy : CAnimatedSprite
 			// Si estamos en una pared, corregirnos. 
 			if (isWallLeft (getX (), getY ())) {
 				// Reposicionar el personaje contra la pared.
-				setX (((mLeftX + 1) * CTileMap.TILE_WIDTH) - X_OFFSET_BOUNDING_BOX);
+				setX (((mLeftX + 1) * tileWidth) - X_OFFSET_BOUNDING_BOX);
 			} 
 			if (isWallRight (getX (), getY ())) {
 				// Reposicionar el personaje contra la pared.
-				setX ((((mRightX) * CTileMap.TILE_WIDTH) - getWidth ()) + X_OFFSET_BOUNDING_BOX);
+				setX ((((mRightX) * tileWidth) - getWidth ()) + X_OFFSET_BOUNDING_BOX);
 			}
 
 
@@ -144,11 +147,11 @@ public class CAndy : CAnimatedSprite
 		} else if (getState () == STATE_WALKING) {
 			if (isWallLeft (getX (), getY ())) {
 				// Reposicionar el personaje contra la pared.
-				setX (((mLeftX + 1) * CTileMap.TILE_WIDTH) - X_OFFSET_BOUNDING_BOX);
+				setX (((mLeftX + 1) * tileWidth) - X_OFFSET_BOUNDING_BOX);
 			} 
 			if (isWallRight (getX (), getY ())) {
 				// Reposicionar el personaje contra la pared.
-				setX ((((mRightX) * CTileMap.TILE_WIDTH) - getWidth ()) + X_OFFSET_BOUNDING_BOX);
+				setX ((((mRightX) * tileWidth) - getWidth ()) + X_OFFSET_BOUNDING_BOX);
 			}
 
 			if (CKeyboard.firstPress (CKeyboard.SPACE)) {
@@ -171,11 +174,11 @@ public class CAndy : CAnimatedSprite
 					// Si hay pared a la izquierda vamos a stand.
 					if (isWallLeft (getX (), getY ())) {
 						// Reposicionar el personaje contra la pared.
-						//setX((((int) getX ()/CTileMap.TILE_WIDTH)+1)*CTileMap.TILE_WIDTH);
-						setX (((mLeftX + 1) * CTileMap.TILE_WIDTH) - X_OFFSET_BOUNDING_BOX);
+						//setX((((int) getX ()/tileWidth)+1)*tileWidth);
+						setX (((mLeftX + 1) * tileWidth) - X_OFFSET_BOUNDING_BOX);
 
 						// Carlos version.
-						//setX (getX()+CTileMap.TILE_WIDTH/(getWidth()-1));
+						//setX (getX()+tileWidth/(getWidth()-1));
 
 						setState (STATE_STAND);
 						return;
@@ -189,7 +192,7 @@ public class CAndy : CAnimatedSprite
 					// Si hay pared a la derecha vamos a stand.
 					if (isWallRight (getX (), getY ())) {
 						// Reposicionar el personaje contra la pared.
-						setX ((((mRightX) * CTileMap.TILE_WIDTH) - getWidth ()) + X_OFFSET_BOUNDING_BOX);
+						setX ((((mRightX) * tileWidth) - getWidth ()) + X_OFFSET_BOUNDING_BOX);
 
 						setState (STATE_STAND);
 						return;
@@ -204,14 +207,14 @@ public class CAndy : CAnimatedSprite
 			controlMoveHorizontal ();
 
 			if (isFloor (getX (), getY () + 1)) {
-				setY (mDownY * CTileMap.TILE_HEIGHT - getHeight ());
+				setY (mDownY * tileHeight - getHeight ());
 				setState (STATE_STAND);
 				return;
 			}
 
 			if (isRoof (getX (), getY () - 1)) 
 			{
-				setY (((mUpY + 1) * CTileMap.TILE_HEIGHT) - Y_OFFSET_BOUNDING_BOX);
+				setY (((mUpY + 1) * tileHeight) - Y_OFFSET_BOUNDING_BOX);
 				setVelY (0);
 				setState (STATE_HIT_ROOF);
 				return;
@@ -220,7 +223,7 @@ public class CAndy : CAnimatedSprite
 			controlMoveHorizontal ();
 
 			if (isFloor (getX (), getY () + 1)) {
-				setY (mDownY * CTileMap.TILE_HEIGHT - getHeight ());
+				setY (mDownY * tileHeight - getHeight ());
 				setState (STATE_STAND);
 				return;
 			}
@@ -246,7 +249,7 @@ public class CAndy : CAnimatedSprite
 	{
 		CTileMap map = CGame.inst ().getMap ();
 
-		if (getX () + getWidth () / 2 > CTileMap.WORLD_WIDTH) 
+		if (getX () + getWidth () / 2 > map.getWorldWidth()) 
 		{
 			// Se fue por la derecha.
 			map.changeRoom(CGameConstants.D);
@@ -259,9 +262,9 @@ public class CAndy : CAnimatedSprite
 			// Se fue por la izquierda.
 			map.changeRoom(CGameConstants.A);
 
-			setX (CTileMap.WORLD_WIDTH - getWidth () / 2);
+			setX (map.getWorldWidth() - getWidth () / 2);
 		} 
-		else if (getY () + getHeight () / 2 > CTileMap.WORLD_HEIGHT) 
+		else if (getY () + getHeight () / 2 > map.getWorldHeight()) 
 		{
 			// Se fue por abajo.
 			map.changeRoom(CGameConstants.S);
@@ -273,7 +276,7 @@ public class CAndy : CAnimatedSprite
 			// Se fue por arriba.
 			map.changeRoom(CGameConstants.W);
 
-			setY(CTileMap.WORLD_HEIGHT - getHeight() / 2);
+			setY(map.getWorldHeight() - getHeight() / 2);
 		}
 	}
 
@@ -281,16 +284,18 @@ public class CAndy : CAnimatedSprite
 	// Se llama desde los estados jumping y falling para movernos para los costados.
 	private void controlMoveHorizontal()
 	{
+		int tileWidth = CGame.inst().getMap().getTileWidth();
+		
 		// Si estamos en una pared, corregirnos.
 		if (isWallLeft (getX (), mOldY)) 
 		{
 			// Reposicionar el personaje contra la pared.
-			setX (((mLeftX + 1) * CTileMap.TILE_WIDTH) - X_OFFSET_BOUNDING_BOX);
+			setX (((mLeftX + 1) * tileWidth) - X_OFFSET_BOUNDING_BOX);
 		} 
 		if (isWallRight (getX (), mOldY)) 
 		{
 			// Reposicionar el personaje contra la pared.
-			setX ((((mRightX) * CTileMap.TILE_WIDTH) - getWidth ()) + X_OFFSET_BOUNDING_BOX);
+			setX ((((mRightX) * tileWidth) - getWidth ()) + X_OFFSET_BOUNDING_BOX);
 		} 
 
 		// Chequeamos si podemos movernos.
@@ -307,7 +312,7 @@ public class CAndy : CAnimatedSprite
 				if (isWallLeft (getX ()-1, mOldY)) 
 				{
 					// Reposicionar el personaje contra la pared.
-					setX (((mLeftX + 1) * CTileMap.TILE_WIDTH) - X_OFFSET_BOUNDING_BOX);
+					setX (((mLeftX + 1) * tileWidth) - X_OFFSET_BOUNDING_BOX);
 				} 
 				else 
 				{
@@ -323,7 +328,7 @@ public class CAndy : CAnimatedSprite
 				if (isWallRight (getX ()+1, mOldY)) 
 				{
 					// Reposicionar el personaje contra la pared.
-					setX ((((mRightX) * CTileMap.TILE_WIDTH) - getWidth ()) + X_OFFSET_BOUNDING_BOX);
+					setX ((((mRightX) * tileWidth) - getWidth ()) + X_OFFSET_BOUNDING_BOX);
 				} 
 				else 
 				{

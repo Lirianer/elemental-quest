@@ -505,16 +505,16 @@ public class CGameObject
 		int x = (int) aX;
 		int y = (int) aY;
 
-		// Columna del lado izquierdo del personaje.
-		mLeftX = (x + mXOffsetBoundingBox) / CTileMap.TILE_WIDTH;
-		// Columna del lado derecho del personaje. -1 porque es el pixel de adentro. x+w es la coordenada del pixel de afuera.
-		mRightX = (x + getWidth() - 1 - mXOffsetBoundingBox) / CTileMap.TILE_WIDTH;
-		// Fila de arriba del personaje.
-		mUpY = (y + mYOffsetBoundingBox) / CTileMap.TILE_HEIGHT;
-		// Fila de los pies del personaje.
-		mDownY = (y + getHeight() - 1) / CTileMap.TILE_HEIGHT;
+		CTileMap map = CGame.inst().getMap();
 
-		CTileMap map = CGame.inst ().getMap ();
+		// Columna del lado izquierdo del personaje.
+		mLeftX = (x + mXOffsetBoundingBox) / map.getTileWidth();
+		// Columna del lado derecho del personaje. -1 porque es el pixel de adentro. x+w es la coordenada del pixel de afuera.
+		mRightX = (x + getWidth() - 1 - mXOffsetBoundingBox) / map.getTileWidth();
+		// Fila de arriba del personaje.
+		mUpY = (y + mYOffsetBoundingBox) / map.getTileHeight();
+		// Fila de los pies del personaje.
+		mDownY = (y + getHeight() - 1) / map.getTileHeight();
 
 		mTileTopLeft = map.getTile(mLeftX, mUpY).isWalkable();
 		mTileTopRight = map.getTile(mRightX, mUpY).isWalkable();

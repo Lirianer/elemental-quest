@@ -36,6 +36,8 @@ public class CScorpion : CAnimatedSprite
 
 	override public void update()
 	{
+		int tileWidth = CGame.inst ().getMap ().getTileWidth ();
+		int tileHeight = CGame.inst ().getMap ().getTileHeight ();
 		//Debug.Log (getState ());
 
 		// Guardar la posicion anterior del objeto.
@@ -49,11 +51,11 @@ public class CScorpion : CAnimatedSprite
 			// Si estamos en una pared, corregirnos. 
 			if (isWallLeft (getX (), getY ())) {
 				// Reposicionar el personaje contra la pared.
-				setX ((mLeftX + 1) * CTileMap.TILE_WIDTH);
+				setX ((mLeftX + 1) * tileWidth);
 			} 
 			if (isWallRight (getX (), getY ())) {
 				// Reposicionar el personaje contra la pared.
-				setX (((mRightX) * CTileMap.TILE_WIDTH) - getWidth ());
+				setX (((mRightX) * tileWidth) - getWidth ());
 			}
 
 			// Si en el pixel de abajo del jugador no hay piso, caemos.
@@ -81,14 +83,14 @@ public class CScorpion : CAnimatedSprite
 			if (isWallLeft (getX (), getY ())) 
 			{
 				// Reposicionar el personaje contra la pared.
-				setX ((mLeftX + 1) * CTileMap.TILE_WIDTH);
+				setX ((mLeftX + 1) * tileWidth);
 
 				setVelX (getVelX () * -1);
 			} 
 			if (isWallRight (getX (), getY ())) 
 			{
 				// Reposicionar el personaje contra la pared.
-				setX (((mRightX) * CTileMap.TILE_WIDTH) - getWidth ());
+				setX (((mRightX) * tileWidth) - getWidth ());
 				setVelX (getVelX () * -1);
 			}
 
@@ -105,8 +107,8 @@ public class CScorpion : CAnimatedSprite
 				// Si hay pared a la izquierda vamos a stand.
 				if (isWallLeft (getX (), getY ())) {
 					// Reposicionar el personaje contra la pared.
-					//setX((((int) getX ()/CTileMap.TILE_WIDTH)+1)*CTileMap.TILE_WIDTH);
-					setX ((mLeftX + 1) * CTileMap.TILE_WIDTH);
+					//setX((((int) getX ()/tileWidth)+1)*tileWidth);
+					setX ((mLeftX + 1) * tileWidth);
 
 					setVelX (getVelX () * -1);
 
@@ -133,7 +135,7 @@ public class CScorpion : CAnimatedSprite
 				if (isWallRight (getX (), getY ())) 
 				{
 					// Reposicionar el personaje contra la pared.
-					setX (((mRightX) * CTileMap.TILE_WIDTH) - getWidth ());
+					setX (((mRightX) * tileWidth) - getWidth ());
 
 					setVelX (getVelX () * -1);
 					return;
@@ -161,7 +163,7 @@ public class CScorpion : CAnimatedSprite
 
 			if (isFloor(getX(), getY()+1))
 			{
-				setY (mDownY * CTileMap.TILE_HEIGHT - getHeight());
+				setY (mDownY * tileHeight - getHeight());
 				setState (STATE_STAND);
 				return;
 			}
@@ -171,16 +173,17 @@ public class CScorpion : CAnimatedSprite
 	// Se llama desde los estados jumping y falling para movernos para los costados.
 	private void controlMoveHorizontal()
 	{
+		int tileWidth = CGame.inst ().getMap ().getTileWidth ();
 		// Si estamos en una pared, corregirnos.                // ESTE BLOQUE ES IGUAL A ANDY ---- ()?
 		if (isWallLeft (getX (), mOldY)) 
 		{
 			// Reposicionar el personaje contra la pared.
-			setX ((mLeftX + 1) * CTileMap.TILE_WIDTH);
+			setX ((mLeftX + 1) * tileWidth);
 		} 
 		if (isWallRight (getX (), mOldY)) 
 		{
 			// Reposicionar el personaje contra la pared.
-			setX (((mRightX) * CTileMap.TILE_WIDTH) - getWidth ());
+			setX (((mRightX) * tileWidth) - getWidth ());
 		}                                                          // --------------------------
 	}
 

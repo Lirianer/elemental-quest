@@ -37,7 +37,7 @@ public class CPlatformGameState : CGameState
 
 
 		// El mapa crea enemigos. Crear los managers antes que el mapa.
-		mMap = new CTileMap ();
+		mMap = new CTileMap ("Assets/Resources/Map/Map.tmx");
 		CGame.inst ().setMap (mMap);
 
 
