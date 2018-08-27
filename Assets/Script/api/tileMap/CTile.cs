@@ -17,8 +17,9 @@ public class CTile : CSprite
 		if (mMapObject == null)
         {
             CTile.mMapObject = new GameObject();
-            mMapObject.setName("Map");
+            mMapObject.name = "Map";
         }
+
 		setXY (aX, aY);
 		setTileIndex(aTileIndex);
 
@@ -28,6 +29,7 @@ public class CTile : CSprite
 		setScale (aScale);
 
 		setName ("Tile - " + (aY / this.getHeight()) + "/" + (aX / this.getWidth()) );
+		setParent(mMapObject);
 		//hideInUnityHierarchy ();
 	}
 

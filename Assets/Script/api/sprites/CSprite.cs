@@ -223,4 +223,9 @@ public class CSprite : CGameObject
 	{
 		mSprite.hideFlags = HideFlags.HideInHierarchy;
 	}
+
+	public void setParent(GameObject aGameObject)
+	{
+		mSprite.transform.SetParent(aGameObject.transform);
+	}
 }
