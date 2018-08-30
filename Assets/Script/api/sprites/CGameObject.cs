@@ -321,6 +321,23 @@ public class CGameObject
 		}
 	}
 
+	public bool collidesRect(CGameObject aGameObject)
+	{
+		if(getX() < aGameObject.getX() + aGameObject.getWidth() &&
+			getX() + getWidth() > aGameObject.getX() &&
+			getY() < aGameObject.getY() + aGameObject.getHeight() &&
+			getHeight() + getY() > aGameObject.getY())
+		{
+			return true;
+		}
+		else 
+		{
+			return false;
+		}
+	}
+
+
+
 	public void setFriction(float aFriction)
 	{
 		mFriction = aFriction;
