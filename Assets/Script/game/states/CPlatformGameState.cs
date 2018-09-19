@@ -13,12 +13,7 @@ public class CPlatformGameState : CGameState
 	private CBulletManager mBulletManager;
 	private CParticleManager mParticleManger;
 
-
-
     private CAndy mAndy;
-
-
-
 
 	public CPlatformGameState()
 	{
@@ -43,6 +38,8 @@ public class CPlatformGameState : CGameState
 
 
 		mAndy = new CAndy ();
+        //Referenci Map a Andy 
+        mAndy.muestro = mMap;
 		mAndy.setXY (400, 400);
 
 

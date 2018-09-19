@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class CTileMap
+public class CTileMap  
 {
 	// Number of columns.
 	private int mMapWidth = 8;
@@ -13,6 +13,8 @@ public class CTileMap
 	// Size in pixels of the tile.
 	private int mTileWidth = 64;
 	private int mTileHeight = 64;
+
+	public static CTileMap Instance {get;  private set;}
 
 	// Size of the world in pixels. Calculated automatically when changing map or tile size.
 	private int mWorldWidth = 32 * 8;
@@ -27,20 +29,20 @@ public class CTileMap
 	// Array with the tile sprites (images).
 	private Sprite[] mTiles;
 
-	// La pantalla tiene 17 columnas x 13 filas de tiles.
-	// Mapa con el indice de cada tile.
-	public static int[] LEVEL_ANDY_001 = {
-		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,
-		1, 1, 1, 1, 1, 1, 0, 0, 0, 2, 0, 1, 1, 1, 1, 1, 1	,
-		1, 1, 1, 0, 0, 0, 0, 0, 0, 3, 0, 2, 2, 0, 1, 1, 1		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 3, 0, 0, 1, 1		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 3, 0, 0, 1, 1		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 3, 0, 0, 1, 1		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 3, 0, 0, 0, 0		,
-		1, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 3, 3, 0, 0, 0, 0		,
-		1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 0, 0, 0, 0,
-		1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0,
+    // La pantalla tiene 17 columnas x 13 filas de tiles.
+    // Mapa con el indice de cada tile.
+    public static int[] LEVEL_ANDY_001 = {
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 	};
@@ -56,8 +58,8 @@ public class CTileMap
 		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
-		0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 	};
@@ -81,6 +83,20 @@ public class CTileMap
 		mEmptyTile = new CTile (0, 0, 0, mTiles [21], 4);
 		mEmptyTile.setVisible (false);
 		mEmptyTile.setWalkable (true);
+
+		registerSingleton ();
+	}
+
+	private void registerSingleton()
+	{
+		if (Instance == null) 
+		{
+			Instance = this;
+		}
+		else 
+		{
+			throw new UnityException( "ERROR: Cannot create another instance of singleton class CEnemyManager.");
+		}
 	}
 
 	private void loadLevelTMX(string aFileName)
@@ -257,35 +273,7 @@ public class CTileMap
 				mMap [y] [x].update ();
 			}
 		}
-
-		int col = (int) (CMouse.getX () / mTileWidth);
-		int row = (int) (CMouse.getY () / mTileHeight);
-		CTile tile = getTile (col, row);
-
-        //Aca TENGO LO DEL EL CLICK PARA LOS PODERES
-        /*
-        if (tile != null) 
-		{
-			if (CMouse.firstPress())
-			{
-				int index = tile.getTileIndex ();
-				if (index == 0) 
-				{
-					tile.setTileIndex (1);
-					tile.setImage (mTiles[3]);
-				}
-
-				else if (index == 1)
-				{
-					tile.setTileIndex(0);
-					tile.setImage(mTiles[0]);
-				}
-			}
-
-		}
-
-        */
-	}
+    }
 
 	public void render()
 	{
@@ -409,5 +397,10 @@ public class CTileMap
 	{
 		mTileHeight = aTileHeight;
 		calculateWorldSize();
+	}
+
+	public void changeTile(CTile tile, CTile.Type type)
+	{
+		tile.setTileType(type);
 	}
 }

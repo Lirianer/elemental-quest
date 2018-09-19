@@ -56,11 +56,11 @@ public class CItem : CAnimatedSprite
 			// Si estamos en una pared, corregirnos. 
 			if (isWallLeft (getX (), getY ())) {
 				// Reposicionar el personaje contra la pared.
-				setX ((mLeftX + 1) * CTileMap.TILE_WIDTH);
+				setX ((mLeftX + 1) * CTileMap.Instance.getTileWidth());
 			} 
 			if (isWallRight (getX (), getY ())) {
 				// Reposicionar el personaje contra la pared.
-				setX (((mRightX) * CTileMap.TILE_WIDTH) - getWidth ());
+				setX (((mRightX) * CTileMap.Instance.getTileWidth()) - getWidth ());
 			}
 
 			// Si en el pixel de abajo del jugador no hay piso, caemos.
