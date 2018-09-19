@@ -38,10 +38,10 @@ public class CTile : CSprite
 		mTileIndex = aTileIndex;
 
 		// Set walkable information.
-		if (aTileIndex == 2)
-			mIsWalkable = false;
-		else
+		if (aTileIndex == 22)
 			mIsWalkable = true;
+		else
+			mIsWalkable = false;
 	}
 
 	public int getTileIndex()
