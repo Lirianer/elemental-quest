@@ -1,9 +1,12 @@
 public class CEnemy : CAnimatedSprite
 {
     public const int STATE_STAND = 0;
-    public const int STATE_FALLING = 1;
-    public const int STATE_WALKING = 2;
+    // ESTADO PARA LEVANTAR EN EL AIRE
+    public const int STATE_ELEVATED = 1;
+    public const int STATE_FALLING = 2;
+    public const int STATE_WALKING = 3;
 
+    public bool isMovable = false;
     
     protected float velocityBeforeFalling = 0;
 
@@ -26,4 +29,5 @@ public class CEnemy : CAnimatedSprite
     {
         base.setState(aState);
     }
+    
 }

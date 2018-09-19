@@ -30,20 +30,31 @@ public class AireDisparo : CSprite
     override public void update()
     {
         base.update();
+        mRect.update();
 
         // TODO: HACER COLISIONES CON ENEMY SHIP.
+        //Si la lista fuera de CEnemy(ies), las funciones particulares no tendrian que estar en  CGameObject.
         List<CGameObject> enemies = CEnemyManager.inst().collidesList(this);
         if (enemies.Count > 0)
         {
             foreach (var enemy in enemies)
             {
-                if(enemy.getState() != CEnemy.STATE_FALLING)
+                if (enemy.getMovable())
                 {
-                    enemy.setState(CEnemy.STATE_FALLING);
+                    
+
+                    if (enemy.getState() != CEnemy.STATE_FALLING)
+                    {
+                        enemy.setState(CEnemy.STATE_FALLING);
+                        //TODO y si me aumenta la velocidad?
+                        
+                    }
+
+                    enemy.setY(enemy.getY() - 1);
+                    enemy.setVelX(this.getVelX() / 2);
+                    enemy.setVelY(this.getVelY() / 2);
                 }
-                enemy.setY(enemy.getY() - 1);
-                enemy.setVelX(this.getVelX() / 2);
-                enemy.setVelY(this.getVelY() / 2);
+                
             }
         }
     }
@@ -56,7 +67,7 @@ public class AireDisparo : CSprite
 		mRect.setScaleX(getWidth());
 		mRect.setScaleY(getHeight());
         mRect.setRotation(getRotation());
-		mRect.update ();
+		
 
 		mRect.render ();
     }
@@ -64,5 +75,7 @@ public class AireDisparo : CSprite
     override public void destroy()
     {
         base.destroy();
+        mRect.destroy();
+
     }
 }

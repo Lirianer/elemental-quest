@@ -33,11 +33,11 @@ public class CAndy : CAnimatedSprite
 
 	public CAndy()
 	{
-		setFrames (Resources.LoadAll<Sprite> ("Sprites/andy"));
-		setName ("andy");
+		setFrames (Resources.LoadAll<Sprite> ("Sprites/nina"));
+		setName ("Nina");
 		setSortingLayerName ("Player");
 
-		setScale (2.0f);
+		setScale (0.5f);
 
 		setRegistration (CSprite.REG_TOP_LEFT);
 
@@ -75,7 +75,7 @@ public class CAndy : CAnimatedSprite
         this.powers.Add(new Earth());
         this.powers.Add(new Air(this));
         this.powers.Add(new Water());
-        this.powers.Add(new Fire());
+        this.powers.Add(new Fire(this));
      
         this.selectedPower = 0;
 
@@ -382,7 +382,7 @@ public class CAndy : CAnimatedSprite
 		mRect.setScaleY(HEIGHT);
 		mRect.update ();
 
-		mRect.render ();
+		//mRect.render ();
 
 		// Bounding box.
 		mRect2.setXY (getX() + X_OFFSET_BOUNDING_BOX, getY() + Y_OFFSET_BOUNDING_BOX);
@@ -390,10 +390,16 @@ public class CAndy : CAnimatedSprite
 		mRect2.setScaleY(HEIGHT - Y_OFFSET_BOUNDING_BOX);
 		mRect2.update ();
 
-		mRect2.render ();
+		//mRect2.render ();
 
         textoPoderes.render();
-	}
+
+        for (int i = 0; i < this.powers.Count; i++)
+        {
+            this.powers[i].render();
+        }
+
+    }
 
 	override public void destroy()
 	{
@@ -410,16 +416,19 @@ public class CAndy : CAnimatedSprite
 
 		if (getState () == STATE_STAND) 
 		{
-			stopMove ();
+            
+            stopMove ();
 			gotoAndStop (1);
-		} 
+            initAnimation(21, 31, 12, true);
+
+        } 
 		else if (getState () == STATE_WALKING) 
 		{
-			initAnimation (2, 9, 12, true);
+			initAnimation (1, 12, 12, true);
 		}
 		else if (getState () == STATE_JUMPING) 
 		{
-			initAnimation (10, 17, 12, false);
+			initAnimation (13, 20 , 12, false);
 			setVelY (CGameConstants.JUMP_SPEED);
 			setAccelY (CGameConstants.GRAVITY);
 
@@ -427,7 +436,7 @@ public class CAndy : CAnimatedSprite
 		}
 		else if (getState () == STATE_FALLING) 
 		{
-			initAnimation (15, 17, 12, false);
+			initAnimation (16, 20, 12, false);
 			setAccelY (CGameConstants.GRAVITY);
 		}
 		else if (getState () == STATE_HIT_ROOF) 

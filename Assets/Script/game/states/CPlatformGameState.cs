@@ -31,9 +31,10 @@ public class CPlatformGameState : CGameState
 		mParticleManger = new CParticleManager ();
 
 
-		// El mapa crea enemigos. Crear los managers antes que el mapa.
-		mMap = new CTileMap ();
-		CGame.inst ().setMap (mMap);
+        // El mapa crea enemigos. Crear los managers antes que el mapa.
+        //mMap = new CTileMap ();
+        mMap = new CTileMap(CTileMap.GAME_ANDY);
+        CGame.inst ().setMap (mMap);
 
 
 
@@ -50,6 +51,8 @@ public class CPlatformGameState : CGameState
         /*CEnemyShip e = new CEnemyShip ();
 		e.setXY (200, 200);
 		CEnemyManager.inst ().add (e);*/
+         
+
     }
 
     override public void update()
@@ -69,6 +72,8 @@ public class CPlatformGameState : CGameState
 		{
 			//Debug.Log ("WIN");
 		}
+
+
      
 	}
 

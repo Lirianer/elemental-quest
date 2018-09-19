@@ -25,9 +25,9 @@ public class CTile : CSprite
 	// True = se puede caminar. False = no se puede traspasar.
 	private bool mIsWalkable;
 
-	// Parametros: coordenada del tile (x, y) y el indice del tile.
-	public CTile(int aX, int aY, int aTileIndex, Sprite aSprite)
-	{
+    // Parametros: coordenada del tile (x, y) y el indice del tile.
+    public CTile(int aX, int aY, int aTileIndex, Sprite aSprite, int aScale)
+    {
 		setXY (aX, aY);
 		setTileIndex(aTileIndex);
 

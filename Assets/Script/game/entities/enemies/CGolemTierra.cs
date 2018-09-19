@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CScorpion : CEnemy
+public class CGolemTierra : CEnemy
 {
     private const int WIDTH = 72 * 2;
     private const int HEIGHT = 58 * 2;
@@ -12,11 +12,11 @@ public class CScorpion : CEnemy
     public const int TYPE_DONT_FALL = 0;  // No cae de las plataformas
     public const int TYPE_FALL = 1;       // Cae cuando llega al borde de una plataforma.
 
-    public CScorpion(int aType)
+    public CGolemTierra(int aType)
     {
         setType(aType);
-        setFrames(Resources.LoadAll<Sprite>("Sprites/enemyScorpion"));
-        setName("scorpion");
+        setFrames(Resources.LoadAll<Sprite>("Sprites/enemyGolemtierra"));
+        setName("GolemTierra");
         setSortingLayerName("Enemies");
         setScale(2.0f);
         setRegistration(CSprite.REG_TOP_LEFT);
