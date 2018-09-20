@@ -22,7 +22,7 @@ public class AireDisparo : CSprite
 		mRect.setSortingLayerName ("Player");
 		mRect.setSortingOrder (20);
 		mRect.setAlpha (0.5f);
-		mRect.setName ("player_debug_rect");
+		mRect.setName ("Aire Disparo");
 
         render();
     }

@@ -69,12 +69,12 @@ public class CAndy : CAnimatedSprite
 		mRect2.setSortingOrder (20);
 		mRect2.setColor (Color.red);
 		mRect2.setAlpha (0.5f);
-		mRect2.setName ("player_debug_rect2");
+		mRect2.setName ("Disparo Agua");
 
         this.powers = new List<Power>();
         this.powers.Add(new Earth());
         this.powers.Add(new Air(this));
-        this.powers.Add(new Water());
+        this.powers.Add(new Water(this));
         this.powers.Add(new Fire(this));
      
         this.selectedPower = 0;
