@@ -9,10 +9,11 @@ public class CAndy : CAnimatedSprite
 
 	public const int STATE_STAND = 0;
 	public const int STATE_WALKING = 1;
-	public const int STATE_JUMPING = 2;
-	public const int STATE_FALLING = 3;
-	public const int STATE_HIT_ROOF = 4;
-	public const int STATE_DASHING = 5;
+	public const int STATE_PRE_JUMPING = 2;
+	public const int STATE_JUMPING = 3;
+	public const int STATE_FALLING = 4;
+	public const int STATE_HIT_ROOF = 5;
+	public const int STATE_DASHING = 6;
 
 	private CSprite mRect;
 	private CSprite mRect2;
@@ -69,7 +70,7 @@ public class CAndy : CAnimatedSprite
 		mRect2.setSortingOrder (20);
 		mRect2.setColor (Color.red);
 		mRect2.setAlpha (0.5f);
-		mRect2.setName ("Disparo Agua");
+		mRect2.setName ("player_debug_rect2");
 
         this.powers = new List<Power>();
         this.powers.Add(new Earth());
@@ -133,7 +134,7 @@ public class CAndy : CAnimatedSprite
 			}
 
 			if (CKeyboard.firstPress (CKeyboard.SPACE)) {
-				setState (STATE_JUMPING);
+				setState (STATE_PRE_JUMPING);
 				return;
 			}
 
@@ -157,7 +158,7 @@ public class CAndy : CAnimatedSprite
 			}
 
 			if (CKeyboard.firstPress (CKeyboard.SPACE)) {
-				setState (STATE_JUMPING);
+				setState (STATE_PRE_JUMPING);
 				return;
 			}
 
@@ -205,8 +206,19 @@ public class CAndy : CAnimatedSprite
 					}
 				}
 			}
+		} else if (getState () == STATE_PRE_JUMPING) {
+			if(this.isEnded())
+			{
+				this.setState(STATE_JUMPING);
+			}
 		} else if (getState () == STATE_JUMPING) {
 			controlMoveHorizontal ();
+
+			if(this.getVelY() > 0)
+			{
+				setState(STATE_FALLING);
+				return;
+			}
 
 			if (isFloor (getX (), getY () + 1)) {
 				setY (mDownY * CTileMap.TILE_HEIGHT - getHeight ());
@@ -426,9 +438,14 @@ public class CAndy : CAnimatedSprite
 		{
 			initAnimation (1, 12, 12, true);
 		}
+		else if (getState () == STATE_PRE_JUMPING) 
+		{
+			initAnimation (13, 15 , 12, false);
+
+		}
 		else if (getState () == STATE_JUMPING) 
 		{
-			initAnimation (13, 20 , 12, false);
+			initAnimation (16, 17 , 12, true);
 			setVelY (CGameConstants.JUMP_SPEED);
 			setAccelY (CGameConstants.GRAVITY);
 
@@ -436,7 +453,7 @@ public class CAndy : CAnimatedSprite
 		}
 		else if (getState () == STATE_FALLING) 
 		{
-			initAnimation (16, 20, 12, false);
+			initAnimation (18, 20, 12, false);
 			setAccelY (CGameConstants.GRAVITY);
 		}
 		else if (getState () == STATE_HIT_ROOF) 
