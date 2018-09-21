@@ -4,9 +4,9 @@ public class Air : Power
 {
     private CAndy player;
 
-    private const float DASH_COOLDOWN = 3f;
+    private const float DASH_COOLDOWN = 1.5f;
     private const float FIRE_COOLDOWN = 0.9f;
-    private const int DASH_VELOCITY = 2500;
+    private const int DASH_VELOCITY = 833;
     private CSprite mRect;
     private const int WIDTH = 64 * 2;
     private const int HEIGHT = 74 * 2;
@@ -52,15 +52,15 @@ public class Air : Power
         // Y: Centro del personaje + alto / 2 * angulo
         bullet.setY(playerCenter.y + radius * Mathf.Sin(angRad));
         bullet.setVelXY (AireDisparo.SPEED * Mathf.Cos (angRad), AireDisparo.SPEED * Mathf.Sin (angRad));
-        CBulletManager.inst().add(bullet);
+        CBulletManager.inst().add(bullet); 
 
     }
     
     override protected void rightClickPower()
     {
-         int direction = 1;
+        int direction = 1;
 
-        player.setState(CAndy.STATE_DASHING);
+        
 
         if(CMouse.getX() <= player.getX() + player.getWidth() / 2)
         {
@@ -72,6 +72,7 @@ public class Air : Power
             player.setFlip(false);
         }
 
+        player.setState(CAndy.STATE_DASHING);
         player.setVelX(DASH_VELOCITY * direction);
     }
 

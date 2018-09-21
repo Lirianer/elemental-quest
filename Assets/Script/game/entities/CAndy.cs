@@ -207,6 +207,8 @@ public class CAndy : CAnimatedSprite
 				}
 			}
 		} else if (getState () == STATE_PRE_JUMPING) {
+			controlMoveHorizontal();
+			
 			if(this.isEnded())
 			{
 				this.setState(STATE_JUMPING);
@@ -250,7 +252,7 @@ public class CAndy : CAnimatedSprite
 			}
 		}
 		else if(getState() == STATE_DASHING) {
-			
+			setVelY (0);
 			// Si estamos en una pared, corregirnos.
 			if (isWallLeft (getX (), mOldY)) 
 			{
@@ -270,10 +272,15 @@ public class CAndy : CAnimatedSprite
 			if (isRoof (getX (), getY () - 1)) 
 			{
 				setY (((mUpY + 1) * CTileMap.TILE_HEIGHT) - Y_OFFSET_BOUNDING_BOX);
-				setVelY (0);
+				
 			}
 
-			if(this.getTimeState() >= 0.2f) {
+			if(this.getTimeState() >= 0.6f / 3 * 2)
+			{
+				this.initAnimation(47, 49, 12, false);
+			}
+
+			if(this.getTimeState() >= 0.6f) {
 				this.setState(STATE_STAND);
 			}
 		}
@@ -424,6 +431,7 @@ public class CAndy : CAnimatedSprite
 
 	public override void setState (int aState)
 	{
+		Debug.Log(aState);
 		base.setState (aState);
 
 		if (getState () == STATE_STAND) 
@@ -459,6 +467,16 @@ public class CAndy : CAnimatedSprite
 		else if (getState () == STATE_HIT_ROOF) 
 		{
 			stopMove();
+		}
+		else if (getState () == STATE_HIT_ROOF)
+		{
+			stopMove();
+			initAnimation(34, 40, 12, false);
+			
+		} 
+		else if(getState() == STATE_DASHING)
+		{
+			initAnimation(41, 46, 12, false);
 		}
 
 		if(getState() != STATE_DASHING) {
