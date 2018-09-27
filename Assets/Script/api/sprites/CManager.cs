@@ -77,6 +77,21 @@ public class CManager
 		return null;
 	}
 
+	public List<CGameObject> collidesList(CGameObject aGameObject)
+	{
+		List<CGameObject> results = new List<CGameObject>();
+
+		for (int i = mArray.Count - 1; i >= 0; i --) 
+		{
+			if (aGameObject.collides(mArray[i]))
+			{
+				results.Add(mArray[i]);
+			}
+		}
+
+		return results;
+	}
+
 	public int getLength()
 	{
 		return mArray.Count;

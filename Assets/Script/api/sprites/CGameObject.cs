@@ -43,6 +43,8 @@ public class CGameObject
 	// Max. acceleration.
 	private float mMaxAccel = CMath.INFINITY;
 
+    // variable for airPower ElementalQuest
+    private bool isMovable = false;
 
 	// Platform game -------------------------------------------------------------
 	// Variables auxiliares que se cargan cuando llamamos a checkPoints().
@@ -326,6 +328,23 @@ public class CGameObject
 		}
 	}
 
+	public bool collidesRect(CGameObject aGameObject)
+	{
+		if(getX() < aGameObject.getX() + aGameObject.getWidth() &&
+			getX() + getWidth() > aGameObject.getX() &&
+			getY() < aGameObject.getY() + aGameObject.getHeight() &&
+			getHeight() + getY() > aGameObject.getY())
+		{
+			return true;
+		}
+		else 
+		{
+			return false;
+		}
+	}
+
+
+
 	public void setFriction(float aFriction)
 	{
 		mFriction = aFriction;
@@ -541,4 +560,19 @@ public class CGameObject
 	{
 		mYOffsetBoundingBox = aYOffsetBoundingBox;
 	}
+    public void setMovable(bool state)
+    {
+        if (state)
+        {
+            isMovable = true;
+        }
+        else
+        {
+            isMovable = false;
+        }
+    }
+    public bool getMovable()
+    {
+        return isMovable;
+    }
 }

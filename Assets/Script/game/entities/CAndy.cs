@@ -7,11 +7,13 @@ public class CAndy : CAnimatedSprite
 	private const int WIDTH = 64 * 2;
 	private const int HEIGHT = 74 * 2;
 
-	private const int STATE_STAND = 0;
-	private const int STATE_WALKING = 1;
-	private const int STATE_JUMPING = 2;
-	private const int STATE_FALLING = 3;
-	private const int STATE_HIT_ROOF = 4;
+	public const int STATE_STAND = 0;
+	public const int STATE_WALKING = 1;
+	public const int STATE_PRE_JUMPING = 2;
+	public const int STATE_JUMPING = 3;
+	public const int STATE_FALLING = 4;
+	public const int STATE_HIT_ROOF = 5;
+	public const int STATE_DASHING = 6;
 
 	private CSprite mRect;
 	private CSprite mRect2;
@@ -32,11 +34,11 @@ public class CAndy : CAnimatedSprite
 
 	public CAndy()
 	{
-		setFrames (Resources.LoadAll<Sprite> ("Sprites/andy"));
-		setName ("andy");
+		setFrames (Resources.LoadAll<Sprite> ("Sprites/nina"));
+		setName ("Nina");
 		setSortingLayerName ("Player");
 
-		setScale (2.0f);
+		setScale (0.5f);
 
 		setRegistration (CSprite.REG_TOP_LEFT);
 
@@ -72,11 +74,13 @@ public class CAndy : CAnimatedSprite
 
         this.powers = new List<Power>();
         this.powers.Add(new Earth());
-        this.powers.Add(new Air());
-        this.powers.Add(new Water());
-        this.powers.Add(new Fire());
+        this.powers.Add(new Air(this));
+        this.powers.Add(new Water(this));
+        this.powers.Add(new Fire(this));
      
         this.selectedPower = 0;
+
+		this.powers[this.selectedPower].setActive();
 
         textoPoderes = new CText(this.powers[this.selectedPower].getName());
         textoPoderes.setWidth(this.getWidth());
@@ -133,7 +137,7 @@ public class CAndy : CAnimatedSprite
 			}
 
 			if (CKeyboard.firstPress (CKeyboard.SPACE)) {
-				setState (STATE_JUMPING);
+				setState (STATE_PRE_JUMPING);
 				return;
 			}
 
@@ -157,7 +161,7 @@ public class CAndy : CAnimatedSprite
 			}
 
 			if (CKeyboard.firstPress (CKeyboard.SPACE)) {
-				setState (STATE_JUMPING);
+				setState (STATE_PRE_JUMPING);
 				return;
 			}
 
@@ -205,8 +209,21 @@ public class CAndy : CAnimatedSprite
 					}
 				}
 			}
+		} else if (getState () == STATE_PRE_JUMPING) {
+			controlMoveHorizontal();
+			
+			if(this.isEnded())
+			{
+				this.setState(STATE_JUMPING);
+			}
 		} else if (getState () == STATE_JUMPING) {
 			controlMoveHorizontal ();
+
+			if(this.getVelY() > 0)
+			{
+				setState(STATE_FALLING);
+				return;
+			}
 
 			if (isFloor (getX (), getY () + 1)) {
 				setY (mDownY * tileHeight - getHeight ());
@@ -230,14 +247,47 @@ public class CAndy : CAnimatedSprite
 				return;
 			}
 		} 
-		else if (getState () == STATE_HIT_ROOF) 
-		{
+		else if (getState () == STATE_HIT_ROOF) {
 			if (getTimeState () > 0.02f * 5.0f) 
 			{
 				setState (STATE_FALLING);
 				return;
 			}
 		}
+		else if(getState() == STATE_DASHING) {
+			setVelY (0);
+			// Si estamos en una pared, corregirnos.
+			if (isWallLeft (getX (), mOldY)) 
+			{
+				// Reposicionar el personaje contra la pared.
+				setX (((mLeftX + 1) * CTileMap.Instance.getTileWidth()) - X_OFFSET_BOUNDING_BOX);
+			} 
+			if (isWallRight (getX (), mOldY)) 
+			{
+				// Reposicionar el personaje contra la pared.
+				setX ((((mRightX) * CTileMap.Instance.getTileWidth()) - getWidth ()) + X_OFFSET_BOUNDING_BOX);
+			} 
+
+			if (isFloor (getX (), getY () + 1)) {
+				setY (mDownY * CTileMap.Instance.getTileHeight() - getHeight ());
+			}
+
+			if (isRoof (getX (), getY () - 1)) 
+			{
+				setY (((mUpY + 1) * CTileMap.Instance.getTileHeight()) - Y_OFFSET_BOUNDING_BOX);
+				
+			}
+
+			if(this.getTimeState() >= 0.6f / 3 * 2)
+			{
+				this.initAnimation(47, 49, 12, false);
+			}
+
+			if(this.getTimeState() >= 0.6f) {
+				this.setState(STATE_STAND);
+			}
+		}
+		
 
         // Chequear el paso entre pantallas.
         controlRooms ();
@@ -246,10 +296,9 @@ public class CAndy : CAnimatedSprite
         textoPoderes.setText(this.powers[this.selectedPower].getName());
         textoPoderes.update();
 
-
-		if( CMouse.firstPress() )
+		for (int i = 0; i < this.powers.Count; i++)
 		{
-			this.powers[this.selectedPower].update();
+			this.powers[i].update();
 		}
     }
 
@@ -357,7 +406,7 @@ public class CAndy : CAnimatedSprite
 		mRect.setScaleY(HEIGHT);
 		mRect.update ();
 
-		mRect.render ();
+		//mRect.render ();
 
 		// Bounding box.
 		mRect2.setXY (getX() + X_OFFSET_BOUNDING_BOX, getY() + Y_OFFSET_BOUNDING_BOX);
@@ -365,10 +414,16 @@ public class CAndy : CAnimatedSprite
 		mRect2.setScaleY(HEIGHT - Y_OFFSET_BOUNDING_BOX);
 		mRect2.update ();
 
-		mRect2.render ();
+		//mRect2.render ();
 
         textoPoderes.render();
-	}
+
+        for (int i = 0; i < this.powers.Count; i++)
+        {
+            this.powers[i].render();
+        }
+
+    }
 
 	override public void destroy()
 	{
@@ -385,16 +440,24 @@ public class CAndy : CAnimatedSprite
 
 		if (getState () == STATE_STAND) 
 		{
-			stopMove ();
+            
+            stopMove ();
 			gotoAndStop (1);
-		} 
+            initAnimation(21, 31, 12, true);
+
+        } 
 		else if (getState () == STATE_WALKING) 
 		{
-			initAnimation (2, 9, 12, true);
+			initAnimation (1, 12, 12, true);
+		}
+		else if (getState () == STATE_PRE_JUMPING) 
+		{
+			initAnimation (13, 15 , 12, false);
+
 		}
 		else if (getState () == STATE_JUMPING) 
 		{
-			initAnimation (10, 17, 12, false);
+			initAnimation (16, 17 , 12, true);
 			setVelY (CGameConstants.JUMP_SPEED);
 			setAccelY (CGameConstants.GRAVITY);
 
@@ -402,17 +465,32 @@ public class CAndy : CAnimatedSprite
 		}
 		else if (getState () == STATE_FALLING) 
 		{
-			initAnimation (15, 17, 12, false);
+			initAnimation (18, 20, 12, false);
 			setAccelY (CGameConstants.GRAVITY);
 		}
 		else if (getState () == STATE_HIT_ROOF) 
 		{
 			stopMove();
 		}
+		else if (getState () == STATE_HIT_ROOF)
+		{
+			stopMove();
+			initAnimation(34, 40, 12, false);
+			
+		} 
+		else if(getState() == STATE_DASHING)
+		{
+			initAnimation(41, 46, 12, false);
+		}
+
+		if(getState() != STATE_DASHING) {
+			this.setFriction(1.0f);
+		}
 	}
 
     private void selectPower(int power)
     {
+		this.powers[this.selectedPower].setInactive();
         this.selectedPower = power;
         if(this.selectedPower > this.powers.Count - 1)
         {
@@ -422,6 +500,8 @@ public class CAndy : CAnimatedSprite
         {
             this.selectedPower = this.powers.Count - 1;
         }
+
+		this.powers[this.selectedPower].setActive();
     }
 
     private void selectNextPower()

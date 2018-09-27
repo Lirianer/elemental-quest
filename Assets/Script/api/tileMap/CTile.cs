@@ -17,6 +17,13 @@ public class CTile : CSprite
 		ARTIFICIAL_EARTH = 23
 	}
 
+	public enum Direction : int {
+		TOP,
+		LEFT,
+		RIGHT,
+		BOTTOM
+	}
+
 	// Tile index. Starting from 0. 0, 1, 2...
 	private int mTileIndex;
 
@@ -128,5 +135,29 @@ public class CTile : CSprite
 	public void setWalkable(bool aIsWalkable)
 	{
 		mIsWalkable = aIsWalkable;
+	}
+
+	public CTile getNeighbourTile(Direction direction)
+	{
+		int xDirection = 0;
+		int yDirection = 0;
+
+		switch (direction)
+		{
+			case Direction.TOP:
+				yDirection = -1;
+			break;
+			case Direction.RIGHT:
+				xDirection = 1;
+			break;
+			case Direction.BOTTOM:
+				yDirection = 1;
+			break;
+			case Direction.LEFT:
+				xDirection = -1;
+			break;
+		}
+
+		return CTileMap.Instance.getTile((int)(this.getX() + CTileMap.Instance.getTileWidth() * xDirection) / CTileMap.Instance.getTileWidth(), (int)(this.getY() + CTileMap.Instance.getTileHeight() * yDirection) / CTileMap.Instance.getTileHeight());
 	}
 }

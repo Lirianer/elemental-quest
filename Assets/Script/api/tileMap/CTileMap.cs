@@ -2,6 +2,10 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
+using System.Xml.Linq;
+using TiledSharp;
+
 
 public class CTileMap  
 {
@@ -28,7 +32,7 @@ public class CTileMap
 
 	// Array with the tile sprites (images).
 	private Sprite[] mTiles;
-
+     
     // La pantalla tiene 17 columnas x 13 filas de tiles.
     // Mapa con el indice de cada tile.
     public static int[] LEVEL_ANDY_001 = {
@@ -40,7 +44,7 @@ public class CTileMap
 		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
 		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1,1,1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -87,7 +91,7 @@ public class CTileMap
 		registerSingleton ();
 	}
 
-	private void registerSingleton()
+    private void registerSingleton()
 	{
 		if (Instance == null) 
 		{
@@ -101,7 +105,7 @@ public class CTileMap
 
 	private void loadLevelTMX(string aFileName)
 	{
-		TmxMap tmxMap = new TmxMap (aFileName);
+		TmxMap tmxMap = new TmxMap(aFileName);
 
 		int mapWidth = tmxMap.Width;
 		int mapHeight = tmxMap.Height;
@@ -210,15 +214,37 @@ public class CTileMap
 
 	private void loadEnemies(int aLevel)
 	{
-
+		/*
         ///Cargo el Niveles 
 		if (aLevel == 1) 
 		{
+            //Pongo a los Enemigos
 			CScorpion s = new CScorpion (CScorpion.TYPE_DONT_FALL);
 			s.setXY (550, 300);
 			CEnemyManager.inst ().add (s);
 
-			CItem item = new CItem (CItem.TYPE_DONT_FALL);
+            CGolemTierra g = new CGolemTierra(CGolemTierra.TYPE_DONT_FALL);
+            g.setXY(600, 300);
+            CEnemyManager.inst().add(g);
+
+            CSalamandra sal = new CSalamandra(CSalamandra.TYPE_DONT_FALL);
+            sal.setXY(500, 300);
+            CEnemyManager.inst().add(sal);
+
+            CGolemRoca gr = new CGolemRoca(CGolemTierra.TYPE_DONT_FALL);
+            gr.setXY(300, 300);
+            CEnemyManager.inst().add(gr);
+
+            CBird cb = new CBird(CBird.TYPE_DONT_FALL);
+            cb.setXY(450, 300);
+            CEnemyManager.inst().add(cb);
+
+            CElementalAgua el = new CElementalAgua(CElementalAgua.TYPE_DONT_FALL);
+            el.setXY(150, 300);
+            CEnemyManager.inst().add(el);
+
+
+            CItem item = new CItem (CItem.TYPE_DONT_FALL);
 			item.setXY (700, 300);
 			CItemManager.inst ().add (item);
 
@@ -240,6 +266,7 @@ public class CTileMap
 			coin.setXY (550, 200);
 			CItemManager.inst ().add (coin);
 		}
+		*/
 	}
 
 
@@ -273,6 +300,7 @@ public class CTileMap
 				mMap [y] [x].update ();
 			}
 		}
+             
     }
 
 	public void render()
