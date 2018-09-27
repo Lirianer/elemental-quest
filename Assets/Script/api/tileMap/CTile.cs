@@ -7,11 +7,11 @@ public class CTile : CSprite
 {
 	public enum Type : int {
 		AIR = 22,
-		STONE,
+		STONE = 19,
 		MUD = 4,
-		WATER,
-		EARTH,
-		ICE,
+		WATER = 10,
+		EARTH = 1,
+		ICE = 16,
 		SOMETHING,
 
 		ARTIFICIAL_EARTH = 23
@@ -57,8 +57,11 @@ public class CTile : CSprite
 	{
 		mTileIndex = aTileIndex;
 
+
 		// Set walkable information.
-		if (aTileIndex == 22)
+		if (this.getTileType() == CTile.Type.AIR)
+			mIsWalkable = true;
+		else if (this.getTileType() == CTile.Type.WATER)
 			mIsWalkable = true;
 		else
 			mIsWalkable = false;

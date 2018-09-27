@@ -37,6 +37,7 @@ public class CPlatformGameState : CGameState
 
 
 
+
 		mAndy = new CAndy ();
         //Referenci Map a Andy 
         mAndy.muestro = mMap;
