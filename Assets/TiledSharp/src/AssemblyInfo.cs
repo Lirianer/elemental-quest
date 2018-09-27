@@ -29,6 +29,5 @@ tile map generation tool")]
 //[assembly: AssemblyKeyFile("")]
 
 // Assume these are true, until I hear otherwise
-[assembly: CLSCompliant(true)]
 [assembly: ComVisible(true)]
 #endif

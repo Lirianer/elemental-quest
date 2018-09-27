@@ -12,7 +12,9 @@ public class CTile : CSprite
 		WATER,
 		EARTH,
 		ICE,
-		SOMETHING
+		SOMETHING,
+
+		ARTIFICIAL_EARTH = 23
 	}
 
 	// Tile index. Starting from 0. 0, 1, 2...
@@ -26,7 +28,7 @@ public class CTile : CSprite
 	private int[] waterIndexes =  new int[] {10, 18};
 	private int[] iceIndexes = new int[] {16, 17};
 	private int[] stoneIndexes = new int[] {19, 20, 21};
-	private int[] earthIndexes = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15};
+	private int[] earthIndexes = new int[] {1, 2, 3, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15};
 
 
 	// Parametros: coordenada del tile (x, y) y el indice del tile.
@@ -74,7 +76,7 @@ public class CTile : CSprite
 
 	public Type getTileType()
 	{
-		if(Array.IndexOf(this.waterIndexes, this.getTileIndex()) > -1) //MUD
+		if(Array.IndexOf(this.waterIndexes, this.getTileIndex()) > -1)
 		{
 			return CTile.Type.WATER;
 		}
@@ -91,7 +93,7 @@ public class CTile : CSprite
 			return CTile.Type.EARTH;
 		}
 
-		return (Type)CTile.Type.AIR;
+		return (Type)this.getTileIndex();
 	}
 
 	override public void render()

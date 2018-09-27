@@ -399,8 +399,15 @@ public class CTileMap
 		calculateWorldSize();
 	}
 
-	public void changeTile(CTile tile, CTile.Type type)
+	public void changeTile(CTile tile, CTile.Type type, int imageIndex = -1)
 	{
 		tile.setTileType(type);
+
+		if(imageIndex < 0)
+		{
+			imageIndex = tile.getTileIndex() - 1;
+		}
+
+		tile.setImage(mTiles[imageIndex]);
 	}
 }

@@ -24,11 +24,11 @@ public class Earth : Power
 
         if (tile != null)
         {
-            if (CMouse.firstPress(CMouse.BUTTONS.LEFT) && tile.getTileType() == CTile.Type.AIR && downTile.getTileType() != CTile.Type.AIR)
+            if (CMouse.firstPress(CMouse.BUTTONS.LEFT) && tile.getTileType() == CTile.Type.AIR && (downTile.getTileType() == CTile.Type.MUD || downTile.getTileType() == CTile.Type.ARTIFICIAL_EARTH))
             {
 				if (counter < 3)
 				{
-                    CTileMap.Instance.changeTile(tile, CTile.Type.EARTH);
+                    CTileMap.Instance.changeTile(tile, CTile.Type.ARTIFICIAL_EARTH, 7);
 					counter++;
 				}
 				else
@@ -36,7 +36,7 @@ public class Earth : Power
 					Debug.Log("YA HAY " + (counter + 1)  + " TIERRA");
 				}
             }
-			else if (CMouse.firstPress(CMouse.BUTTONS.RIGHT) && tile.getTileType() == CTile.Type.EARTH && upTile.getTileType() == CTile.Type.AIR)
+			else if (CMouse.firstPress(CMouse.BUTTONS.RIGHT) && tile.getTileType() == CTile.Type.ARTIFICIAL_EARTH && upTile.getTileType() != CTile.Type.ARTIFICIAL_EARTH)
 			{
 				CTileMap.Instance.changeTile(tile, CTile.Type.AIR);
 				counter--;
