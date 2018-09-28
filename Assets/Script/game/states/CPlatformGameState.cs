@@ -51,6 +51,7 @@ public class CPlatformGameState : CGameState
 		CEnemyManager.inst ().add (e);*/
 
 		CCamera.inst().setSize(mMap.getTileHeight() * 8);
+		CCamera.inst().setBounds(0, 0, mMap.getMapWidth() * mMap.getTileWidth(), mMap.getMapHeight() * mMap.getTileHeight());
     }
 
     override public void update()

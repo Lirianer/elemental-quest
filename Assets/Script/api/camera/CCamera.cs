@@ -29,6 +29,11 @@ public class CCamera : CGameObject
 	private float mMinSize = 32 * 2.0f; // Normalized zoom = 1.0. Closer.
 	private float mMaxSize = 32 * 20.0f; // Normalized zoom = 0.0. Further. 
 
+	private int minX;
+	private int maxX;
+	private int minY;
+	private int maxY;
+
 	private CCamera()
 	{
 		mTransform = Camera.main.transform;
@@ -89,6 +94,19 @@ public class CCamera : CGameObject
 
 	public override void update()
 	{
+
+	}
+
+	new public void setBounds(int minX, int minY, int maxX, int maxY)
+	{
+		Debug.Log("MIN X: " + minX );
+		Debug.Log("max X: " + maxX );
+		Debug.Log("MIN Y: " + minY );
+		Debug.Log("max Y: " + maxY );
+		this.minX = minX;
+		this.maxX = maxX;
+		this.minY = minY;
+		this.maxY = maxY;
 	}
 
 	override public void render()
@@ -96,6 +114,24 @@ public class CCamera : CGameObject
 		// Used to keep camera bounded to integers.
 		int x = Mathf.RoundToInt(getX());
 		int y = Mathf.RoundToInt(getY());
+
+		if(x - getSize() * 2f * Camera.main.aspect / 2 < this.minX)
+		{
+			x = minX + (int)(getSize() * 2f * Camera.main.aspect / 2);
+		}
+		else if(x + getSize() * 2f * Camera.main.aspect / 2 > this.maxX)
+		{
+			x = maxX - (int)(getSize() * 2f * Camera.main.aspect / 2);
+		}
+
+		if(y - getSize()< this.minY)
+		{
+			y = minY + (int)(getSize());
+		}
+		else if(y + getSize() > this.maxY)
+		{
+			y = maxY - (int)(getSize());
+		}
 
 		mTransform.position = new Vector3(x, -y, -10.0f);
 		//mTransform.rotation = Quaternion.Euler(0, 0, mRotation);
