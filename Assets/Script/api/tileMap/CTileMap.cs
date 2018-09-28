@@ -1,38 +1,41 @@
-﻿using UnityEngine;
+﻿using TiledSharp;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
+using System.Xml.Linq;
+using TiledSharp;
+
 
 public class CTileMap  
 {
+	// Number of columns.
+	private int mMapWidth = 8;
+	// Number of rows.
+	private int mMapHeight = 8;
+
+	// Size in pixels of the tile.
+	private int mTileWidth = 64;
+	private int mTileHeight = 64;
+
 	public static CTileMap Instance {get;  private set;}
 
-	// Cantidad de columnas.
-	public const int MAP_WIDTH = 17;
-	// Cantidad de filas.
-	public const int MAP_HEIGHT = 13;
+	// Size of the world in pixels. Calculated automatically when changing map or tile size.
+	private int mWorldWidth = 32 * 8;
+	private int mWorldHeight = 32 * 8;
 
-    public CAndy mAndy;
-    
-
-    // La imagen es de 48x48 pixeles mide cada tile.
-    public const int TILE_WIDTH = 64*2;
-	public const int TILE_HEIGHT = 64*2;
-
-	// Ancho y alto del nivel en pixeles.
-	public const int WORLD_WIDTH = MAP_WIDTH * TILE_WIDTH;
-	public const int WORLD_HEIGHT = MAP_HEIGHT * TILE_HEIGHT;
-
+	// Matrix of the map. Each element is a CTile.
 	private List<List<CTile>> mMap;
 
-	// Cantidad de tiles que hay.
-	private const int NUM_TILES = 6;
+	// Number of different tiles.
+	private int mNumTiles = 2;
 
-	// Array con los sprites de los tiles.
+	// Array with the tile sprites (images).
 	private Sprite[] mTiles;
-
+     
     // La pantalla tiene 17 columnas x 13 filas de tiles.
     // Mapa con el indice de cada tile.
-    public static int[] LEVEL_001 = {
+    public static int[] LEVEL_ANDY_001 = {
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1,
 		1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1,
@@ -41,14 +44,14 @@ public class CTileMap
 		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
 		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1,1,1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 	};
 
-	public static int[] LEVEL_002 = 
+	public static int[] LEVEL_ANDY_002 = 
 	{
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -69,31 +72,26 @@ public class CTileMap
 	private int mCurrentLevel;
 
 	// Tile auxiliar, caminable, que se retorna cuando accedemos afuera del mapa.
+	// Empty tile. Used to be returned when accessing out of the array.
 	private CTile mEmptyTile;
 
+	// Info con los items.
+	private CItemInfo mItemInfo;
 
-	public CTileMap()
+
+	public CTileMap(string aFileName)
 	{
-		mTiles = new Sprite [NUM_TILES];
-		mTiles [(int) CTile.Type.AIR] = Resources.Load<Sprite> ("Sprites/tiles/tile000");
-		mTiles [(int) CTile.Type.STONE] = Resources.Load<Sprite> ("Sprites/tiles/Piedra");
-		mTiles [(int) CTile.Type.WATER] = Resources.Load<Sprite> ("Sprites/tiles/Agua");
-		mTiles [(int) CTile.Type.EARTH] = Resources.Load<Sprite> ("Sprites/tiles/Tierra");
-		mTiles [(int) CTile.Type.ICE] = Resources.Load<Sprite> ("Sprites/tiles/Hielo");
-		mTiles [(int) CTile.Type.SOMETHING] = Resources.Load<Sprite> ("Sprites/tiles/tile005");
+		loadLevelTMX (aFileName);
 
-		// TODO: CARGAR TODO JUNTO CON LOADALL.
-
-		buildLevel (1);
-
-		mEmptyTile = new CTile (0, 0, 0, mTiles [0]);
+		// Create the empty tile. Used to be returned when accessing out of the array.
+		mEmptyTile = new CTile (0, 0, 0, mTiles [21], 4);
 		mEmptyTile.setVisible (false);
 		mEmptyTile.setWalkable (true);
 
 		registerSingleton ();
 	}
 
-	private void registerSingleton()
+    private void registerSingleton()
 	{
 		if (Instance == null) 
 		{
@@ -105,6 +103,52 @@ public class CTileMap
 		}
 	}
 
+	private void loadLevelTMX(string aFileName)
+	{
+		TmxMap tmxMap = new TmxMap(aFileName);
+
+		int mapWidth = tmxMap.Width;
+		int mapHeight = tmxMap.Height;
+		int tileWidth = tmxMap.TileWidth;
+		int tileHeight = tmxMap.TileHeight;
+		int scale = 2;
+
+		setMapWidth(tmxMap.Width);
+		setMapHeight(tmxMap.Height);
+		setTileWidth(tileWidth * scale);
+		setTileHeight(tileHeight * scale);
+
+		mMap = new List<List<CTile>>();
+		string tileSetPath = tmxMap.Tilesets[0].Image.Source.Replace("Assets/Resources/", "");
+		tileSetPath = tileSetPath.Replace(".png", "");
+		mTiles = Resources.LoadAll<Sprite> (tileSetPath);
+
+        for (int y = 0; y < mapHeight; y++)
+        {
+			List<CTile> row = new List<CTile>();
+
+            for (int x = 0; x < mapWidth; x++)
+            {
+				CTile tile = new CTile((x * mTileWidth), (y * mTileHeight), 0, mTiles[21], scale);
+				row.Add(tile);
+            }
+
+			mMap.Add(row);
+        }
+
+        for (int i = 0; i < tmxMap.Layers[0].Tiles.Count; i++)
+        {
+			int y = i / mapWidth;
+			int x = i % mapWidth;
+            // TODO: PONER UNA SOLA LINEA
+            int index = tmxMap.Layers[0].Tiles[i].Gid;         // 0 a 21
+            getTile(x, y).setTileIndex(index);
+
+            //getTile (x, y).setWalkable (mWalkable [index]); NO APLICA.
+            getTile(x, y).setImage(mTiles[index - 1]);           // 0 a 21
+        }
+	}
+
 	// Construye el mapa. Crear el array y carga el mapa aLevel.
 	public void buildLevel(int aLevel)
 	{ 
@@ -112,25 +156,25 @@ public class CTileMap
 
 		int[] m;
 		if (aLevel == 1)
-			m = LEVEL_001;
+			m = LEVEL_ANDY_001;
 		else
-			m = LEVEL_002;
+			m = LEVEL_ANDY_002;
 
 		mMap = new List<List<CTile>> ();
 
 		// Para cada fila..
-		for (int y = 0; y < MAP_HEIGHT; y++) 
+		for (int y = 0; y < mMapHeight; y++) 
 		{
 			// Crea un array para la fila vacio.
 			mMap.Add (new List<CTile> ());			
 
 			// Llenar la fila.
-			for (int x = 0; x < MAP_WIDTH; x++) 
+			for (int x = 0; x < mMapWidth; x++) 
 			{
 				// Obtener que indice de tile es: 0, 1, ....
-				int index = m[y * MAP_WIDTH + x]; 
+				int index = m[y * mMapWidth + x]; 
 				// Crear el tile.
-				CTile tile = new CTile(x * TILE_WIDTH, y * TILE_HEIGHT, index, mTiles[index]);
+				CTile tile = new CTile(x * mTileWidth, y * mTileHeight, index, mTiles[index]);
 				// Agregar el tile a la fila.
 				mMap [y].Add (tile);
 			}
@@ -146,18 +190,18 @@ public class CTileMap
 
 		int[] m;
 		if (aLevel == 1)
-			m = LEVEL_001;
+			m = LEVEL_ANDY_001;
 		else
-			m = LEVEL_002;
+			m = LEVEL_ANDY_002;
 
 		// Para cada fila..
-		for (int y = 0; y < MAP_HEIGHT; y++) 
+		for (int y = 0; y < mMapHeight; y++) 
 		{
 			// Llenar la fila.
-			for (int x = 0; x < MAP_WIDTH; x++) 
+			for (int x = 0; x < mMapWidth; x++) 
 			{
 				// Obtener que indice de tile es. 0, 1, ....
-				int index = m [y * MAP_WIDTH + x];
+				int index = m [y * mMapWidth + x];
 				// Cambiar el tile.
 				CTile tile = getTile(x, y);
 				tile.setTileIndex (index);
@@ -170,15 +214,37 @@ public class CTileMap
 
 	private void loadEnemies(int aLevel)
 	{
-
+		/*
         ///Cargo el Niveles 
 		if (aLevel == 1) 
 		{
+            //Pongo a los Enemigos
 			CScorpion s = new CScorpion (CScorpion.TYPE_DONT_FALL);
 			s.setXY (550, 300);
 			CEnemyManager.inst ().add (s);
 
-			CItem item = new CItem (CItem.TYPE_DONT_FALL);
+            CGolemTierra g = new CGolemTierra(CGolemTierra.TYPE_DONT_FALL);
+            g.setXY(600, 300);
+            CEnemyManager.inst().add(g);
+
+            CSalamandra sal = new CSalamandra(CSalamandra.TYPE_DONT_FALL);
+            sal.setXY(500, 300);
+            CEnemyManager.inst().add(sal);
+
+            CGolemRoca gr = new CGolemRoca(CGolemTierra.TYPE_DONT_FALL);
+            gr.setXY(300, 300);
+            CEnemyManager.inst().add(gr);
+
+            CBird cb = new CBird(CBird.TYPE_DONT_FALL);
+            cb.setXY(450, 300);
+            CEnemyManager.inst().add(cb);
+
+            CElementalAgua el = new CElementalAgua(CElementalAgua.TYPE_DONT_FALL);
+            el.setXY(150, 300);
+            CEnemyManager.inst().add(el);
+
+
+            CItem item = new CItem (CItem.TYPE_DONT_FALL);
 			item.setXY (700, 300);
 			CItemManager.inst ().add (item);
 
@@ -200,6 +266,7 @@ public class CTileMap
 			coin.setXY (550, 200);
 			CItemManager.inst ().add (coin);
 		}
+		*/
 	}
 
 
@@ -225,21 +292,22 @@ public class CTileMap
 	}
 
 	public void update()
-    {
-		for (int y = 0; y < MAP_HEIGHT; y++) 
+	{
+		for (int y = 0; y < mMapHeight; y++) 
 		{
-			for (int x = 0; x < MAP_WIDTH; x++) 
+			for (int x = 0; x < mMapWidth; x++) 
 			{
 				mMap [y] [x].update ();
 			}
 		}
+             
     }
 
 	public void render()
 	{
-		for (int y = 0; y < MAP_HEIGHT; y++) 
+		for (int y = 0; y < mMapHeight; y++) 
 		{
-			for (int x = 0; x < MAP_WIDTH; x++) 
+			for (int x = 0; x < mMapWidth; x++) 
 			{
 				mMap [y] [x].render ();
 			}
@@ -248,9 +316,9 @@ public class CTileMap
 
 	public void destroy()
 	{
-		for (int y = MAP_HEIGHT - 1; y >= 0; y--) 
+		for (int y = mMapHeight - 1; y >= 0; y--) 
 		{
-			for (int x = MAP_WIDTH - 1; x >= 0; x--) 
+			for (int x = mMapWidth - 1; x >= 0; x--) 
 			{
 				mMap [y] [x].destroy ();
 				mMap [y] [x] = null;
@@ -264,7 +332,7 @@ public class CTileMap
 	// Parametros: aX es la columna. aY es la fila.
 	public int getTileIndex(int aX, int aY)
 	{
-		if (aX < 0 || aX >= MAP_WIDTH || aY < 0 || aY >= MAP_HEIGHT) 
+		if (aX < 0 || aX >= mMapWidth || aY < 0 || aY >= mMapHeight) 
 		{
 			return 0;
 		} 
@@ -276,7 +344,7 @@ public class CTileMap
 
 	public CTile getTile(int aX, int aY)
 	{
-		if (aX < 0 || aX >= MAP_WIDTH || aY < 0 || aY >= MAP_HEIGHT) 
+		if (aX < 0 || aX >= mMapWidth || aY < 0 || aY >= mMapHeight) 
 		{
 			// Si accedo fuera del mapa retorna el empty tile que es caminable.
 			return mEmptyTile;
@@ -287,9 +355,87 @@ public class CTileMap
 		}
 	}
 
-	public void changeTile(CTile tile, CTile.Type type)
+	public CItemInfo getItemInfo()
+	{
+		return mItemInfo;
+	}
+
+	public int getMapWidth()
+	{
+		return mMapWidth;
+	}
+
+	// Return the map height in tiles (number of rows of the map).
+	public int getMapHeight()
+	{
+		return mMapHeight;
+	}
+
+	public int getTileWidth()
+	{
+		return mTileWidth;
+	}
+
+	public int getTileHeight()
+	{
+		return mTileHeight;
+	}
+
+	public int getWorldWidth()
+	{
+		return mWorldWidth;
+	}
+
+	public int getWorldHeight()
+	{
+		return mWorldHeight;
+	}
+
+	// Calculate the world size. Called each time the size of the map or the tile changes.
+	// There is no setters for mWorldWidth and mWorldHeight. There are calculated automatically.
+	private void calculateWorldSize()
+	{
+		mWorldWidth = mMapWidth * mTileWidth;
+		mWorldHeight = mMapHeight * mTileHeight;
+	}
+
+	// Set the map width in tiles (number of columns of the map).
+	public void setMapWidth(int aMapWidth)
+	{
+		mMapWidth = aMapWidth;
+		calculateWorldSize();
+	}
+
+	// Set the map height in tiles (number of rows of the map).
+	public void setMapHeight(int aMapHeight)
+	{
+		mMapHeight = aMapHeight;
+		calculateWorldSize();
+	}
+
+	// Set the tile width in pixels.
+	public void setTileWidth(int aTileWidth)
+	{
+		mTileWidth = aTileWidth;
+		calculateWorldSize();
+	}
+
+	// Set the tile height in pixels.
+	public void setTileHeight(int aTileHeight)
+	{
+		mTileHeight = aTileHeight;
+		calculateWorldSize();
+	}
+
+	public void changeTile(CTile tile, CTile.Type type, int imageIndex = -1)
 	{
 		tile.setTileType(type);
-		tile.setImage(mTiles[(int)type]);
+
+		if(imageIndex < 0)
+		{
+			imageIndex = tile.getTileIndex() - 1;
+		}
+
+		tile.setImage(mTiles[imageIndex]);
 	}
 }

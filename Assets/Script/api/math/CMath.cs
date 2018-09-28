@@ -61,4 +61,48 @@ public class CMath
 		return aAngle * Mathf.PI / 180;
 		// TODO: Optimizar pi/180.
 	}
+
+	/// ------------------------------------------------------------------------------------------------------------------    
+	/// <summary>
+	/// Returns the number clamped between the minimum and the maximum values. If the number is lower than aMin, returns aMin.
+	/// If the number is higher than aMax, returns aMax. Otherwise returns the same number.
+	/// </summary>
+	/// <param name="aNumber">The number to be clamped.</param>
+	/// <param name="aMin">The minimum value.</param>
+	/// <param name="aMax">The maximum value.</param>
+	/// <returns>
+	/// The number clamped between the minimum and the maximum values
+	/// </returns>
+	/// ------------------------------------------------------------------------------------------------------------------
+	public static int clamp(int aNumber, int aMin, int aMax)
+	{
+		if (aNumber < aMin)
+			return aMin;
+		else if (aNumber > aMax)
+			return aMax;
+
+		return aNumber;
+	}
+
+	/// ------------------------------------------------------------------------------------------------------------------    
+	/// <summary>
+	/// Returns the number clamped between the minimum and the maximum values. If the number is lower than aMin, returns aMin.
+	/// If the number is higher than aMax, returns aMax. Otherwise returns the same number.
+	/// </summary>
+	/// <param name="aNumber">The number to be clamped.</param>
+	/// <param name="aMin">The minimum value.</param>
+	/// <param name="aMax">The maximum value.</param>
+	/// <returns>
+	/// The number clamped between the minimum and the maximum values
+	/// </returns>
+	/// ------------------------------------------------------------------------------------------------------------------
+	public static float clamp(float aNumber, float aMin, float aMax)
+	{
+		if (aNumber < aMin)
+			return aMin;
+		else if (aNumber > aMax)
+			return aMax;
+
+		return aNumber;
+	}
 }

@@ -32,7 +32,7 @@ public class CPlatformGameState : CGameState
 
 
 		// El mapa crea enemigos. Crear los managers antes que el mapa.
-		mMap = new CTileMap ();
+		mMap = new CTileMap ("Assets/Resources/Map/Map.tmx");
 		CGame.inst ().setMap (mMap);
 
 
@@ -41,7 +41,6 @@ public class CPlatformGameState : CGameState
 		mAndy = new CAndy ();
         //Referenci Map a Andy 
         mAndy.muestro = mMap;
-
 		mAndy.setXY (400, 400);
 
 
@@ -50,6 +49,9 @@ public class CPlatformGameState : CGameState
         /*CEnemyShip e = new CEnemyShip ();
 		e.setXY (200, 200);
 		CEnemyManager.inst ().add (e);*/
+
+		CCamera.inst().setSize(mMap.getTileHeight() * 8);
+		CCamera.inst().setBounds(0, 0, mMap.getMapWidth() * mMap.getTileWidth(), mMap.getMapHeight() * mMap.getTileHeight());
     }
 
     override public void update()
@@ -60,6 +62,8 @@ public class CPlatformGameState : CGameState
 
 		mAndy.update ();
 
+		CCamera.inst().lookAt(mAndy);
+
         mEnemyManager.update ();
 		mItemManager.update ();
 		mBulletManager.update ();
@@ -69,6 +73,8 @@ public class CPlatformGameState : CGameState
 		{
 			//Debug.Log ("WIN");
 		}
+
+
      
 	}
 

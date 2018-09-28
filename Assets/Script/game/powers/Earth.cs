@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class Earth : Power
 {
-    private int counter = 0;
+    private const int MAX_EARTH_TILES = 3;
+    private int earthTileCounter = 0;
 
     public Earth()
     {
@@ -14,33 +15,41 @@ public class Earth : Power
     override public void update()
     {
         base.update();
+    }
 
-        int col = (int)(CMouse.getX() / CTileMap.TILE_WIDTH);
-        int row = (int)(CMouse.getY() / CTileMap.TILE_HEIGHT);
-        CTile tile = CTileMap.Instance.getTile(col, row);
+    override protected void leftClickPower()
+    {
+        CTile tile = this.getMouseTile();
 
-        CTile downTile = CTileMap.Instance.getTile((int)tile.getX() / CTileMap.TILE_WIDTH, (int)(tile.getY() + CTileMap.TILE_HEIGHT) / CTileMap.TILE_HEIGHT);
-        CTile upTile = CTileMap.Instance.getTile((int)tile.getX() / CTileMap.TILE_WIDTH, (int)(tile.getY() - CTileMap.TILE_HEIGHT) / CTileMap.TILE_HEIGHT);
-
-        if (tile != null)
+        if(tile == null)
         {
-            if (CMouse.firstPress(CMouse.BUTTONS.LEFT) && tile.getTileType() == CTile.Type.AIR && downTile.getTileType() != CTile.Type.AIR)
-            {
-				if (counter < 3)
-				{
-                    CTileMap.Instance.changeTile(tile, CTile.Type.EARTH);
-					counter++;
-				}
-				else
-				{
-					Debug.Log("YA HAY " + (counter + 1)  + " TIERRA");
-				}
-            }
-			else if (CMouse.firstPress(CMouse.BUTTONS.RIGHT) && tile.getTileType() == CTile.Type.EARTH && upTile.getTileType() == CTile.Type.AIR)
-			{
-				CTileMap.Instance.changeTile(tile, CTile.Type.AIR);
-				counter--;
-			}
+            return;
+        }
+
+        CTile bottomTile = tile.getNeighbourTile(CTile.Direction.BOTTOM);
+
+        if(tile.getTileType() == CTile.Type.AIR && (bottomTile.getTileType() == CTile.Type.MUD || bottomTile.getTileType() == CTile.Type.ARTIFICIAL_EARTH) && earthTileCounter < MAX_EARTH_TILES)
+        {
+            CTileMap.Instance.changeTile(tile, CTile.Type.ARTIFICIAL_EARTH, 7);
+            earthTileCounter++;
+        }
+    }
+
+    override protected void rightClickPower()
+    {
+        CTile tile = this.getMouseTile();
+
+        if(tile == null)
+        {
+            return;
+        }
+
+        CTile topTile = tile.getNeighbourTile(CTile.Direction.TOP);
+
+        if(tile.getTileType() == CTile.Type.ARTIFICIAL_EARTH && topTile.getTileType() == CTile.Type.AIR)
+        {
+            CTileMap.Instance.changeTile(tile, CTile.Type.AIR);
+            earthTileCounter--;
         }
     }
 
@@ -49,12 +58,16 @@ public class Earth : Power
         base.render();
     }
 
-    public void destroy()
+    override public void destroy()
     {
         base.destroy();
     }
 
-
-
+    private CTile getMouseTile()
+    {
+        int col = (int)(CMouse.getX() / CTileMap.Instance.getTileWidth());
+        int row = (int)(CMouse.getY() / CTileMap.Instance.getTileHeight());
+        return CTileMap.Instance.getTile(col, row);
+    }
    
 }

@@ -5,6 +5,7 @@ public class CGame : MonoBehaviour
 {
 	static private CGame mInstance;
 	private CGameState mState;
+	private CCamera mCamera;
 
 	private CPlayer mPlayer;
 	private CTileMap mMap;
@@ -21,6 +22,7 @@ public class CGame : MonoBehaviour
 
 		CMouse.init();
 		CKeyboard.init ();
+		mCamera = CCamera.inst();
 
 		setState (new CPlatformGameState ());
 		//setState(new CLevelState ());
@@ -61,11 +63,13 @@ public class CGame : MonoBehaviour
 		CMouse.update ();
 		CKeyboard.update ();
 		mState.update ();
+		mCamera.update();
 	}
 
 	private void render()
 	{
 		mState.render ();
+		mCamera.render();
 	}
 
 	public void destroy()

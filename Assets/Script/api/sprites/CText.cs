@@ -4,7 +4,7 @@ using TMPro;
 
 public class CText : CGameObject
 {
-    private TextMeshPro displayText;
+    private TextMeshProUGUI displayText;
 
     private static GameObject UICanvas = new GameObject();
     private GameObject text;
@@ -19,13 +19,13 @@ public class CText : CGameObject
             canvas.sortingLayerName = "UI";
         }
 
-        this.displayText = this.text.AddComponent<TextMeshPro>();
+        this.displayText = this.text.AddComponent<TextMeshProUGUI>();
         this.displayText.SetText(text);
         this.displayText.rectTransform.pivot = new Vector2(0, 1);
         this.setName(text);
 
         this.text.transform.SetParent(CText.UICanvas.transform);
-        this.displayText.sortingLayerID = SortingLayer.NameToID("UI");
+        //this.displayText.sortingLayerID = SortingLayer.NameToID("UI");
     }
 
     public void setText(string newText)

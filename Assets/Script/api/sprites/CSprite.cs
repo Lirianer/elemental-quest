@@ -9,6 +9,8 @@ public class CSprite : CGameObject
 	// Caching of mSprite.transform.
 	private Transform mTransform;
 
+	// False = Derecha
+	// True = Izquierda
 	private bool mFlip = false;
 
 
@@ -222,5 +224,10 @@ public class CSprite : CGameObject
 	public void hideInUnityHierarchy()
 	{
 		mSprite.hideFlags = HideFlags.HideInHierarchy;
+	}
+
+	public void setParent(GameObject aGameObject)
+	{
+		mSprite.transform.SetParent(aGameObject.transform);
 	}
 }
