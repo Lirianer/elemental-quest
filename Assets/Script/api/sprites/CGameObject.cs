@@ -57,8 +57,10 @@ public class CGameObject
 	protected int mUpY;
 	protected int mDownY;
 
-	private int mXOffsetBoundingBox = 0;
-	private int mYOffsetBoundingBox = 0;
+	private int mLeftOffsetBoundingBox = 0;
+	private int mTopOffsetBoundingBox = 0;
+	private int mRightOffsetBoundingBox = 0;
+	private int mBottomOffsetBoundingBox = 0;
 
 	//-----------------------------------------------------------------------------
 
@@ -532,13 +534,13 @@ public class CGameObject
 		CTileMap map = CGame.inst().getMap();
 
 		// Columna del lado izquierdo del personaje.
-		mLeftX = (x + mXOffsetBoundingBox) / map.getTileWidth();
+		mLeftX = (x + mLeftOffsetBoundingBox) / map.getTileWidth();
 		// Columna del lado derecho del personaje. -1 porque es el pixel de adentro. x+w es la coordenada del pixel de afuera.
-		mRightX = (x + getWidth() - 1 - mXOffsetBoundingBox) / map.getTileWidth();
+		mRightX = (x + getWidth() - 1 - mRightOffsetBoundingBox) / map.getTileWidth();
 		// Fila de arriba del personaje.
-		mUpY = (y + mYOffsetBoundingBox) / map.getTileHeight();
+		mUpY = (y + mTopOffsetBoundingBox) / map.getTileHeight();
 		// Fila de los pies del personaje.
-		mDownY = (y + getHeight() - 1) / map.getTileHeight();
+		mDownY = (y + getHeight() - 1 - mBottomOffsetBoundingBox) / map.getTileHeight();
 
 		mTileTopLeft = map.getTile(mLeftX, mUpY).isWalkable();
 		mTileTopRight = map.getTile(mRightX, mUpY).isWalkable();
@@ -551,15 +553,46 @@ public class CGameObject
 		//Debug.Log ("Esquina inferior derecha hay un tile: " + mTileDownRight);
 	}
 
-	public void setXOffsetBoundingBox(int aXOffsetBoundingBox)
+	public void setLeftOffsetBoundingBox(int aXOffsetBoundingBox)
 	{
-		mXOffsetBoundingBox = aXOffsetBoundingBox;
+		mLeftOffsetBoundingBox = aXOffsetBoundingBox;
 	}
 
-	public void setYOffsetBoundingBox(int aYOffsetBoundingBox)
+	public void setTopOffsetBoundingBox(int aYOffsetBoundingBox)
 	{
-		mYOffsetBoundingBox = aYOffsetBoundingBox;
+		mTopOffsetBoundingBox = aYOffsetBoundingBox;
 	}
+
+	public void setRightOffsetBoundingBox(int aXOffsetBoundingBox)
+	{
+		mRightOffsetBoundingBox = aXOffsetBoundingBox;
+	}
+
+	public void setBottomOffsetBoundingBox(int aYOffsetBoundingBox)
+	{
+		mBottomOffsetBoundingBox = aYOffsetBoundingBox;
+	}
+
+	public int getLeftOffsetBoundingBox()
+	{
+		return mLeftOffsetBoundingBox;
+	}
+
+	public int getTopOffsetBoundingBox()
+	{
+		return mTopOffsetBoundingBox;
+	}
+
+	public int getRightOffsetBoundingBox()
+	{
+		return mRightOffsetBoundingBox;
+	}
+
+	public int getBottomOffsetBoundingBox()
+	{
+		return mBottomOffsetBoundingBox;
+	}
+
     public void setMovable(bool state)
     {
         if (state)

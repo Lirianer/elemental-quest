@@ -54,9 +54,6 @@ public class CAndy : CAnimatedSprite
 
 		setState (STATE_STAND);
 
-		setXOffsetBoundingBox (X_OFFSET_BOUNDING_BOX);
-		setYOffsetBoundingBox (Y_OFFSET_BOUNDING_BOX);
-
 		mRect = new CSprite ();
 		mRect.setImage (Resources.Load<Sprite> ("Sprites/ui/pixel"));
 		mRect.setSortingLayerName ("Player");
@@ -122,11 +119,11 @@ public class CAndy : CAnimatedSprite
 			// Si estamos en una pared, corregirnos. 
 			if (isWallLeft (getX (), getY ())) {
 				// Reposicionar el personaje contra la pared.
-				setX (((mLeftX + 1) * tileWidth) - X_OFFSET_BOUNDING_BOX);
+				setX (((mLeftX + 1) * tileWidth) - this.getLeftOffsetBoundingBox());
 			} 
 			if (isWallRight (getX (), getY ())) {
 				// Reposicionar el personaje contra la pared.
-				setX ((((mRightX) * tileWidth) - getWidth ()) + X_OFFSET_BOUNDING_BOX);
+				setX ((((mRightX) * tileWidth) - getWidth ()) + this.getRightOffsetBoundingBox());
 			}
 
 
@@ -153,11 +150,11 @@ public class CAndy : CAnimatedSprite
 		} else if (getState () == STATE_WALKING) {
 			if (isWallLeft (getX (), getY ())) {
 				// Reposicionar el personaje contra la pared.
-				setX (((mLeftX + 1) * tileWidth) - X_OFFSET_BOUNDING_BOX);
+				setX (((mLeftX + 1) * tileWidth) - this.getLeftOffsetBoundingBox());
 			} 
 			if (isWallRight (getX (), getY ())) {
 				// Reposicionar el personaje contra la pared.
-				setX ((((mRightX) * tileWidth) - getWidth ()) + X_OFFSET_BOUNDING_BOX);
+				setX ((((mRightX) * tileWidth) - getWidth ()) + this.getRightOffsetBoundingBox());
 			}
 
 			if (CKeyboard.firstPress (CKeyboard.SPACE)) {
@@ -181,7 +178,7 @@ public class CAndy : CAnimatedSprite
 					if (isWallLeft (getX (), getY ())) {
 						// Reposicionar el personaje contra la pared.
 						//setX((((int) getX ()/tileWidth)+1)*tileWidth);
-						setX (((mLeftX + 1) * tileWidth) - X_OFFSET_BOUNDING_BOX);
+						setX (((mLeftX + 1) * tileWidth) - this.getLeftOffsetBoundingBox());
 
 						// Carlos version.
 						//setX (getX()+tileWidth/(getWidth()-1));
@@ -198,7 +195,7 @@ public class CAndy : CAnimatedSprite
 					// Si hay pared a la derecha vamos a stand.
 					if (isWallRight (getX (), getY ())) {
 						// Reposicionar el personaje contra la pared.
-						setX ((((mRightX) * tileWidth) - getWidth ()) + X_OFFSET_BOUNDING_BOX);
+						setX ((((mRightX) * tileWidth) - getWidth ()) + this.getRightOffsetBoundingBox());
 
 						setState (STATE_STAND);
 						return;
@@ -212,6 +209,10 @@ public class CAndy : CAnimatedSprite
 		} else if (getState () == STATE_PRE_JUMPING) {
 			controlMoveHorizontal();
 			
+			if (!isFloor (getX (), getY () + 1) && getAccelY() == 0) {
+				setAccelY(CGameConstants.GRAVITY);
+			}
+
 			if(this.isEnded())
 			{
 				this.setState(STATE_JUMPING);
@@ -233,7 +234,7 @@ public class CAndy : CAnimatedSprite
 
 			if (isRoof (getX (), getY () - 1)) 
 			{
-				setY (((mUpY + 1) * tileHeight) - Y_OFFSET_BOUNDING_BOX);
+				setY (((mUpY + 1) * tileHeight) - this.getTopOffsetBoundingBox());
 				setVelY (0);
 				setState (STATE_HIT_ROOF);
 				return;
@@ -260,12 +261,12 @@ public class CAndy : CAnimatedSprite
 			if (isWallLeft (getX (), mOldY)) 
 			{
 				// Reposicionar el personaje contra la pared.
-				setX (((mLeftX + 1) * CTileMap.Instance.getTileWidth()) - X_OFFSET_BOUNDING_BOX);
+				setX (((mLeftX + 1) * CTileMap.Instance.getTileWidth()) - this.getLeftOffsetBoundingBox());
 			} 
 			if (isWallRight (getX (), mOldY)) 
 			{
 				// Reposicionar el personaje contra la pared.
-				setX ((((mRightX) * CTileMap.Instance.getTileWidth()) - getWidth ()) + X_OFFSET_BOUNDING_BOX);
+				setX ((((mRightX) * CTileMap.Instance.getTileWidth()) - getWidth ()) + this.getRightOffsetBoundingBox());
 			} 
 
 			if (isFloor (getX (), getY () + 1)) {
@@ -274,7 +275,7 @@ public class CAndy : CAnimatedSprite
 
 			if (isRoof (getX (), getY () - 1)) 
 			{
-				setY (((mUpY + 1) * CTileMap.Instance.getTileHeight()) - Y_OFFSET_BOUNDING_BOX);
+				setY (((mUpY + 1) * CTileMap.Instance.getTileHeight()) - this.getTopOffsetBoundingBox());
 				
 			}
 
@@ -346,12 +347,12 @@ public class CAndy : CAnimatedSprite
 		if (isWallLeft (getX (), mOldY)) 
 		{
 			// Reposicionar el personaje contra la pared.
-			setX (((mLeftX + 1) * tileWidth) - X_OFFSET_BOUNDING_BOX);
+			setX (((mLeftX + 1) * tileWidth) - this.getLeftOffsetBoundingBox());
 		} 
 		if (isWallRight (getX (), mOldY)) 
 		{
 			// Reposicionar el personaje contra la pared.
-			setX ((((mRightX) * tileWidth) - getWidth ()) + X_OFFSET_BOUNDING_BOX);
+			setX ((((mRightX) * tileWidth) - getWidth ()) + this.getRightOffsetBoundingBox());
 		} 
 
 		// Chequeamos si podemos movernos.
@@ -368,7 +369,7 @@ public class CAndy : CAnimatedSprite
 				if (isWallLeft (getX ()-1, mOldY)) 
 				{
 					// Reposicionar el personaje contra la pared.
-					setX (((mLeftX + 1) * tileWidth) - X_OFFSET_BOUNDING_BOX);
+					setX (((mLeftX + 1) * tileWidth) - this.getLeftOffsetBoundingBox());
 				} 
 				else 
 				{
@@ -384,7 +385,7 @@ public class CAndy : CAnimatedSprite
 				if (isWallRight (getX ()+1, mOldY)) 
 				{
 					// Reposicionar el personaje contra la pared.
-					setX ((((mRightX) * tileWidth) - getWidth ()) + X_OFFSET_BOUNDING_BOX);
+					setX ((((mRightX) * tileWidth) - getWidth ()) + this.getRightOffsetBoundingBox());
 				} 
 				else 
 				{
@@ -406,15 +407,15 @@ public class CAndy : CAnimatedSprite
 		mRect.setScaleY(HEIGHT);
 		mRect.update ();
 
-		//mRect.render ();
+		mRect.render ();
 
 		// Bounding box.
-		mRect2.setXY (getX() + X_OFFSET_BOUNDING_BOX, getY() + Y_OFFSET_BOUNDING_BOX);
-		mRect2.setScaleX(WIDTH - (X_OFFSET_BOUNDING_BOX * 2));
-		mRect2.setScaleY(HEIGHT - Y_OFFSET_BOUNDING_BOX);
+		mRect2.setXY (getX() + this.getLeftOffsetBoundingBox(), getY() + this.getTopOffsetBoundingBox());
+		mRect2.setScaleX(WIDTH - this.getRightOffsetBoundingBox() - this.getLeftOffsetBoundingBox());
+		mRect2.setScaleY(HEIGHT - this.getBottomOffsetBoundingBox() - this.getTopOffsetBoundingBox());
 		mRect2.update ();
 
-		//mRect2.render ();
+		mRect2.render ();
 
         textoPoderes.render();
 
@@ -440,7 +441,17 @@ public class CAndy : CAnimatedSprite
 
 		if (getState () == STATE_STAND) 
 		{
-            
+			if(this.getFlip())
+			{
+				this.setLeftOffsetBoundingBox(32);
+				this.setRightOffsetBoundingBox(19);
+			}
+			else {
+				this.setLeftOffsetBoundingBox(19);
+				this.setRightOffsetBoundingBox(28);
+			}
+
+			this.setTopOffsetBoundingBox(Y_OFFSET_BOUNDING_BOX);
             stopMove ();
 			gotoAndStop (1);
             initAnimation(21, 31, 12, true);
@@ -452,7 +463,7 @@ public class CAndy : CAnimatedSprite
 		}
 		else if (getState () == STATE_PRE_JUMPING) 
 		{
-			initAnimation (13, 15 , 12, false);
+			initAnimation (13, 15 , 24, false);
 
 		}
 		else if (getState () == STATE_JUMPING) 
