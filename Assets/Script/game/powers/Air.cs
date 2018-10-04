@@ -52,6 +52,7 @@ public class Air : Power
         // Y: Centro del personaje + alto / 2 * angulo
         bullet.setY(playerCenter.y + radius * Mathf.Sin(angRad));
         bullet.setVelXY (AireDisparo.SPEED * Mathf.Cos (angRad), AireDisparo.SPEED * Mathf.Sin (angRad));
+        bullet.setBounds(0, 0, CTileMap.Instance.getMapWidth() * CTileMap.Instance.getTileWidth(), CTileMap.Instance.getMapHeight() * CTileMap.Instance.getTileHeight());
         CBulletManager.inst().add(bullet); 
 
     }

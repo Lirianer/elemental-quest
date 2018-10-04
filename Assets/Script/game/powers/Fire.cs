@@ -53,7 +53,6 @@ public class Fire : Power
 
         
         //Si el perosnaje se esta quemando 
-
         if (burning)
         {
             //Seteo el poder en el medio del personaje 
@@ -94,27 +93,26 @@ public class Fire : Power
     {
         // Cuento para que no sean mas de dos disparos 
 
-          FuegoDisparo bullet = new FuegoDisparo();
+        FuegoDisparo bullet = new FuegoDisparo();
 
-            CVector playerCenter = new CVector(player.getX() + player.getWidth() / 2, player.getY() + player.getHeight() / 2);
-            float radius = player.getHeight() > player.getWidth() ? player.getHeight() / 2 : player.getWidth() / 2;
-            float xDiff = CMouse.getX() - playerCenter.x;
-            float yDiff = CMouse.getY() - playerCenter.y;
-            float angRad = Mathf.Atan2(yDiff, xDiff);
+        CVector playerCenter = new CVector(player.getX() + player.getWidth() / 2, player.getY() + player.getHeight() / 2);
+        float radius = player.getHeight() > player.getWidth() ? player.getHeight() / 2 : player.getWidth() / 2;
+        float xDiff = CMouse.getX() - playerCenter.x;
+        float yDiff = CMouse.getY() - playerCenter.y;
+        float angRad = Mathf.Atan2(yDiff, xDiff);
 
-            bullet.setRotation(CMath.radToDeg(angRad));
-            // X: Centro del personaje + ancho / 2 * angulo
-            bullet.setX(playerCenter.x + radius * Mathf.Cos(angRad));
-            // Y: Centro del personaje + alto / 2 * angulo
-            bullet.setY(playerCenter.y + radius * Mathf.Sin(angRad));
-            bullet.setVelXY(FuegoDisparo.SPEED * Mathf.Cos(angRad), FuegoDisparo.SPEED * Mathf.Sin(angRad));
-            CBulletManager.inst().add(bullet);
- 
-           
+        bullet.setRotation(CMath.radToDeg(angRad));
+        // X: Centro del personaje + ancho / 2 * angulo
+        bullet.setX(playerCenter.x + radius * Mathf.Cos(angRad));
+        // Y: Centro del personaje + alto / 2 * angulo
+        bullet.setY(playerCenter.y + radius * Mathf.Sin(angRad));
+        bullet.setVelXY(FuegoDisparo.SPEED * Mathf.Cos(angRad), FuegoDisparo.SPEED * Mathf.Sin(angRad));
+        bullet.setBounds(0, 0, CTileMap.Instance.getMapWidth() * CTileMap.Instance.getTileWidth(), CTileMap.Instance.getMapHeight() * CTileMap.Instance.getTileHeight());
+        CBulletManager.inst().add(bullet);
 
-       
-
+        Debug.Log("Ya hice todo y se supone estoy disparando wn maraca ql");
     }
+
     override public void render()
     {
         base.render();
