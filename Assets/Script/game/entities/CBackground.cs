@@ -5,7 +5,7 @@ public class CBackground : CSprite
 {
 	public CBackground()
 	{
-		setImage (Resources.Load<Sprite>("Sprites/background/game_background"));
+		setImage (Resources.Load<Sprite>("Sprites/background/fondo"));
 		setName ("background");
 		setSortingLayerName ("Background");
 		render ();

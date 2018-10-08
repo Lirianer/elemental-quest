@@ -24,9 +24,9 @@ public class CGame : MonoBehaviour
 		CKeyboard.init ();
 		mCamera = CCamera.inst();
 
-		setState (new CPlatformGameState ());
+		//setState (new CPlatformGameState ());
 		//setState(new CLevelState ());
-		//setState(new CMainMenuState ());
+		setState(new CMainMenuState ());
 	}
 
 	static public CGame inst()

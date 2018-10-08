@@ -1,67 +1,59 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using TMPro;
 
 public class CMainMenuState : CGameState
 {
 	private CSprite mBackground;
 
 	private CButtonSprite mButtonPlay;
+    private CButtonSprite exitButton;
 
-	int[] a = { 0, 1, 2, 3, 4, 5 };
+
+
+    private CText logo;
 
 	public CMainMenuState()
 	{
-		//Debug.Log (fact (5));
-		///mostrar (a, 0);
+
 	}
-
-	private void swap(int[] aArray, int a, int b)
-	{
-		int aux;
-		aux = aArray [a];
-		aArray [a] = aArray[b];
-		aArray [b] = aux;
-	}
-
-
-
-	private float fact(float n)
-	{
-		if (n == 0)
-			return 1;
-		else
-			return n * fact (n - 1);
-	}
-
-	private void mostrar(int[] aArray, int aIndex)
-	{
-		if (aIndex < aArray.Length) 
-		{
-			Debug.Log (aArray [aIndex]);
-			mostrar(aArray, aIndex+1);
-		}
-	}
-
-
+	
 	override public void init()
 	{
 		base.init ();
 
 		mBackground = new CSprite ();
-		mBackground.setImage (Resources.Load<Sprite> ("Sprites/menu/menu_background"));
+		mBackground.setImage (Resources.Load<Sprite> ("Sprites/menu/fondo"));
 		mBackground.setXY (0, 0);
 		mBackground.setSortingLayerName("Background");
 		mBackground.setName ("background");
 
-		mButtonPlay = new CButtonSprite ();
-		mButtonPlay.setFrames (Resources.LoadAll<Sprite> ("Sprites/ui"));
-		mButtonPlay.gotoAndStop (1);
-		mButtonPlay.setXY (CGameConstants.SCREEN_WIDTH / 2, CGameConstants.SCREEN_HEIGHT / 2);
-		mButtonPlay.setWidth (190);
-		mButtonPlay.setHeight (50);
-		mButtonPlay.setSortingLayerName ("UI");
-		mBackground.setName ("button");
-	}
+
+
+		mButtonPlay = new CButtonSprite ("Play");
+        mButtonPlay.setFrames(Resources.LoadAll<Sprite>("Sprites/button/play00"));
+        mButtonPlay.setName("PlayImage");
+        mButtonPlay.setXY (CGameConstants.SCREEN_WIDTH / 2, CGameConstants.SCREEN_HEIGHT / 2 +50);
+        
+
+
+        exitButton = new CButtonSprite("Exit");
+        exitButton.setFrames(Resources.LoadAll<Sprite>("Sprites/button/play00"));
+        exitButton.setName("ExitImage");
+        exitButton.setXY(mButtonPlay.getX(), CGameConstants.SCREEN_HEIGHT / 3 * 2 -10);
+
+  
+
+        logo = new CText(" ");
+        logo.setXY(CGameConstants.SCREEN_WIDTH / 2, CGameConstants.SCREEN_HEIGHT / 4 * 1);
+        logo.setFontSize(1000f);
+        logo.setPivot(0.5f, 0.5f);
+        logo.setWidth(CGameConstants.SCREEN_WIDTH);
+        logo.setAlignment(TMPro.TextAlignmentOptions.Center);
+         
+
+    }
 	
 	override public void update()
 	{
@@ -69,18 +61,42 @@ public class CMainMenuState : CGameState
 
 		mButtonPlay.update ();
 
-		if (mButtonPlay.clicked ()) 
+        exitButton.update();
+        logo.update();
+
+        if (mButtonPlay.isMouseOver())
+
+        {
+            
+                
+            
+
+        }
+
+
+
+
+        if (mButtonPlay.clicked ()) 
 		{
-			CGame.inst ().setState(new CLevelState ());
+			CGame.inst ().setState(new CPlatformGameState());
+
+
 			return;
 		}
+
+        if (exitButton.clicked())
+        {
+            Application.Quit();
+        }
 	}
 	
 	override public void render()
 	{
 		base.render ();
 
+        exitButton.render();
 		mButtonPlay.render ();
+        logo.render();
 	}
 	
 	override public void destroy()
@@ -92,6 +108,12 @@ public class CMainMenuState : CGameState
 
 		mButtonPlay.destroy ();
 		mButtonPlay = null;
+
+        exitButton.destroy();
+        exitButton = null;
+
+        logo.destroy();
+        logo = null;
 	}
 	
 }
