@@ -12,8 +12,8 @@ public class CButtonSprite : CAnimatedSprite
 		this.setName("Button - " + buttonText);
 		this.setFrames(Resources.LoadAll<Sprite>("Sprites/ui"));
 		this.gotoAndStop(1);
-		this.setWidth(190);
-		this.setHeight(50);
+		this.setWidth(250);
+		this.setHeight(60);
 		this.setSortingLayerName("UI");
 
 		this.buttonText = new CText(buttonText);
