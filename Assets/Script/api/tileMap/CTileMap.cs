@@ -78,13 +78,15 @@ public class CTileMap
 	// Info con los items.
 	private CItemInfo mItemInfo;
 
+	private const int AIR_INDEX = 71;
+
 
 	public CTileMap(string aFileName)
 	{
 		loadLevelTMX (aFileName);
 
 		// Create the empty tile. Used to be returned when accessing out of the array.
-		mEmptyTile = new CTile (0, 0, 0, mTiles [21], 4);
+		mEmptyTile = new CTile (0, 0, 0, mTiles [AIR_INDEX], 4);
 		mEmptyTile.setVisible (false);
 		mEmptyTile.setWalkable (true);
 
@@ -129,7 +131,7 @@ public class CTileMap
 
             for (int x = 0; x < mapWidth; x++)
             {
-				CTile tile = new CTile((x * mTileWidth), (y * mTileHeight), 0, mTiles[21], scale);
+				CTile tile = new CTile((x * mTileWidth), (y * mTileHeight), 0, mTiles[AIR_INDEX], scale);
 				row.Add(tile);
             }
 

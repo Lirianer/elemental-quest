@@ -6,12 +6,12 @@ using System;
 public class CTile : CSprite
 {
 	public enum Type : int {
-		AIR = 22,
-		STONE = 19,
-		MUD = 4,
-		WATER = 10,
+		AIR = 72,
+		STONE = 34,
+		MUD = 14,
+		WATER = 8,
 		EARTH = 1,
-		ICE = 16,
+		ICE = 5,
 		SOMETHING,
 
 		ARTIFICIAL_EARTH = 23
@@ -32,10 +32,11 @@ public class CTile : CSprite
 
 	private static GameObject mMapObject;
 
-	private int[] waterIndexes =  new int[] {10, 18};
-	private int[] iceIndexes = new int[] {16, 17};
-	private int[] stoneIndexes = new int[] {19, 20, 21};
-	private int[] earthIndexes = new int[] {1, 2, 3, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15};
+	private int[] waterIndexes =  new int[] {8, 18, 28};
+	private int[] iceIndexes = new int[] {5, 6};
+	private int[] stoneIndexes = new int[] {34, 35, 36, 44, 45, 46, 54, 55, 56, 47, 48};
+	private int[] earthIndexes = new int[] {1, 2, 3, 4, 7, 9, 10, 11, 12, 13, 17, 19, 20, 22, 23, 24, 27, 29, 30, 31, 32, 33, 37, 38, 39};
+	private int[] mudIndexes = new int[] {14, 15, 16, 25, 26};
 
 
 	// Parametros: coordenada del tile (x, y) y el indice del tile.
@@ -57,6 +58,7 @@ public class CTile : CSprite
 
 		setName ("Tile - " + (aY / this.getHeight()) + "/" + (aX / this.getWidth()) );
 		setParent(mMapObject);
+		setVisible(false);
 		//hideInUnityHierarchy ();
 	}
 
@@ -101,6 +103,10 @@ public class CTile : CSprite
 		else if(Array.IndexOf(this.earthIndexes, this.getTileIndex()) > -1)
 		{
 			return CTile.Type.EARTH;
+		}
+		else if(Array.IndexOf(this.mudIndexes, this.getTileIndex()) > -1)
+		{
+			return CTile.Type.MUD;
 		}
 
 		return (Type)this.getTileIndex();
