@@ -58,7 +58,6 @@ public class CTile : CSprite
 
 		setName ("Tile - " + (aY / this.getHeight()) + "/" + (aX / this.getWidth()) );
 		setParent(mMapObject);
-		setVisible(false);
 		//hideInUnityHierarchy ();
 	}
 
