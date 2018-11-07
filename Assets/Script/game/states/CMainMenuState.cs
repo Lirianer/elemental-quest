@@ -34,7 +34,9 @@ public class CMainMenuState : CGameState
 		mButtonPlay = new CButtonSprite ("Play");
         mButtonPlay.setFrames(Resources.LoadAll<Sprite>("Sprites/button/play00"));
         mButtonPlay.setName("PlayImage");
-        mButtonPlay.setXY (CGameConstants.SCREEN_WIDTH / 2, CGameConstants.SCREEN_HEIGHT / 2 +50);
+        mButtonPlay.setXY (CGameConstants.SCREEN_WIDTH / 2 +700 , CGameConstants.SCREEN_HEIGHT / 2 - 150 );
+        mButtonPlay.setScale(500);
+
         
 
 
