@@ -18,7 +18,7 @@ public class CGolemTierra : CEnemy
         setFrames(Resources.LoadAll<Sprite>("Sprites/enemyGolemtierra"));
         setName("GolemTierra");
         setSortingLayerName("Enemies");
-        setScale(2.0f);
+        setScale(1.0f);
         setRegistration(CSprite.REG_TOP_LEFT);
         setWidth(WIDTH);
         setHeight(HEIGHT);
@@ -106,7 +106,7 @@ public class CGolemTierra : CEnemy
                 {
                     // No hay pared, se puede mover.
                     setVelX(-400);
-                    setFlip(true);
+                    setFlip(false);
 
                     if (getType() == TYPE_DONT_FALL)
                     {
@@ -134,7 +134,7 @@ public class CGolemTierra : CEnemy
                 {
                     // No hay pared, se puede mover.
                     setVelX(400);
-                    setFlip(false);
+                    setFlip(true);
 
                     if (getType() == TYPE_DONT_FALL)
                     {
@@ -206,7 +206,8 @@ public class CGolemTierra : CEnemy
         }
         else if (getState() == STATE_WALKING)
         {
-            initAnimation(1, 2, 12, true);
+            initAnimation(1, 8, 13, true);
+          //  setAccelY(CGameConstants.GRAVITY);
         }
     }
 }
