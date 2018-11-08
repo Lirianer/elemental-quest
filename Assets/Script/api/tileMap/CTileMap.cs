@@ -80,7 +80,10 @@ public class CTileMap
 
 	private const int AIR_INDEX = 71;
 
-
+	private int leftLimit;
+	private int rightLimit;
+	private int topLimit;
+	private int bottomLimit;
 	public CTileMap(string aFileName)
 	{
 		loadLevelTMX (aFileName);
@@ -124,7 +127,6 @@ public class CTileMap
 		string tileSetPath = tmxMap.Tilesets[0].Image.Source.Replace("Assets/Resources/", "");
 		tileSetPath = tileSetPath.Replace(".png", "");
 		mTiles = Resources.LoadAll<Sprite> (tileSetPath);
-
         for (int y = 0; y < mapHeight; y++)
         {
 			List<CTile> row = new List<CTile>();
@@ -132,6 +134,7 @@ public class CTileMap
             for (int x = 0; x < mapWidth; x++)
             {
 				CTile tile = new CTile((x * mTileWidth), (y * mTileHeight), 0, mTiles[AIR_INDEX], scale);
+				tile.setVisible(false);
 				row.Add(tile);
             }
 
@@ -295,10 +298,25 @@ public class CTileMap
 
 	public void update()
 	{
-		for (int y = 0; y < mMapHeight; y++) 
+		CVector cameraPos = CCamera.inst() .getPos();
+		leftLimit = (int)(cameraPos.x - 10 * getTileWidth()) / getTileWidth();
+		rightLimit = (int)(cameraPos.x + 10 * getTileWidth()) / getTileWidth();
+		topLimit = (int)(cameraPos.y - 7 * getTileHeight()) / getTileHeight();
+		bottomLimit = (int)(cameraPos.y + 7 * getTileHeight()) / getTileHeight();
+
+		leftLimit = leftLimit < 0 ? 0 : leftLimit;
+		rightLimit = rightLimit > getMapWidth() ? getMapWidth() : rightLimit;
+		topLimit = topLimit < 0 ? 0 : topLimit;
+		bottomLimit = bottomLimit > getMapHeight() ? getMapHeight() : bottomLimit;
+
+		for (int y = topLimit; y < bottomLimit; y++) 
 		{
-			for (int x = 0; x < mMapWidth; x++) 
+			for (int x = leftLimit; x < rightLimit; x++) 
 			{
+				if(!mMap[y][x].isVisible()) 
+				{
+					mMap[y][x].setVisible(true);
+				}
 				mMap [y] [x].update ();
 			}
 		}
@@ -307,9 +325,9 @@ public class CTileMap
 
 	public void render()
 	{
-		for (int y = 0; y < mMapHeight; y++) 
+		for (int y = topLimit; y < bottomLimit; y++) 
 		{
-			for (int x = 0; x < mMapWidth; x++) 
+			for (int x = leftLimit; x < rightLimit; x++) 
 			{
 				mMap [y] [x].render ();
 			}

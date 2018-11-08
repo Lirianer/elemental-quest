@@ -99,10 +99,6 @@ public class CCamera : CGameObject
 
 	new public void setBounds(int minX, int minY, int maxX, int maxY)
 	{
-		Debug.Log("MIN X: " + minX );
-		Debug.Log("max X: " + maxX );
-		Debug.Log("MIN Y: " + minY );
-		Debug.Log("max Y: " + maxY );
 		this.minX = minX;
 		this.maxX = maxX;
 		this.minY = minY;
