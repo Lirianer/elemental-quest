@@ -18,7 +18,7 @@ public class CSalamandra : CEnemy
         setFrames(Resources.LoadAll<Sprite>("Sprites/enemySalamandrafuego"));
         setName("Salamandra");
         setSortingLayerName("Enemies");
-        setScale(2.0f);
+        setScale(0.5f);
         setRegistration(CSprite.REG_TOP_LEFT);
         setWidth(WIDTH);
         setHeight(HEIGHT);
@@ -106,8 +106,8 @@ public class CSalamandra : CEnemy
                 else
                 {
                     // No hay pared, se puede mover.
-                    setVelX(-400);
-                    setFlip(true);
+                    setVelX(-200);
+                    setFlip(false);
 
                     if (getType() == TYPE_DONT_FALL)
                     {
@@ -134,8 +134,8 @@ public class CSalamandra : CEnemy
                 else
                 {
                     // No hay pared, se puede mover.
-                    setVelX(400);
-                    setFlip(false);
+                    setVelX(200);
+                    setFlip(true);
 
                     if (getType() == TYPE_DONT_FALL)
                     {
@@ -207,7 +207,7 @@ public class CSalamandra : CEnemy
         }
         else if (getState() == STATE_WALKING)
         {
-            initAnimation(1, 2, 12, true);
+            initAnimation(1, 9, 12, true);
         }
     }
 }
