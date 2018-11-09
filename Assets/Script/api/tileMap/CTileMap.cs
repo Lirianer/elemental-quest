@@ -79,11 +79,14 @@ public class CTileMap
 	private CItemInfo mItemInfo;
 
 	private const int AIR_INDEX = 71;
+	private const int HORIZONTAL_TILE_PRELOAD = 20;
+	private const int VERTICAL_TILE_PRELOAD  = 14;
 
 	private int leftLimit;
 	private int rightLimit;
 	private int topLimit;
 	private int bottomLimit;
+	
 	public CTileMap(string aFileName)
 	{
 		loadLevelTMX (aFileName);
@@ -311,10 +314,10 @@ public class CTileMap
 	public void update()
 	{
 		CVector cameraPos = CCamera.inst() .getPos();
-		leftLimit = (int)(cameraPos.x - 10 * getTileWidth()) / getTileWidth();
-		rightLimit = (int)(cameraPos.x + 10 * getTileWidth()) / getTileWidth();
-		topLimit = (int)(cameraPos.y - 7 * getTileHeight()) / getTileHeight();
-		bottomLimit = (int)(cameraPos.y + 7 * getTileHeight()) / getTileHeight();
+		leftLimit = (int)(cameraPos.x - HORIZONTAL_TILE_PRELOAD / 2 * getTileWidth()) / getTileWidth();
+		rightLimit = (int)(cameraPos.x + HORIZONTAL_TILE_PRELOAD / 2 * getTileWidth()) / getTileWidth();
+		topLimit = (int)(cameraPos.y - VERTICAL_TILE_PRELOAD / 2 * getTileHeight()) / getTileHeight();
+		bottomLimit = (int)(cameraPos.y + VERTICAL_TILE_PRELOAD / 2 * getTileHeight()) / getTileHeight();
 
 		leftLimit = leftLimit < 0 ? 0 : leftLimit;
 		rightLimit = rightLimit > getMapWidth() ? getMapWidth() : rightLimit;
@@ -332,7 +335,6 @@ public class CTileMap
 				mMap [y] [x].update ();
 			}
 		}
-             
     }
 
 	public void render()
