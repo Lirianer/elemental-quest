@@ -230,4 +230,9 @@ public class CSprite : CGameObject
 	{
 		mSprite.transform.SetParent(aGameObject.transform);
 	}
+
+	public GameObject getGameObject()
+	{
+		return this.mSprite;
+	}
 }
