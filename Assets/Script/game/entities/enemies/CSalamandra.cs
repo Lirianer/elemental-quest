@@ -192,7 +192,6 @@ public class CSalamandra : CEnemy
                 }
                 else
                 {
-                    Debug.Log(tongue.getCurrentFrame());
                     switch (tongue.getCurrentFrame())
                     {
                         case 1:

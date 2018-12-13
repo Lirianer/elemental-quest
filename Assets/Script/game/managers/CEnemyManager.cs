@@ -52,7 +52,6 @@ public class CEnemyManager : CManager
 
 	public void spawnEnemy(float x, float y, int type = 0)
 	{
-		Debug.Log(x + " - " + y);
 		CEnemy enemy = new CEnemy();
 
 		type = type == 0 ? CMath.randomIntBetween(1, 3) : type;
