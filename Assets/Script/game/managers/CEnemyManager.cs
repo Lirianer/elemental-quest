@@ -31,7 +31,9 @@ public class CEnemyManager : CManager
 	{
 		base.update ();
 
-		if(this.collidesRect(CGame.inst().getPlayer()) != null)
+		CSprite enemy = (CSprite) this.collidesRect(CGame.inst().getPlayer());
+
+		if(enemy != null && enemy.isVisible())
 		{
 			CGame.inst().getPlayer().die();
 		}
