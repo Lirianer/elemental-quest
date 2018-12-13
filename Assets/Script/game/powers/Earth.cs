@@ -30,7 +30,7 @@ public class Earth : Power
 
         if(tile.getTileType() == CTile.Type.AIR && (bottomTile.getTileType() == CTile.Type.MUD || bottomTile.getTileType() == CTile.Type.ARTIFICIAL_EARTH) && earthTileCounter < MAX_EARTH_TILES)
         {
-            CTileMap.Instance.changeTile(tile, CTile.Type.ARTIFICIAL_EARTH, 7);
+            CTileMap.Instance.changeTile(tile, CTile.Type.ARTIFICIAL_EARTH);
             earthTileCounter++;
         }
     }

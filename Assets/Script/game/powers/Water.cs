@@ -40,12 +40,12 @@ public class Water : Power
 
         if(tile.getTileType() == CTile.Type.WATER && topTile.getTileType() == CTile.Type.AIR && iceTileCounter < MAX_ICE_TILES)
         {
-            CTileMap.Instance.changeTile(tile, CTile.Type.ICE, 15);
+            CTileMap.Instance.changeTile(tile, CTile.Type.ICE);
             iceTileCounter++;
         }
         else if(tile.getTileType() == CTile.Type.ICE && topTile.getTileType() == CTile.Type.AIR && iceTileCounter > 0)
         {
-            CTileMap.Instance.changeTile(tile, CTile.Type.WATER, 17);
+            CTileMap.Instance.changeTile(tile, CTile.Type.WATER);
             iceTileCounter--;
         }
     }
