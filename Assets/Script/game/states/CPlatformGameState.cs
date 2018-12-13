@@ -35,13 +35,12 @@ public class CPlatformGameState : CGameState
 		mMap = new CTileMap ("Assets/Resources/Map/Map.tmx");
 		CGame.inst ().setMap (mMap);
 
-
-
-
 		mAndy = new CAndy ();
         //Referenci Map a Andy 
         mAndy.muestro = mMap;
 		mAndy.setXY (400, 400);
+		mAndy.setCheckpoint(400, 400);
+		CGame.inst().setPlayer(mAndy);
 
 
         //createAsteroids ();

@@ -24,7 +24,7 @@ public class CEnemyBullet : CSprite
 	{
 		base.update ();
 
-		CPlayer player = CGame.inst ().getPlayer ();
+		CAndy player = CGame.inst ().getPlayer ();
 		CVector a = player.getPos () - getPos ();
 		a.normalize ();
 		a.mul (ACCEL);

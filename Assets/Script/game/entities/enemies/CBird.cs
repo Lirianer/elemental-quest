@@ -15,7 +15,7 @@ public class CBird : CEnemy
     public CBird(int aType)
     {
         setType(aType);
-        setFrames(Resources.LoadAll<Sprite>("Sprites/enemyAve"));
+        setFrames(Resources.LoadAll<Sprite>("Sprites/enemies/air-bird"));
         setName("Pajaro");
         setSortingLayerName("Enemies");
         setScale(2.0f);

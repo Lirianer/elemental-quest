@@ -32,6 +32,8 @@ public class CAndy : CAnimatedSprite
 	private const int X_OFFSET_BOUNDING_BOX = 8 * 2;
 	private const int Y_OFFSET_BOUNDING_BOX = 13 * 2;
 
+	private CVector lastCheckPoint;
+
 	public CAndy()
 	{
 		setFrames (Resources.LoadAll<Sprite> ("Sprites/nina"));
@@ -85,6 +87,9 @@ public class CAndy : CAnimatedSprite
         textoPoderes.setFontSize(40f);
         textoPoderes.setXY(this.getX(), this.getY() - textoPoderes.getHeight());
         textoPoderes.setAlignment(TMPro.TextAlignmentOptions.Center);
+
+		this.setBounds(0, 0, CTileMap.Instance.getMapWidth() * CTileMap.Instance.getTileWidth(), CTileMap.Instance.getMapHeight() * CTileMap.Instance.getTileHeight());
+		this.setBoundAction(CGameObject.BOUNCE);
     }
 
 	private void setOldYPosition()
@@ -524,4 +529,16 @@ public class CAndy : CAnimatedSprite
     {
         this.selectPower(this.selectedPower - 1);
     }
+
+	public void die()
+	{
+		this.setXY(this.lastCheckPoint.x, this.lastCheckPoint.y);
+
+		this.setState(STATE_STAND);
+	}
+
+	public void setCheckpoint(float x, float y)
+	{
+		lastCheckPoint = new CVector(x, y);
+	}
 }

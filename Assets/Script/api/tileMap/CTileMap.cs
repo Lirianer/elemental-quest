@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Linq;
 using TiledSharp;
+using System;
 
 
 public class CTileMap  
@@ -78,13 +79,21 @@ public class CTileMap
 	// Info con los items.
 	private CItemInfo mItemInfo;
 
+	private const int AIR_INDEX = 71;
+	private const int HORIZONTAL_TILE_PRELOAD = 20;
+	private const int VERTICAL_TILE_PRELOAD  = 14;
 
+	private int leftLimit;
+	private int rightLimit;
+	private int topLimit;
+	private int bottomLimit;
+	
 	public CTileMap(string aFileName)
 	{
 		loadLevelTMX (aFileName);
 
 		// Create the empty tile. Used to be returned when accessing out of the array.
-		mEmptyTile = new CTile (0, 0, 0, mTiles [21], 4);
+		mEmptyTile = new CTile (0, 0, 0, mTiles [AIR_INDEX], 4);
 		mEmptyTile.setVisible (false);
 		mEmptyTile.setWalkable (true);
 
@@ -106,7 +115,6 @@ public class CTileMap
 	private void loadLevelTMX(string aFileName)
 	{
 		TmxMap tmxMap = new TmxMap(aFileName);
-
 		int mapWidth = tmxMap.Width;
 		int mapHeight = tmxMap.Height;
 		int tileWidth = tmxMap.TileWidth;
@@ -122,14 +130,15 @@ public class CTileMap
 		string tileSetPath = tmxMap.Tilesets[0].Image.Source.Replace("Assets/Resources/", "");
 		tileSetPath = tileSetPath.Replace(".png", "");
 		mTiles = Resources.LoadAll<Sprite> (tileSetPath);
-
         for (int y = 0; y < mapHeight; y++)
         {
 			List<CTile> row = new List<CTile>();
 
             for (int x = 0; x < mapWidth; x++)
             {
-				CTile tile = new CTile((x * mTileWidth), (y * mTileHeight), 0, mTiles[21], scale);
+				CTile tile = new CTile((x * mTileWidth), (y * mTileHeight), 0, mTiles[AIR_INDEX], scale);
+				tile.setVisible(true);
+				tile.render();
 				row.Add(tile);
             }
 
@@ -147,10 +156,15 @@ public class CTileMap
             //getTile (x, y).setWalkable (mWalkable [index]); NO APLICA.
             getTile(x, y).setImage(mTiles[index - 1]);           // 0 a 21
         }
-	}
 
-	// Construye el mapa. Crear el array y carga el mapa aLevel.
-	public void buildLevel(int aLevel)
+		foreach (var spawnPoint in tmxMap.ObjectGroups["Enemy Spawns"].Objects)
+		{
+			CEnemyManager.inst().spawnEnemy((float)spawnPoint.X * scale, (float)spawnPoint.Y * scale, Int32.Parse(spawnPoint.Type));
+		}
+    }
+
+    // Construye el mapa. Crear el array y carga el mapa aLevel.
+    public void buildLevel(int aLevel)
 	{ 
 		mCurrentLevel = aLevel;
 
@@ -293,21 +307,35 @@ public class CTileMap
 
 	public void update()
 	{
-		for (int y = 0; y < mMapHeight; y++) 
+		CVector cameraPos = CCamera.inst() .getPos();
+		leftLimit = (int)(cameraPos.x - HORIZONTAL_TILE_PRELOAD / 2 * getTileWidth()) / getTileWidth();
+		rightLimit = (int)(cameraPos.x + HORIZONTAL_TILE_PRELOAD / 2 * getTileWidth()) / getTileWidth();
+		topLimit = (int)(cameraPos.y - VERTICAL_TILE_PRELOAD / 2 * getTileHeight()) / getTileHeight();
+		bottomLimit = (int)(cameraPos.y + VERTICAL_TILE_PRELOAD / 2 * getTileHeight()) / getTileHeight();
+
+		leftLimit = leftLimit < 0 ? 0 : leftLimit;
+		rightLimit = rightLimit > getMapWidth() ? getMapWidth() : rightLimit;
+		topLimit = topLimit < 0 ? 0 : topLimit;
+		bottomLimit = bottomLimit > getMapHeight() ? getMapHeight() : bottomLimit;
+
+		for (int y = topLimit; y < bottomLimit; y++) 
 		{
-			for (int x = 0; x < mMapWidth; x++) 
+			for (int x = leftLimit; x < rightLimit; x++) 
 			{
+				if(!mMap[y][x].isVisible()) 
+				{
+					mMap[y][x].setVisible(true);
+				}
 				mMap [y] [x].update ();
 			}
 		}
-             
     }
 
 	public void render()
 	{
-		for (int y = 0; y < mMapHeight; y++) 
+		for (int y = topLimit; y < bottomLimit; y++) 
 		{
-			for (int x = 0; x < mMapWidth; x++) 
+			for (int x = leftLimit; x < rightLimit; x++) 
 			{
 				mMap [y] [x].render ();
 			}

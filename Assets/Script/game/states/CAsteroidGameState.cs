@@ -4,7 +4,7 @@ using System.Collections;
 public class CLevelState : CGameState
 {
 	private CBackground mBackground;
-	private CPlayer mPlayer;
+	private CAndy mPlayer;
 
 	private CEnemyManager mEnemyManager;
 	private CBulletManager mBulletManager;
@@ -21,7 +21,7 @@ public class CLevelState : CGameState
 		mBackground = new CBackground();
 		mBackground.setXY (0, 0);
 
-		mPlayer = new CPlayer ();
+		mPlayer = new CAndy ();
 		mPlayer.setXY (CGameConstants.SCREEN_WIDTH / 2, CGameConstants.SCREEN_HEIGHT / 2);
 		mPlayer.setRotation (45);
 

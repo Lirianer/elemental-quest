@@ -1,0 +1,1622 @@
+fileFormatVersion: 2
+guid: d9fded276d997c447807ca4a314723b2
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Tabla-tiles-SEPARADOS_0
+    21300002: Tabla-tiles-SEPARADOS_1
+    21300004: Tabla-tiles-SEPARADOS_2
+    21300006: Tabla-tiles-SEPARADOS_3
+    21300008: Tabla-tiles-SEPARADOS_4
+    21300010: Tabla-tiles-SEPARADOS_5
+    21300012: Tabla-tiles-SEPARADOS_6
+    21300014: Tabla-tiles-SEPARADOS_7
+    21300016: Tabla-tiles-SEPARADOS_8
+    21300018: Tabla-tiles-SEPARADOS_9
+    21300020: Tabla-tiles-SEPARADOS_10
+    21300022: Tabla-tiles-SEPARADOS_11
+    21300024: Tabla-tiles-SEPARADOS_12
+    21300026: Tabla-tiles-SEPARADOS_13
+    21300028: Tabla-tiles-SEPARADOS_14
+    21300030: Tabla-tiles-SEPARADOS_15
+    21300032: Tabla-tiles-SEPARADOS_16
+    21300034: Tabla-tiles-SEPARADOS_17
+    21300036: Tabla-tiles-SEPARADOS_18
+    21300038: Tabla-tiles-SEPARADOS_19
+    21300040: Tabla-tiles-SEPARADOS_20
+    21300042: Tabla-tiles-SEPARADOS_21
+    21300044: Tabla-tiles-SEPARADOS_22
+    21300046: Tabla-tiles-SEPARADOS_23
+    21300048: Tabla-tiles-SEPARADOS_24
+    21300050: Tabla-tiles-SEPARADOS_25
+    21300052: Tabla-tiles-SEPARADOS_26
+    21300054: Tabla-tiles-SEPARADOS_27
+    21300056: Tabla-tiles-SEPARADOS_28
+    21300058: Tabla-tiles-SEPARADOS_29
+    21300060: Tabla-tiles-SEPARADOS_30
+    21300062: Tabla-tiles-SEPARADOS_31
+    21300064: Tabla-tiles-SEPARADOS_32
+    21300066: Tabla-tiles-SEPARADOS_33
+    21300068: Tabla-tiles-SEPARADOS_34
+    21300070: Tabla-tiles-SEPARADOS_35
+    21300072: Tabla-tiles-SEPARADOS_36
+    21300074: Tabla-tiles-SEPARADOS_37
+    21300076: Tabla-tiles-SEPARADOS_38
+    21300078: Tabla-tiles-SEPARADOS_39
+    21300080: Tabla-tiles-SEPARADOS_40
+    21300082: Tabla-tiles-SEPARADOS_41
+    21300084: Tabla-tiles-SEPARADOS_42
+    21300086: Tabla-tiles-SEPARADOS_43
+    21300088: Tabla-tiles-SEPARADOS_44
+    21300090: Tabla-tiles-SEPARADOS_45
+    21300092: Tabla-tiles-SEPARADOS_46
+    21300094: Tabla-tiles-SEPARADOS_47
+    21300096: Tabla-tiles-SEPARADOS_48
+    21300098: Tabla-tiles-SEPARADOS_49
+    21300100: Tabla-tiles-SEPARADOS_50
+    21300102: Tabla-tiles-SEPARADOS_51
+    21300104: Tabla-tiles-SEPARADOS_52
+    21300106: Tabla-tiles-SEPARADOS_53
+    21300108: Tabla-tiles-SEPARADOS_54
+    21300110: Tabla-tiles-SEPARADOS_55
+    21300112: Tabla-tiles-SEPARADOS_56
+    21300114: Tabla-tiles-SEPARADOS_57
+    21300116: Tabla-tiles-SEPARADOS_58
+    21300118: Tabla-tiles-SEPARADOS_59
+    21300120: Tabla-tiles-SEPARADOS_60
+    21300122: Tabla-tiles-SEPARADOS_61
+    21300124: Tabla-tiles-SEPARADOS_62
+    21300126: Tabla-tiles-SEPARADOS_63
+    21300128: Tabla-tiles-SEPARADOS_64
+    21300130: Tabla-tiles-SEPARADOS_65
+    21300132: Tabla-tiles-SEPARADOS_66
+    21300134: Tabla-tiles-SEPARADOS_67
+    21300136: Tabla-tiles-SEPARADOS_68
+    21300138: Tabla-tiles-SEPARADOS_69
+    21300140: Tabla-tiles-SEPARADOS_70
+    21300142: Tabla-tiles-SEPARADOS_71
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 472
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f384053c0c1e2047bc3835908c0e619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 472
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96ea37d4a9a4155438d26e121f8dd644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_2
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 472
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33f7085ad0baae24aa588db688afbda6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_3
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 472
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83d7dc59c2123104ea17f9db0f006b9f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_4
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 472
+        width: 64
+        height: 63
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7f1c60661cd36546b51e51b664bdfdb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_5
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 472
+        width: 64
+        height: 63
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d0c90b281cdd0e46b3c05a27b111b94
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_6
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 472
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d23d3f803d8f8ad4bafcf2c6d4553fba
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_7
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 472
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58a2e933067bc4e4cb9c45d65a28b1fa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_8
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 472
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e9c840cda79beb43b2ca257790579c1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_9
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 405
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2324d47c4ae558418f0866dd1bc013e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_10
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 405
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e4043ba17b275e4bbc661de802bebea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_11
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 405
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f378a9e85c82f1d48b8bcdd7533e7886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_12
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 405
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83a66b308c1ca3141b7334868988a139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_13
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 405
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8fb90c46cdaf254ba92b534e9194f3b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_14
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 405
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a3f264098ba3464cb102e1146d00a61
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_15
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 405
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb554573316f9164aa841f8608824154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_16
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 405
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab3332fe880d5d54b86478698475326f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_17
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 405
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cad6f72452df0af439263281b3e0ece8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_18
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 338
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e8f14b983992ca44884572ed37f3a2c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_19
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 338
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc77103b88c4e6d4f8df37953adf0d7a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_20
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 338
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ade0b50fd982d049b420c14949c8e7b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_21
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 338
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01da326b731836e41974f4baad89c9df
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_22
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 338
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9d87d4f596ef1b4486425112fb9f580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_23
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 338
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94b395d19e76fdd4a821136b4f76e8de
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_24
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 338
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dd9290e5c657cd4a84553e698aea32a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_25
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 338
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bdcd7d6d42b8c141996d2741ae1ca6d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_26
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 338
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51d1ec905a12fe341854ef5eb38fc1d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_27
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 273
+        width: 63
+        height: 62
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5bb042e68f6af346847b30d7fe0b0c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_28
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 272
+        width: 64
+        height: 63
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44afed3c5a5ede44894f2fa623691601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_29
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 272
+        width: 64
+        height: 63
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a449dc7bbcfb124a920a17940ba13c0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_30
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 271
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1840dc51db70f004590713ccf6f25a0a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_31
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 271
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ac2c5f547f16404096f19bf7c8ac1e8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_32
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 271
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b29f3447f7bc2140b6269797d2f91bf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_33
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 271
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f2c406f59499a4280d15605af99c4b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_34
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 271
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be6c5b3de553664429e6f18d62c9e71c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_35
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 271
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb6c45eb522263f4eb2b19feb9fb81ae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_36
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 204
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 171fffb61777d9b48b2097ebf2d0162a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_37
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 204
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6d8761a285605d4e85c36514a6b74da
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_38
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 204
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 095217c46b5516842b6bcf62049cf3fd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_39
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 204
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae389bf22fab1114e8d51b16737d9920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_40
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 204
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4408c1385f00def4dbff13f472c93804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_41
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 204
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a08570508b23ab47873d0d0a8391766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_42
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 204
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 834df90b60beaee44b957b066bf2fef8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_43
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 204
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5fd7325baa4a9349a5a5dfa60bfa0f4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_44
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 204
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3457fb582dda1574ba3cb5a07c664022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_45
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 137
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b37e81ec023ed648a88924e916f97db
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_46
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 137
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a038fd37b2914d4f9cab47b0a5c8265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_47
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 137
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ce003970973e7346a98152bfdaedf2b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_48
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 137
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f61b593fee23e5642ad20b7ed3ac4559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_49
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 137
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c24545bad6439469f68afba6571598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_50
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 137
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12d230e15dd5b0045a3dd781dfced3c5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_51
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 137
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e34b6387c08c1e4bac0b46ab871c5e9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_52
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 137
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93686f42853e1894a8d03daadea1c407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_53
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 137
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd511087beb78604ea2eb23b0c14ee9d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_54
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 70
+        width: 64
+        height: 65
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddbb248c3b9116a449e599540f8412ff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_55
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 70
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 736bee9777a9ec642bbef8818428e3d3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_56
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 70
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47dd4b374d97b9d4cb205f7360c05d32
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_57
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 70
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d309f91df54ac3f4287cdcc0fdb3bd41
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_58
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 70
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfb75aeb5b64e2a4aa9d41b5e66a77f0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_59
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 70
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: accd985562282674d8a3f40dfa631b19
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_60
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 70
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86b92a64d4549aa42b43167665100f15
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_61
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 70
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a9a5f0a2bf1bef4a82f6fdbae79360c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_62
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 70
+        width: 65
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91b8f8f537dae164083f769224612b80
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_63
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 3
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa2c01c6f5eb83744b911947977b47bd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_64
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 3
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e41a54823e7a34198f21710dd6e1e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_65
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 1
+        width: 64
+        height: 66
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a919f42779933e44bc1d7ece1b9c778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_66
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 3
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c53a1f714f3d67419fe8b4614e85580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_67
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 3
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d192b60ad2f5ad54684248b539aec956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_68
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 3
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e92c8b12f2227454ba15a8a42e9ee0c6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_69
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 3
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ca64d574c3162e45b8e0b08491a2248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_70
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 3
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d60b6e5b2838a74488def0b207c954e2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_71
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 3
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ccd99653d557e8418ca843cf2dbb694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 39cae7ca4c6cd9e498bfdf5e18c6881e
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

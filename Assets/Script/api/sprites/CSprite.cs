@@ -230,4 +230,19 @@ public class CSprite : CGameObject
 	{
 		mSprite.transform.SetParent(aGameObject.transform);
 	}
+
+	public GameObject getGameObject()
+	{
+		return this.mSprite;
+	}
+
+	override public int getLeftOffsetBoundingBox() 
+	{
+		return mFlip ? base.getRightOffsetBoundingBox() : base.getLeftOffsetBoundingBox();
+	}
+
+	override public int getRightOffsetBoundingBox() 
+	{
+		return mFlip ? base.getLeftOffsetBoundingBox() : base.getRightOffsetBoundingBox();
+	}
 }

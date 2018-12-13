@@ -1,17 +1,28 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class CButtonSprite : CAnimatedSprite
 {
 	public bool mIsMouseOver = false;
+	protected CText buttonText;
 
-	public CButtonSprite()
+	public CButtonSprite(string buttonText = null)
 	{
-	}
+		this.setName("Button - " + buttonText);
+		this.setFrames(Resources.LoadAll<Sprite>("Sprites/ui"));
+		this.gotoAndStop(1);
+		this.setWidth(250);
+		this.setHeight(60);
+		this.setSortingLayerName("UI");
 
-	public override void destroy()
-	{
-		base.destroy ();
+		this.buttonText = new CText(buttonText);
+		this.buttonText.setColor(Color.white);
+		this.buttonText.setWidth(this.getWidth());
+		this.buttonText.setHeight(this.getHeight());
+		this.buttonText.setAlignment(TextAlignmentOptions.Midline);
+		this.buttonText.setFontSize(45f);
+        this.buttonText.setPivot(0.5f, 0.5f);
 	}
 
 	public override void update()
@@ -47,12 +58,25 @@ public class CButtonSprite : CAnimatedSprite
 		}
 
 		setScale (scale);
-		gotoAndStop (frame);
+        this.buttonText.setScale(scale);
+
+        gotoAndStop (frame);
+
+		this.buttonText.setXY(this.getX(), this.getY());
+		this.buttonText.update();
 	}
 
 	public override void render()
 	{
 		base.render ();
+		this.buttonText.render();
+	}
+
+	public override void destroy()
+	{
+		base.destroy ();
+
+		this.buttonText.destroy();
 	}
 
 	public bool isMouseOver()
@@ -67,6 +91,11 @@ public class CButtonSprite : CAnimatedSprite
 
 	public bool clicked()
 	{
+		if(!this.isVisible())
+		{
+			return false;
+		}
+		
 		Vector3 mousePos = CMouse.getPos ();
 
 		if (CMouse.release ()) 
@@ -79,4 +108,10 @@ public class CButtonSprite : CAnimatedSprite
 
 		return false;
 	}
+	/*
+	override public void setVisible(bool aIsVisible)
+	{
+		base.setVisible(aIsVisible);
+		this.buttonText.setVisible(aIsVisible);
+	}*/
 }
