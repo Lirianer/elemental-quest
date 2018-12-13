@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Linq;
 using TiledSharp;
+using System;
 
 
 public class CTileMap  
@@ -114,7 +115,6 @@ public class CTileMap
 	private void loadLevelTMX(string aFileName)
 	{
 		TmxMap tmxMap = new TmxMap(aFileName);
-
 		int mapWidth = tmxMap.Width;
 		int mapHeight = tmxMap.Height;
 		int tileWidth = tmxMap.TileWidth;
@@ -137,7 +137,8 @@ public class CTileMap
             for (int x = 0; x < mapWidth; x++)
             {
 				CTile tile = new CTile((x * mTileWidth), (y * mTileHeight), 0, mTiles[AIR_INDEX], scale);
-				tile.setVisible(false);
+				tile.setVisible(true);
+				tile.render();
 				row.Add(tile);
             }
 
@@ -155,6 +156,11 @@ public class CTileMap
             //getTile (x, y).setWalkable (mWalkable [index]); NO APLICA.
             getTile(x, y).setImage(mTiles[index - 1]);           // 0 a 21
         }
+
+		foreach (var spawnPoint in tmxMap.ObjectGroups["Enemy Spawns"].Objects)
+		{
+			CEnemyManager.inst().spawnEnemy((float)spawnPoint.X * scale, (float)spawnPoint.Y * scale, Int32.Parse(spawnPoint.Type));
+		}
     }
 
     // Construye el mapa. Crear el array y carga el mapa aLevel.

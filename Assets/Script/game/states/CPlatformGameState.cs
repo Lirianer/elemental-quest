@@ -35,10 +35,6 @@ public class CPlatformGameState : CGameState
 		mMap = new CTileMap ("Assets/Resources/Map/Map.tmx");
 		CGame.inst ().setMap (mMap);
 
-		CElementalAgua g = new CElementalAgua(CElementalAgua.TYPE_DONT_FALL);
-		g.setXY(700, 300);
-		CEnemyManager.inst().add(g);
-
 		mAndy = new CAndy ();
         //Referenci Map a Andy 
         mAndy.muestro = mMap;

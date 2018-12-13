@@ -7,14 +7,14 @@ public class CTile : CSprite
 {
 	public enum Type : int {
 		AIR = 72,
-		STONE = 34,
+		STONE = 32,
 		MUD = 14,
 		WATER = 8,
 		EARTH = 1,
 		ICE = 5,
 		SOMETHING,
 
-		ARTIFICIAL_EARTH = 23
+		ARTIFICIAL_EARTH = 20
 	}
 
 	public enum Direction : int {
@@ -32,11 +32,11 @@ public class CTile : CSprite
 
 	private static GameObject mMapObject;
 
-	private int[] waterIndexes =  new int[] {8, 18, 28};
+	private int[] waterIndexes =  new int[] {8, 17, 26};
 	private int[] iceIndexes = new int[] {5, 6};
-	private int[] stoneIndexes = new int[] {34, 35, 36, 44, 45, 46, 54, 55, 56, 47, 48};
-	private int[] earthIndexes = new int[] {1, 2, 3, 4, 7, 9, 10, 11, 12, 13, 17, 19, 20, 22, 23, 24, 27, 29, 30, 31, 32, 33, 37, 38, 39};
-	private int[] mudIndexes = new int[] {14, 15, 16, 25, 26};
+	private int[] stoneIndexes = new int[] {31, 32, 33, 37, 39, 40, 41, 42, 43, 44, 46, 48, 50, 51, 52, 53, 55, 56, 57, 58, 59, 60, 64, 65, 66, 67, 68, 69, 70, 71};
+	private int[] earthIndexes = new int[] {1, 2, 3, 4, 7, 9, 10, 11, 12, 16, 18, 19, 21, 22, 25, 27, 28, 29, 30, 34, 35, 36, 45, 54, 61, 62, 63};
+	private int[] mudIndexes = new int[] {13, 14, 15, 23, 24};
 
 
 	// Parametros: coordenada del tile (x, y) y el indice del tile.

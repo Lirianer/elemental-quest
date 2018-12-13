@@ -1,79 +1,79 @@
 fileFormatVersion: 2
-guid: f95eb18b87756f04db3cbb38312a55b8
+guid: d9fded276d997c447807ca4a314723b2
 TextureImporter:
   fileIDToRecycleName:
-    21300000: TileSet_0
-    21300002: TileSet_1
-    21300004: TileSet_2
-    21300006: TileSet_3
-    21300008: TileSet_4
-    21300010: TileSet_5
-    21300012: TileSet_6
-    21300014: TileSet_7
-    21300016: TileSet_8
-    21300018: TileSet_9
-    21300020: TileSet_10
-    21300022: TileSet_11
-    21300024: TileSet_12
-    21300026: TileSet_13
-    21300028: TileSet_14
-    21300030: TileSet_15
-    21300032: TileSet_16
-    21300034: TileSet_17
-    21300036: TileSet_18
-    21300038: TileSet_19
-    21300040: TileSet_20
-    21300042: TileSet_21
-    21300044: TileSet_22
-    21300046: TileSet_23
-    21300048: TileSet_24
-    21300050: TileSet_25
-    21300052: TileSet_26
-    21300054: TileSet_27
-    21300056: TileSet_28
-    21300058: TileSet_29
-    21300060: TileSet_30
-    21300062: TileSet_31
-    21300064: TileSet_32
-    21300066: TileSet_33
-    21300068: TileSet_34
-    21300070: TileSet_35
-    21300072: TileSet_36
-    21300074: TileSet_37
-    21300076: TileSet_38
-    21300078: TileSet_39
-    21300080: TileSet_40
-    21300082: TileSet_41
-    21300084: TileSet_42
-    21300086: TileSet_43
-    21300088: TileSet_44
-    21300090: TileSet_45
-    21300092: TileSet_46
-    21300094: TileSet_47
-    21300096: TileSet_48
-    21300098: TileSet_49
-    21300100: TileSet_50
-    21300102: TileSet_51
-    21300104: TileSet_52
-    21300106: TileSet_53
-    21300108: TileSet_54
-    21300110: TileSet_55
-    21300112: TileSet_56
-    21300114: TileSet_57
-    21300116: TileSet_58
-    21300118: TileSet_59
-    21300120: TileSet_60
-    21300122: TileSet_61
-    21300124: TileSet_62
-    21300126: TileSet_63
-    21300128: TileSet_64
-    21300130: TileSet_65
-    21300132: TileSet_66
-    21300134: TileSet_67
-    21300136: TileSet_68
-    21300138: TileSet_69
-    21300140: TileSet_70
-    21300142: TileSet_71
+    21300000: Tabla-tiles-SEPARADOS_0
+    21300002: Tabla-tiles-SEPARADOS_1
+    21300004: Tabla-tiles-SEPARADOS_2
+    21300006: Tabla-tiles-SEPARADOS_3
+    21300008: Tabla-tiles-SEPARADOS_4
+    21300010: Tabla-tiles-SEPARADOS_5
+    21300012: Tabla-tiles-SEPARADOS_6
+    21300014: Tabla-tiles-SEPARADOS_7
+    21300016: Tabla-tiles-SEPARADOS_8
+    21300018: Tabla-tiles-SEPARADOS_9
+    21300020: Tabla-tiles-SEPARADOS_10
+    21300022: Tabla-tiles-SEPARADOS_11
+    21300024: Tabla-tiles-SEPARADOS_12
+    21300026: Tabla-tiles-SEPARADOS_13
+    21300028: Tabla-tiles-SEPARADOS_14
+    21300030: Tabla-tiles-SEPARADOS_15
+    21300032: Tabla-tiles-SEPARADOS_16
+    21300034: Tabla-tiles-SEPARADOS_17
+    21300036: Tabla-tiles-SEPARADOS_18
+    21300038: Tabla-tiles-SEPARADOS_19
+    21300040: Tabla-tiles-SEPARADOS_20
+    21300042: Tabla-tiles-SEPARADOS_21
+    21300044: Tabla-tiles-SEPARADOS_22
+    21300046: Tabla-tiles-SEPARADOS_23
+    21300048: Tabla-tiles-SEPARADOS_24
+    21300050: Tabla-tiles-SEPARADOS_25
+    21300052: Tabla-tiles-SEPARADOS_26
+    21300054: Tabla-tiles-SEPARADOS_27
+    21300056: Tabla-tiles-SEPARADOS_28
+    21300058: Tabla-tiles-SEPARADOS_29
+    21300060: Tabla-tiles-SEPARADOS_30
+    21300062: Tabla-tiles-SEPARADOS_31
+    21300064: Tabla-tiles-SEPARADOS_32
+    21300066: Tabla-tiles-SEPARADOS_33
+    21300068: Tabla-tiles-SEPARADOS_34
+    21300070: Tabla-tiles-SEPARADOS_35
+    21300072: Tabla-tiles-SEPARADOS_36
+    21300074: Tabla-tiles-SEPARADOS_37
+    21300076: Tabla-tiles-SEPARADOS_38
+    21300078: Tabla-tiles-SEPARADOS_39
+    21300080: Tabla-tiles-SEPARADOS_40
+    21300082: Tabla-tiles-SEPARADOS_41
+    21300084: Tabla-tiles-SEPARADOS_42
+    21300086: Tabla-tiles-SEPARADOS_43
+    21300088: Tabla-tiles-SEPARADOS_44
+    21300090: Tabla-tiles-SEPARADOS_45
+    21300092: Tabla-tiles-SEPARADOS_46
+    21300094: Tabla-tiles-SEPARADOS_47
+    21300096: Tabla-tiles-SEPARADOS_48
+    21300098: Tabla-tiles-SEPARADOS_49
+    21300100: Tabla-tiles-SEPARADOS_50
+    21300102: Tabla-tiles-SEPARADOS_51
+    21300104: Tabla-tiles-SEPARADOS_52
+    21300106: Tabla-tiles-SEPARADOS_53
+    21300108: Tabla-tiles-SEPARADOS_54
+    21300110: Tabla-tiles-SEPARADOS_55
+    21300112: Tabla-tiles-SEPARADOS_56
+    21300114: Tabla-tiles-SEPARADOS_57
+    21300116: Tabla-tiles-SEPARADOS_58
+    21300118: Tabla-tiles-SEPARADOS_59
+    21300120: Tabla-tiles-SEPARADOS_60
+    21300122: Tabla-tiles-SEPARADOS_61
+    21300124: Tabla-tiles-SEPARADOS_62
+    21300126: Tabla-tiles-SEPARADOS_63
+    21300128: Tabla-tiles-SEPARADOS_64
+    21300130: Tabla-tiles-SEPARADOS_65
+    21300132: Tabla-tiles-SEPARADOS_66
+    21300134: Tabla-tiles-SEPARADOS_67
+    21300136: Tabla-tiles-SEPARADOS_68
+    21300138: Tabla-tiles-SEPARADOS_69
+    21300140: Tabla-tiles-SEPARADOS_70
+    21300142: Tabla-tiles-SEPARADOS_71
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -106,17 +106,17 @@ TextureImporter:
     filterMode: 0
     aniso: -1
     mipBias: -100
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
-  alignment: 1
-  spritePivot: {x: 0, y: 1}
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -135,7 +135,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 3
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -146,7 +146,18 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -156,7 +167,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TileSet_0
+      name: Tabla-tiles-SEPARADOS_0
       rect:
         serializedVersion: 2
         x: 3
@@ -170,13 +181,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f8cdf05b0c136840a196ab7f726b5a9
+      spriteID: 1f384053c0c1e2047bc3835908c0e619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_1
+      name: Tabla-tiles-SEPARADOS_1
       rect:
         serializedVersion: 2
         x: 70
@@ -190,13 +201,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59a7e74243e11544d84eddea743929a7
+      spriteID: 96ea37d4a9a4155438d26e121f8dd644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_2
+      name: Tabla-tiles-SEPARADOS_2
       rect:
         serializedVersion: 2
         x: 137
@@ -210,13 +221,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33d290a84c72b4046a62c6779d0db624
+      spriteID: 33f7085ad0baae24aa588db688afbda6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_3
+      name: Tabla-tiles-SEPARADOS_3
       rect:
         serializedVersion: 2
         x: 204
@@ -230,13 +241,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4439ab1e29186f941b034751bd1c7ab3
+      spriteID: 83d7dc59c2123104ea17f9db0f006b9f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_4
+      name: Tabla-tiles-SEPARADOS_4
       rect:
         serializedVersion: 2
         x: 271
@@ -250,13 +261,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2bba9da4e9c34c4ba246f0bcda22917
+      spriteID: b7f1c60661cd36546b51e51b664bdfdb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_5
+      name: Tabla-tiles-SEPARADOS_5
       rect:
         serializedVersion: 2
         x: 338
@@ -270,13 +281,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58956c1b22e435b42a2c6f903ea5fabd
+      spriteID: 7d0c90b281cdd0e46b3c05a27b111b94
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_6
+      name: Tabla-tiles-SEPARADOS_6
       rect:
         serializedVersion: 2
         x: 405
@@ -290,13 +301,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dbf396fef0e3f648a374314d7651454
+      spriteID: d23d3f803d8f8ad4bafcf2c6d4553fba
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_7
+      name: Tabla-tiles-SEPARADOS_7
       rect:
         serializedVersion: 2
         x: 472
@@ -310,13 +321,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63cc752297037284e9f20eb24afb28c9
+      spriteID: 58a2e933067bc4e4cb9c45d65a28b1fa
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_8
+      name: Tabla-tiles-SEPARADOS_8
       rect:
         serializedVersion: 2
         x: 539
@@ -330,13 +341,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecd5ac72a2e715946aec62bd56a1505c
+      spriteID: 4e9c840cda79beb43b2ca257790579c1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_9
+      name: Tabla-tiles-SEPARADOS_9
       rect:
         serializedVersion: 2
         x: 3
@@ -350,13 +361,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f80604bbe51ef44da6b22d6aadd061d
+      spriteID: b2324d47c4ae558418f0866dd1bc013e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_10
+      name: Tabla-tiles-SEPARADOS_10
       rect:
         serializedVersion: 2
         x: 70
@@ -370,13 +381,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0072049b2c4ef3548a4d1a3d8dafc928
+      spriteID: 5e4043ba17b275e4bbc661de802bebea
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_11
+      name: Tabla-tiles-SEPARADOS_11
       rect:
         serializedVersion: 2
         x: 137
@@ -390,13 +401,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2354ff04f983e3b47b23e832079ddb66
+      spriteID: f378a9e85c82f1d48b8bcdd7533e7886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_12
+      name: Tabla-tiles-SEPARADOS_12
       rect:
         serializedVersion: 2
         x: 204
@@ -410,13 +421,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 315d8faa3fc80da43bf0dd35d4b4710a
+      spriteID: 83a66b308c1ca3141b7334868988a139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_13
+      name: Tabla-tiles-SEPARADOS_13
       rect:
         serializedVersion: 2
         x: 271
@@ -430,13 +441,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e339578768a05af4d94eec4e68f214b9
+      spriteID: e8fb90c46cdaf254ba92b534e9194f3b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_14
+      name: Tabla-tiles-SEPARADOS_14
       rect:
         serializedVersion: 2
         x: 338
@@ -450,13 +461,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e1c0a3414084f74c81bcf8784770b49
+      spriteID: 3a3f264098ba3464cb102e1146d00a61
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_15
+      name: Tabla-tiles-SEPARADOS_15
       rect:
         serializedVersion: 2
         x: 405
@@ -470,13 +481,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c840fba025547745b8dbd99223093fb
+      spriteID: fb554573316f9164aa841f8608824154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_16
+      name: Tabla-tiles-SEPARADOS_16
       rect:
         serializedVersion: 2
         x: 472
@@ -490,13 +501,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd2dc854309375c4b9aa4d68b7c8bc45
+      spriteID: ab3332fe880d5d54b86478698475326f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_17
+      name: Tabla-tiles-SEPARADOS_17
       rect:
         serializedVersion: 2
         x: 539
@@ -510,13 +521,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69188a54e561d8545aff91d2070e7adc
+      spriteID: cad6f72452df0af439263281b3e0ece8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_18
+      name: Tabla-tiles-SEPARADOS_18
       rect:
         serializedVersion: 2
         x: 3
@@ -530,13 +541,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba164f7ee3d9bf741ae59c3ce451eaac
+      spriteID: 6e8f14b983992ca44884572ed37f3a2c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_19
+      name: Tabla-tiles-SEPARADOS_19
       rect:
         serializedVersion: 2
         x: 70
@@ -550,13 +561,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e86003e31e7e3a469f02eb566b11037
+      spriteID: bc77103b88c4e6d4f8df37953adf0d7a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_20
+      name: Tabla-tiles-SEPARADOS_20
       rect:
         serializedVersion: 2
         x: 137
@@ -570,13 +581,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46e543f2a1f77424a8e448bfae1aa743
+      spriteID: 8ade0b50fd982d049b420c14949c8e7b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_21
+      name: Tabla-tiles-SEPARADOS_21
       rect:
         serializedVersion: 2
         x: 204
@@ -590,13 +601,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76a6325c56ce37f4d90030af3c99c659
+      spriteID: 01da326b731836e41974f4baad89c9df
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_22
+      name: Tabla-tiles-SEPARADOS_22
       rect:
         serializedVersion: 2
         x: 271
@@ -610,13 +621,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8543e2b5242d4b342b2f631e1cbc6ae6
+      spriteID: f9d87d4f596ef1b4486425112fb9f580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_23
+      name: Tabla-tiles-SEPARADOS_23
       rect:
         serializedVersion: 2
         x: 338
@@ -630,13 +641,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15fc54dd3ca7b404b9b916bff9646339
+      spriteID: 94b395d19e76fdd4a821136b4f76e8de
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_24
+      name: Tabla-tiles-SEPARADOS_24
       rect:
         serializedVersion: 2
         x: 405
@@ -650,13 +661,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a359fd4451a254b46b55396eb8643a84
+      spriteID: 8dd9290e5c657cd4a84553e698aea32a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_25
+      name: Tabla-tiles-SEPARADOS_25
       rect:
         serializedVersion: 2
         x: 472
@@ -670,13 +681,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5606c5b90f8d3e498380172b9e6272d
+      spriteID: 7bdcd7d6d42b8c141996d2741ae1ca6d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_26
+      name: Tabla-tiles-SEPARADOS_26
       rect:
         serializedVersion: 2
         x: 539
@@ -690,196 +701,196 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0595a876e4dcfe4caab92d93d321d49
+      spriteID: 51d1ec905a12fe341854ef5eb38fc1d9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_27
+      name: Tabla-tiles-SEPARADOS_27
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 273
+        width: 63
+        height: 62
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5bb042e68f6af346847b30d7fe0b0c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_28
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 272
+        width: 64
+        height: 63
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44afed3c5a5ede44894f2fa623691601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_29
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 272
+        width: 64
+        height: 63
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a449dc7bbcfb124a920a17940ba13c0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_30
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 271
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1840dc51db70f004590713ccf6f25a0a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_31
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 271
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ac2c5f547f16404096f19bf7c8ac1e8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_32
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 271
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b29f3447f7bc2140b6269797d2f91bf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_33
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 271
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f2c406f59499a4280d15605af99c4b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_34
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 271
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be6c5b3de553664429e6f18d62c9e71c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_35
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 271
+        width: 64
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb6c45eb522263f4eb2b19feb9fb81ae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tabla-tiles-SEPARADOS_36
       rect:
         serializedVersion: 2
         x: 3
-        y: 271
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d6edf12d52a93042aa732993ea98ae4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileSet_28
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 271
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e6c2947b0c970bf4e8836e419d9b1769
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileSet_29
-      rect:
-        serializedVersion: 2
-        x: 137
-        y: 271
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3c0d0e35811fe34984c4d8d6a01fab5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileSet_30
-      rect:
-        serializedVersion: 2
-        x: 204
-        y: 271
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 01c4c584b1a79bf40b688013907d5a9d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileSet_31
-      rect:
-        serializedVersion: 2
-        x: 271
-        y: 271
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 85274864af50901439c36739aa172141
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileSet_32
-      rect:
-        serializedVersion: 2
-        x: 338
-        y: 271
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6c7c61b3d5a6bb647bafd5f14b20e65e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileSet_33
-      rect:
-        serializedVersion: 2
-        x: 405
-        y: 271
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 486bb0afd367a13428a6cf347291f245
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileSet_34
-      rect:
-        serializedVersion: 2
-        x: 472
-        y: 271
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 213c53cf212dcea478510170e7cc2383
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileSet_35
-      rect:
-        serializedVersion: 2
-        x: 539
-        y: 271
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 051efa77a4a0abf4f91794e21fbca395
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileSet_36
-      rect:
-        serializedVersion: 2
-        x: 3
         y: 204
         width: 64
         height: 64
@@ -890,13 +901,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d1d4fc8da9556f4f8095dcc8d1151d8
+      spriteID: 171fffb61777d9b48b2097ebf2d0162a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_37
+      name: Tabla-tiles-SEPARADOS_37
       rect:
         serializedVersion: 2
         x: 70
@@ -910,13 +921,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bb38d2934b7e764294691e4b148a50c
+      spriteID: b6d8761a285605d4e85c36514a6b74da
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_38
+      name: Tabla-tiles-SEPARADOS_38
       rect:
         serializedVersion: 2
         x: 137
@@ -930,13 +941,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3097c7f300b43dc4781779d7da8a2173
+      spriteID: 095217c46b5516842b6bcf62049cf3fd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_39
+      name: Tabla-tiles-SEPARADOS_39
       rect:
         serializedVersion: 2
         x: 204
@@ -950,13 +961,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85db4ae6d7108f44fb232ac6bbdefccc
+      spriteID: ae389bf22fab1114e8d51b16737d9920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_40
+      name: Tabla-tiles-SEPARADOS_40
       rect:
         serializedVersion: 2
         x: 271
@@ -970,13 +981,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f6e750e312b5c340beb4fb01a4a03db
+      spriteID: 4408c1385f00def4dbff13f472c93804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_41
+      name: Tabla-tiles-SEPARADOS_41
       rect:
         serializedVersion: 2
         x: 338
@@ -990,13 +1001,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88ecc84a4e5a26147b4e613dccdd19ec
+      spriteID: 7a08570508b23ab47873d0d0a8391766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_42
+      name: Tabla-tiles-SEPARADOS_42
       rect:
         serializedVersion: 2
         x: 405
@@ -1010,13 +1021,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eaaece013ea2a1b47a1609e32697bec8
+      spriteID: 834df90b60beaee44b957b066bf2fef8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_43
+      name: Tabla-tiles-SEPARADOS_43
       rect:
         serializedVersion: 2
         x: 472
@@ -1030,13 +1041,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eedec49154783af4888d5dccedc2f2fc
+      spriteID: e5fd7325baa4a9349a5a5dfa60bfa0f4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_44
+      name: Tabla-tiles-SEPARADOS_44
       rect:
         serializedVersion: 2
         x: 539
@@ -1050,13 +1061,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94215db527177444daec11e3784cd4aa
+      spriteID: 3457fb582dda1574ba3cb5a07c664022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_45
+      name: Tabla-tiles-SEPARADOS_45
       rect:
         serializedVersion: 2
         x: 3
@@ -1070,13 +1081,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7b9ea6acbd1c8c4eb201417afc076da
+      spriteID: 2b37e81ec023ed648a88924e916f97db
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_46
+      name: Tabla-tiles-SEPARADOS_46
       rect:
         serializedVersion: 2
         x: 70
@@ -1090,13 +1101,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b80dd5eff3b53e45a7b1e95f59dfe85
+      spriteID: 2a038fd37b2914d4f9cab47b0a5c8265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_47
+      name: Tabla-tiles-SEPARADOS_47
       rect:
         serializedVersion: 2
         x: 137
@@ -1110,13 +1121,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cfc65de57c255b4b8b07943c81cbe56
+      spriteID: 2ce003970973e7346a98152bfdaedf2b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_48
+      name: Tabla-tiles-SEPARADOS_48
       rect:
         serializedVersion: 2
         x: 204
@@ -1130,13 +1141,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5463aa486aabd04c93bd972950c5cb8
+      spriteID: f61b593fee23e5642ad20b7ed3ac4559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_49
+      name: Tabla-tiles-SEPARADOS_49
       rect:
         serializedVersion: 2
         x: 271
@@ -1150,13 +1161,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c4107e3ad3870847a21433927d19d3e
+      spriteID: b9c24545bad6439469f68afba6571598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_50
+      name: Tabla-tiles-SEPARADOS_50
       rect:
         serializedVersion: 2
         x: 338
@@ -1170,13 +1181,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a361ad8794a9b7746b7b71bef437045c
+      spriteID: 12d230e15dd5b0045a3dd781dfced3c5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_51
+      name: Tabla-tiles-SEPARADOS_51
       rect:
         serializedVersion: 2
         x: 405
@@ -1190,13 +1201,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e4c1e2c2286cb7439f3d68ffaeabb46
+      spriteID: 1e34b6387c08c1e4bac0b46ab871c5e9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_52
+      name: Tabla-tiles-SEPARADOS_52
       rect:
         serializedVersion: 2
         x: 472
@@ -1210,13 +1221,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db9942f15c1006a458a07c3e396197d7
+      spriteID: 93686f42853e1894a8d03daadea1c407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_53
+      name: Tabla-tiles-SEPARADOS_53
       rect:
         serializedVersion: 2
         x: 539
@@ -1230,19 +1241,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 619d2684923b6104a9813ef833aa1394
+      spriteID: cd511087beb78604ea2eb23b0c14ee9d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_54
+      name: Tabla-tiles-SEPARADOS_54
       rect:
         serializedVersion: 2
         x: 3
         y: 70
         width: 64
-        height: 64
+        height: 65
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1250,13 +1261,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0976b4b906e1ba148a8ed5231e39498a
+      spriteID: ddbb248c3b9116a449e599540f8412ff
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_55
+      name: Tabla-tiles-SEPARADOS_55
       rect:
         serializedVersion: 2
         x: 70
@@ -1270,13 +1281,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3c8cc31c879a3b4fbed851c99252157
+      spriteID: 736bee9777a9ec642bbef8818428e3d3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_56
+      name: Tabla-tiles-SEPARADOS_56
       rect:
         serializedVersion: 2
         x: 137
@@ -1290,13 +1301,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0289460307b5cf4180482f608fa1fac
+      spriteID: 47dd4b374d97b9d4cb205f7360c05d32
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_57
+      name: Tabla-tiles-SEPARADOS_57
       rect:
         serializedVersion: 2
         x: 204
@@ -1310,13 +1321,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bb8c6150de6b7b48b4039e3aa4b9c3b
+      spriteID: d309f91df54ac3f4287cdcc0fdb3bd41
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_58
+      name: Tabla-tiles-SEPARADOS_58
       rect:
         serializedVersion: 2
         x: 271
@@ -1330,13 +1341,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 129086ecf8dbd414faa4c3262d5fc0b8
+      spriteID: cfb75aeb5b64e2a4aa9d41b5e66a77f0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_59
+      name: Tabla-tiles-SEPARADOS_59
       rect:
         serializedVersion: 2
         x: 338
@@ -1350,13 +1361,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3053994af0bb2d48ad8274cc7c60142
+      spriteID: accd985562282674d8a3f40dfa631b19
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_60
+      name: Tabla-tiles-SEPARADOS_60
       rect:
         serializedVersion: 2
         x: 405
@@ -1370,13 +1381,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a723382c94839e54281c80143601a39c
+      spriteID: 86b92a64d4549aa42b43167665100f15
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_61
+      name: Tabla-tiles-SEPARADOS_61
       rect:
         serializedVersion: 2
         x: 472
@@ -1390,18 +1401,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abdb070203d1ef3488feffdc45b93eb4
+      spriteID: 1a9a5f0a2bf1bef4a82f6fdbae79360c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_62
+      name: Tabla-tiles-SEPARADOS_62
       rect:
         serializedVersion: 2
-        x: 539
+        x: 538
         y: 70
-        width: 64
+        width: 65
         height: 64
       alignment: 1
       pivot: {x: 0, y: 1}
@@ -1410,13 +1421,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2c60491f021b4a4fbcb19545c8c9ed7
+      spriteID: 91b8f8f537dae164083f769224612b80
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_63
+      name: Tabla-tiles-SEPARADOS_63
       rect:
         serializedVersion: 2
         x: 3
@@ -1430,13 +1441,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22ab4512d15639942a3803b51e710e8e
+      spriteID: fa2c01c6f5eb83744b911947977b47bd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_64
+      name: Tabla-tiles-SEPARADOS_64
       rect:
         serializedVersion: 2
         x: 70
@@ -1450,19 +1461,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f42bcc43c76ad4146b5e4b7989a59b87
+      spriteID: 88e41a54823e7a34198f21710dd6e1e6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_65
+      name: Tabla-tiles-SEPARADOS_65
       rect:
         serializedVersion: 2
         x: 137
-        y: 3
+        y: 1
         width: 64
-        height: 64
+        height: 66
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1470,13 +1481,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f34aade2d344004eb93b974ca031d36
+      spriteID: 0a919f42779933e44bc1d7ece1b9c778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_66
+      name: Tabla-tiles-SEPARADOS_66
       rect:
         serializedVersion: 2
         x: 204
@@ -1490,13 +1501,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df4d13c8424502546a7a7b9f9d800e93
+      spriteID: 2c53a1f714f3d67419fe8b4614e85580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_67
+      name: Tabla-tiles-SEPARADOS_67
       rect:
         serializedVersion: 2
         x: 271
@@ -1510,13 +1521,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8de8e1caed62c4a4985e8b13ccc7eb16
+      spriteID: d192b60ad2f5ad54684248b539aec956
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_68
+      name: Tabla-tiles-SEPARADOS_68
       rect:
         serializedVersion: 2
         x: 338
@@ -1530,13 +1541,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ae6cff32e23aae45b6c98d49f7423ec
+      spriteID: e92c8b12f2227454ba15a8a42e9ee0c6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_69
+      name: Tabla-tiles-SEPARADOS_69
       rect:
         serializedVersion: 2
         x: 405
@@ -1550,13 +1561,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c470776d4e12974198d225552d4fe36
+      spriteID: 7ca64d574c3162e45b8e0b08491a2248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_70
+      name: Tabla-tiles-SEPARADOS_70
       rect:
         serializedVersion: 2
         x: 472
@@ -1570,27 +1581,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4357028ab79b6ca41b4ff8345d6c6ab8
+      spriteID: d60b6e5b2838a74488def0b207c954e2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet_71
+      name: Tabla-tiles-SEPARADOS_71
       rect:
         serializedVersion: 2
         x: 539
         y: 3
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e91c60d2da7e2e498c5e21c9b552c7d
+      spriteID: 4ccd99653d557e8418ca843cf2dbb694
       vertices: []
       indices: 
       edges: []
@@ -1598,7 +1609,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: de31bb205261875468f9d2c9e65f4a56
+    spriteID: 39cae7ca4c6cd9e498bfdf5e18c6881e
     vertices: []
     indices: 
     edges: []
