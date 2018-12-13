@@ -87,6 +87,9 @@ public class CAndy : CAnimatedSprite
         textoPoderes.setFontSize(40f);
         textoPoderes.setXY(this.getX(), this.getY() - textoPoderes.getHeight());
         textoPoderes.setAlignment(TMPro.TextAlignmentOptions.Center);
+
+		this.setBounds(0, 0, CTileMap.Instance.getMapWidth() * CTileMap.Instance.getTileWidth(), CTileMap.Instance.getMapHeight() * CTileMap.Instance.getMapHeight());
+		this.setBoundAction(CGameObject.BOUNCE);
     }
 
 	private void setOldYPosition()

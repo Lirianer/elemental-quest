@@ -3,8 +3,8 @@ using System.Collections;
 
 public class CElementalAgua : CEnemy
 {
-    private const int WIDTH = 72 * 2;
-    private const int HEIGHT = 58 * 2;
+    private const int WIDTH = 538;
+    private const int HEIGHT = 324;
 
     // coordenada y que tenia en el frame anterior. Usada para chequear en la horizontal antes que en la vertical...
     private float mOldY;
@@ -16,14 +16,16 @@ public class CElementalAgua : CEnemy
     {
         setType(aType);
         setFrames(Resources.LoadAll<Sprite>("Sprites/enemies/water-elemental"));
+        Debug.Log(Resources.LoadAll<Sprite>("Sprites/enemies/water-elemental").Length);
         setName("Elemental Agua");
         setSortingLayerName("Enemies");
-        setScale(2.0f);
         setRegistration(CSprite.REG_TOP_LEFT);
         setWidth(WIDTH);
         setHeight(HEIGHT);
         setState(STATE_STAND);
         velocityBeforeFalling = 400f;
+
+        verticalDetectRange = 4;
     }
 
     private void setOldYPosition()
@@ -106,7 +108,7 @@ public class CElementalAgua : CEnemy
                 {
                     // No hay pared, se puede mover.
                     setVelX(-400);
-                    setFlip(true);
+                    setFlip(false);
 
                     if (getType() == TYPE_DONT_FALL)
                     {
@@ -134,7 +136,7 @@ public class CElementalAgua : CEnemy
                 {
                     // No hay pared, se puede mover.
                     setVelX(400);
-                    setFlip(false);
+                    setFlip(true);
 
                     if (getType() == TYPE_DONT_FALL)
                     {
@@ -154,6 +156,49 @@ public class CElementalAgua : CEnemy
             if (isFloor(getX(), getY() + 1))
             {
                 setY(mDownY * CTileMap.Instance.getTileHeight() - getHeight());
+                setState(STATE_STAND);
+                return;
+            }
+        }
+        else if(getState() == STATE_ATTACKING)
+        {
+
+            switch (this.getCurrentFrame())
+            {
+                case 16:
+                    setLeftOffsetBoundingBox(148);
+                    setTopOffsetBoundingBox(100);
+                    setRightOffsetBoundingBox(110);
+                break;
+                case 17:
+                    setLeftOffsetBoundingBox(168);
+                    setTopOffsetBoundingBox(135);
+                    setRightOffsetBoundingBox(15);
+                break;
+                case 18:
+                    setLeftOffsetBoundingBox(168);
+                    setTopOffsetBoundingBox(44);
+                    setRightOffsetBoundingBox(52);
+                break;
+                case 19:
+                    setLeftOffsetBoundingBox(132);
+                    setTopOffsetBoundingBox(15);
+                    setRightOffsetBoundingBox(151);
+                break;
+                case 20:
+                    setLeftOffsetBoundingBox(30);
+                    setTopOffsetBoundingBox(10);
+                    setRightOffsetBoundingBox(164);
+                break;
+                case 21:
+                    setLeftOffsetBoundingBox(17);
+                    setTopOffsetBoundingBox(100);
+                    setRightOffsetBoundingBox(165);
+                break;
+            }
+
+            if(isEnded()) 
+            {
                 setState(STATE_STAND);
                 return;
             }
@@ -196,7 +241,6 @@ public class CElementalAgua : CEnemy
         {
             stopMove();
             gotoAndStop(1);
-            //initAnimation (1, 2, 12, true);
         }
         else if (getState() == STATE_FALLING)
         {
@@ -206,7 +250,7 @@ public class CElementalAgua : CEnemy
         }
         else if (getState() == STATE_WALKING)
         {
-            initAnimation(1, 2, 12, true);
+            initAnimation(1, 11, 12, true);
         }
     }
 }

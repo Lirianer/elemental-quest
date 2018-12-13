@@ -155,18 +155,6 @@ public class CTileMap
             //getTile (x, y).setWalkable (mWalkable [index]); NO APLICA.
             getTile(x, y).setImage(mTiles[index - 1]);           // 0 a 21
         }
-        //Cargo a lo mobs en la pantalla
-
-		CGolemTierra g = new CGolemTierra(CGolemTierra.TYPE_DONT_FALL);
-        g.setXY(700, 300);
-        CEnemyManager.inst().add(g);
-
-        CSalamandra sal = new CSalamandra(CSalamandra.TYPE_DONT_FALL);
-        sal.setXY(900, 300);
-        CEnemyManager.inst().add(sal);
-
-
-
     }
 
     // Construye el mapa. Crear el array y carga el mapa aLevel.
