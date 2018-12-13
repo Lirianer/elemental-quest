@@ -34,6 +34,8 @@ public class CAndy : CAnimatedSprite
 
 	private CVector lastCheckPoint;
 
+	private bool debug = false;
+
 	public CAndy()
 	{
 		setFrames (Resources.LoadAll<Sprite> ("Sprites/nina"));
@@ -56,20 +58,22 @@ public class CAndy : CAnimatedSprite
 
 		setState (STATE_STAND);
 
-		mRect = new CSprite ();
-		mRect.setImage (Resources.Load<Sprite> ("Sprites/ui/pixel"));
-		mRect.setSortingLayerName ("Player");
-		mRect.setSortingOrder (20);
-		mRect.setAlpha (0.5f);
-		mRect.setName ("player_debug_rect");
+		if(this.debug) {
+			mRect = new CSprite ();
+			mRect.setImage (Resources.Load<Sprite> ("Sprites/ui/pixel"));
+			mRect.setSortingLayerName ("Player");
+			mRect.setSortingOrder (20);
+			mRect.setAlpha (0.5f);
+			mRect.setName ("player_debug_rect");
 
-		mRect2 = new CSprite ();
-		mRect2.setImage (Resources.Load<Sprite> ("Sprites/ui/pixel"));
-		mRect2.setSortingLayerName ("Player");
-		mRect2.setSortingOrder (20);
-		mRect2.setColor (Color.red);
-		mRect2.setAlpha (0.5f);
-		mRect2.setName ("player_debug_rect2");
+			mRect2 = new CSprite ();
+			mRect2.setImage (Resources.Load<Sprite> ("Sprites/ui/pixel"));
+			mRect2.setSortingLayerName ("Player");
+			mRect2.setSortingOrder (20);
+			mRect2.setColor (Color.red);
+			mRect2.setAlpha (0.5f);
+			mRect2.setName ("player_debug_rect2");
+		}
 
         this.powers = new List<Power>();
         this.powers.Add(new Earth());
@@ -406,21 +410,24 @@ public class CAndy : CAnimatedSprite
 	{
 		base.render ();
 
-		// MOSTRAR TODA EL AREA DEL DIBUJO.
-		mRect.setXY (getX(), getY());
-		mRect.setScaleX(WIDTH);
-		mRect.setScaleY(HEIGHT);
-		mRect.update ();
+		if(this.debug)
+		{
+			// MOSTRAR TODA EL AREA DEL DIBUJO.
+			mRect.setXY (getX(), getY());
+			mRect.setScaleX(WIDTH);
+			mRect.setScaleY(HEIGHT);
+			mRect.update ();
 
-		mRect.render ();
+			mRect.render ();
 
-		// Bounding box.
-		mRect2.setXY (getX() + this.getLeftOffsetBoundingBox(), getY() + this.getTopOffsetBoundingBox());
-		mRect2.setScaleX(WIDTH - this.getRightOffsetBoundingBox() - this.getLeftOffsetBoundingBox());
-		mRect2.setScaleY(HEIGHT - this.getBottomOffsetBoundingBox() - this.getTopOffsetBoundingBox());
-		mRect2.update ();
+			// Bounding box.
+			mRect2.setXY (getX() + this.getLeftOffsetBoundingBox(), getY() + this.getTopOffsetBoundingBox());
+			mRect2.setScaleX(WIDTH - this.getRightOffsetBoundingBox() - this.getLeftOffsetBoundingBox());
+			mRect2.setScaleY(HEIGHT - this.getBottomOffsetBoundingBox() - this.getTopOffsetBoundingBox());
+			mRect2.update ();
 
-		mRect2.render ();
+			mRect2.render ();
+		}
 
         textoPoderes.render();
 
@@ -433,11 +440,14 @@ public class CAndy : CAnimatedSprite
 
 	override public void destroy()
 	{
-		base.destroy ();	
-		mRect.destroy ();
-		mRect = null;
-		mRect2.destroy ();
-		mRect2 = null;
+		base.destroy ();
+
+		if(this.debug) {
+			mRect.destroy ();
+			mRect = null;
+			mRect2.destroy ();
+			mRect2 = null;
+		}	
 	}
 
 	public override void setState (int aState)

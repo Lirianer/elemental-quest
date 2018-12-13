@@ -161,41 +161,6 @@ public class CElementalAgua : CEnemy
         }
         else if(getState() == STATE_ATTACKING)
         {
-
-            switch (this.getCurrentFrame())
-            {
-                case 16:
-                    setLeftOffsetBoundingBox(148);
-                    setTopOffsetBoundingBox(100);
-                    setRightOffsetBoundingBox(110);
-                break;
-                case 17:
-                    setLeftOffsetBoundingBox(168);
-                    setTopOffsetBoundingBox(135);
-                    setRightOffsetBoundingBox(15);
-                break;
-                case 18:
-                    setLeftOffsetBoundingBox(168);
-                    setTopOffsetBoundingBox(44);
-                    setRightOffsetBoundingBox(52);
-                break;
-                case 19:
-                    setLeftOffsetBoundingBox(132);
-                    setTopOffsetBoundingBox(15);
-                    setRightOffsetBoundingBox(151);
-                break;
-                case 20:
-                    setLeftOffsetBoundingBox(30);
-                    setTopOffsetBoundingBox(10);
-                    setRightOffsetBoundingBox(164);
-                break;
-                case 21:
-                    setLeftOffsetBoundingBox(17);
-                    setTopOffsetBoundingBox(100);
-                    setRightOffsetBoundingBox(165);
-                break;
-            }
-
             if(isEnded()) 
             {
                 setState(STATE_STAND);
@@ -250,6 +215,11 @@ public class CElementalAgua : CEnemy
         else if (getState() == STATE_WALKING)
         {
             initAnimation(1, 11, 12, true);
+        }
+        else if(getState() == STATE_ATTACKING)
+        {
+            stopMove();
+            initAnimation(8, 11, 12, false);
         }
     }
 }

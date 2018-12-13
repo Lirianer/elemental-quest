@@ -20,30 +20,37 @@ public class CEnemy : CAnimatedSprite
 	private CSprite mRect2;
     private CSprite attackRange;
 
+    private bool debug = false;
+
     public CEnemy() 
     {
-        mRect = new CSprite ();
-		mRect.setImage (Resources.Load<Sprite> ("Sprites/ui/pixel"));
-		mRect.setSortingLayerName ("Enemies");
-		mRect.setSortingOrder (20);
-		mRect.setAlpha (0.5f);
-		mRect.setName (this.getName() + "_debug_rect_1");
+		attackRange = new CSprite();
+		attackRange.setImage(Resources.Load<Sprite>("Sprites/ui/pixel"));
+		attackRange.setAlpha(0f);
 
-		mRect2 = new CSprite ();
-		mRect2.setImage (Resources.Load<Sprite> ("Sprites/ui/pixel"));
-		mRect2.setSortingLayerName ("Enemies");
-		mRect2.setSortingOrder (20);
-		mRect2.setColor (Color.red);
-		mRect2.setAlpha (0.5f);
-		mRect2.setName (this.getName() + "_debug_rect_2");
+        if(this.debug) {
+			mRect = new CSprite();
+			mRect.setImage(Resources.Load<Sprite>("Sprites/ui/pixel"));
+			mRect.setSortingLayerName("Enemies");
+			mRect.setSortingOrder(20);
+			mRect.setAlpha(0.5f);
+			mRect.setName(this.getName() + "_debug_rect_1");
 
-        attackRange = new CSprite();
-        attackRange.setImage(Resources.Load<Sprite>("Sprites/ui/pixel"));
-        attackRange.setSortingLayerName("Enemis");
-        attackRange.setSortingOrder(20);
-        attackRange.setColor(Color.blue);
-        attackRange.setAlpha(0.5f);
-        attackRange.setName(this.getName() + "_debug_attack_range");
+			mRect2 = new CSprite();
+			mRect2.setImage(Resources.Load<Sprite>("Sprites/ui/pixel"));
+			mRect2.setSortingLayerName("Enemies");
+			mRect2.setSortingOrder(20);
+			mRect2.setColor(Color.red);
+			mRect2.setAlpha(0.5f);
+			mRect2.setName(this.getName() + "_debug_rect_2");
+
+			
+			attackRange.setSortingLayerName("Enemis");
+			attackRange.setSortingOrder(20);
+			attackRange.setColor(Color.blue);
+			attackRange.setAlpha(0.5f);
+			attackRange.setName(this.getName() + "_debug_attack_range");
+        }
 
         this.setParent(this.getGameObject());
     }
@@ -90,20 +97,22 @@ public class CEnemy : CAnimatedSprite
         base.render();
 
         // MOSTRAR TODA EL AREA DEL DIBUJO.
-		mRect.setXY (getX(), getY());
-		mRect.setScaleX(this.getWidth());
-		mRect.setScaleY(this.getHeight());
-		mRect.update ();
+        if(this.debug) {
+			mRect.setXY(getX(), getY());
+			mRect.setScaleX(this.getWidth());
+			mRect.setScaleY(this.getHeight());
+			mRect.update();
 
-		mRect.render ();
+			mRect.render();
 
-		// Bounding box.
-		mRect2.setXY (getX() + this.getLeftOffsetBoundingBox(), getY() + this.getTopOffsetBoundingBox());
-		mRect2.setScaleX(this.getWidth() - this.getRightOffsetBoundingBox() - this.getLeftOffsetBoundingBox());
-		mRect2.setScaleY(this.getHeight() - this.getBottomOffsetBoundingBox() - this.getTopOffsetBoundingBox());
-		mRect2.update ();
+			// Bounding box.
+			mRect2.setXY(getX() + this.getLeftOffsetBoundingBox(), getY() + this.getTopOffsetBoundingBox());
+			mRect2.setScaleX(this.getWidth() - this.getRightOffsetBoundingBox() - this.getLeftOffsetBoundingBox());
+			mRect2.setScaleY(this.getHeight() - this.getBottomOffsetBoundingBox() - this.getTopOffsetBoundingBox());
+			mRect2.update();
 
-		mRect2.render ();
+			mRect2.render();
+        }
 
         attackRange.render();
     }
@@ -120,8 +129,10 @@ public class CEnemy : CAnimatedSprite
 
     override public void setName(string aName)
     {
-        mRect.setName (aName + "_debug_rect_1");
-        mRect2.setName (aName + "_debug_rect_2");
+        if(this.debug) {
+			mRect.setName(aName + "_debug_rect_1");
+			mRect2.setName(aName + "_debug_rect_2");
+        }
 
         base.setName(aName);
     }
