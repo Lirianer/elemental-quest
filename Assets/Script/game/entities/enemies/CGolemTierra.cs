@@ -3,8 +3,8 @@ using System.Collections;
 
 public class CGolemTierra : CEnemy
 {
-    private const int WIDTH = 72 * 2;
-    private const int HEIGHT = 58 * 2;
+    private const int WIDTH = 462;
+    private const int HEIGHT = 295;
 
     // coordenada y que tenia en el frame anterior. Usada para chequear en la horizontal antes que en la vertical...
     private float mOldY;
@@ -24,6 +24,9 @@ public class CGolemTierra : CEnemy
         setHeight(HEIGHT);
         setState(STATE_STAND);
         velocityBeforeFalling = 400f;
+        setTopOffsetBoundingBox(50);
+
+        verticalDetectRange = 3;
     }
 
     private void setOldYPosition()
@@ -158,6 +161,49 @@ public class CGolemTierra : CEnemy
                 return;
             }
         }
+        else if(getState() == STATE_ATTACKING)
+        {
+
+            switch (this.getCurrentFrame())
+            {
+                case 16:
+                    setLeftOffsetBoundingBox(148);
+                    setTopOffsetBoundingBox(100);
+                    setRightOffsetBoundingBox(110);
+                break;
+                case 17:
+                    setLeftOffsetBoundingBox(168);
+                    setTopOffsetBoundingBox(135);
+                    setRightOffsetBoundingBox(15);
+                break;
+                case 18:
+                    setLeftOffsetBoundingBox(168);
+                    setTopOffsetBoundingBox(44);
+                    setRightOffsetBoundingBox(52);
+                break;
+                case 19:
+                    setLeftOffsetBoundingBox(132);
+                    setTopOffsetBoundingBox(15);
+                    setRightOffsetBoundingBox(151);
+                break;
+                case 20:
+                    setLeftOffsetBoundingBox(30);
+                    setTopOffsetBoundingBox(10);
+                    setRightOffsetBoundingBox(164);
+                break;
+                case 21:
+                    setLeftOffsetBoundingBox(17);
+                    setTopOffsetBoundingBox(100);
+                    setRightOffsetBoundingBox(165);
+                break;
+            }
+
+            if(isEnded()) 
+            {
+                setState(STATE_STAND);
+                return;
+            }
+        }
     }
 
 
@@ -194,20 +240,34 @@ public class CGolemTierra : CEnemy
 
         if (getState() == STATE_STAND)
         {
+            setLeftOffsetBoundingBox(126);
+            setRightOffsetBoundingBox(126);
+            setTopOffsetBoundingBox(128);
             stopMove();
             gotoAndStop(1);
             //initAnimation (1, 2, 12, true);
         }
         else if (getState() == STATE_FALLING)
         {
+            setLeftOffsetBoundingBox(126);
+            setRightOffsetBoundingBox(126);
+            setTopOffsetBoundingBox(128);
             velocityBeforeFalling = getVelX() != 0 ? getVelX() : 400;
-            initAnimation(1, 2, 12, true);
+            initAnimation(1, 2, 6, true);
             setAccelY(CGameConstants.GRAVITY);
         }
         else if (getState() == STATE_WALKING)
         {
-            initAnimation(1, 8, 13, true);
+            setLeftOffsetBoundingBox(126);
+            setRightOffsetBoundingBox(126);
+            setTopOffsetBoundingBox(128);
+            initAnimation(1, 9, 13, true);
           //  setAccelY(CGameConstants.GRAVITY);
+        }
+        else if(getState() == STATE_ATTACKING)
+        {
+            stopMove();
+            initAnimation(10, 21, 9, false);
         }
     }
 }

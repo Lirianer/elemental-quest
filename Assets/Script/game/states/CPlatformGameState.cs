@@ -42,6 +42,8 @@ public class CPlatformGameState : CGameState
         //Referenci Map a Andy 
         mAndy.muestro = mMap;
 		mAndy.setXY (400, 400);
+		mAndy.setCheckpoint(400, 400);
+		CGame.inst().setPlayer(mAndy);
 
 
         //createAsteroids ();

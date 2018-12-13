@@ -30,6 +30,11 @@ public class CEnemyManager : CManager
 	override public void update()
 	{
 		base.update ();
+
+		if(this.collidesRect(CGame.inst().getPlayer()) != null)
+		{
+			CGame.inst().getPlayer().die();
+		}
 	}
 	
 	override public void render()

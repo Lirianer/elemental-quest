@@ -3,8 +3,8 @@ using System.Collections;
 
 public class CSalamandra : CEnemy
 {
-    private const int WIDTH = 72 * 2;
-    private const int HEIGHT = 58 * 2;
+    private const int WIDTH = 481;
+    private const int HEIGHT = 283;
 
     // coordenada y que tenia en el frame anterior. Usada para chequear en la horizontal antes que en la vertical...
     private float mOldY;
@@ -20,11 +20,14 @@ public class CSalamandra : CEnemy
         setSortingLayerName("Enemies");
         setScale(0.5f);
         setRegistration(CSprite.REG_TOP_LEFT);
-        setWidth(WIDTH);
-        setHeight(HEIGHT);
+        setWidth((int)(WIDTH * 0.5f));
+        setHeight((int)(HEIGHT * 0.5f));
         setState(STATE_STAND);
         velocityBeforeFalling = 400f;
         setMovable(true);
+
+        setBottomOffsetBoundingBox(34);
+        setTopOffsetBoundingBox(23);
     }
 
     private void setOldYPosition()
@@ -154,7 +157,7 @@ public class CSalamandra : CEnemy
 
             if (isFloor(getX(), getY() + 1))
             {
-                setY(mDownY * CTileMap.Instance.getTileHeight() - getHeight());
+                setY(mDownY * CTileMap.Instance.getTileHeight() - getHeight() + getBottomOffsetBoundingBox());
                 setState(STATE_STAND);
                 return;
             }
@@ -208,6 +211,11 @@ public class CSalamandra : CEnemy
         else if (getState() == STATE_WALKING)
         {
             initAnimation(1, 9, 12, true);
+        }
+        else if(getState() == STATE_ATTACKING)
+        {
+            stopMove();
+            initAnimation(10, 11, 2, false);
         }
     }
 }

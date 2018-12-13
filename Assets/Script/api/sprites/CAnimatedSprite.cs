@@ -59,4 +59,9 @@ public class CAnimatedSprite : CSprite
 	{
 		return mAnim.isEnded ();
 	}
+
+	public int getCurrentFrame() 
+	{
+		return mAnim.getCurrentFrame();
+	}
 }

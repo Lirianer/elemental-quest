@@ -22,7 +22,7 @@ public class CEnemyShip : CAnimatedSprite
 
 		base.update ();
 
-		CPlayer player = CGame.inst ().getPlayer ();
+		CAndy player = CGame.inst ().getPlayer ();
 
 		CVector vel = player.getPos () - getPos ();
 		vel.normalize ();

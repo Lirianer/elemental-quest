@@ -332,10 +332,10 @@ public class CGameObject
 
 	public bool collidesRect(CGameObject aGameObject)
 	{
-		if(getX() < aGameObject.getX() + aGameObject.getWidth() &&
-			getX() + getWidth() > aGameObject.getX() &&
-			getY() < aGameObject.getY() + aGameObject.getHeight() &&
-			getHeight() + getY() > aGameObject.getY())
+		if(getX() + getLeftOffsetBoundingBox() < aGameObject.getX() + aGameObject.getWidth() - aGameObject.getRightOffsetBoundingBox() &&
+			getX() + getWidth() - getRightOffsetBoundingBox() > aGameObject.getX() + aGameObject.getLeftOffsetBoundingBox() &&
+			getY() + getTopOffsetBoundingBox() < aGameObject.getY() + aGameObject.getHeight() - aGameObject.getBottomOffsetBoundingBox() &&
+			getHeight() + getY() - getBottomOffsetBoundingBox() > aGameObject.getY() + aGameObject.getTopOffsetBoundingBox())
 		{
 			return true;
 		}
@@ -534,13 +534,13 @@ public class CGameObject
 		CTileMap map = CGame.inst().getMap();
 
 		// Columna del lado izquierdo del personaje.
-		mLeftX = (x + mLeftOffsetBoundingBox) / map.getTileWidth();
+		mLeftX = (x + getLeftOffsetBoundingBox()) / map.getTileWidth();
 		// Columna del lado derecho del personaje. -1 porque es el pixel de adentro. x+w es la coordenada del pixel de afuera.
-		mRightX = (x + getWidth() - 1 - mRightOffsetBoundingBox) / map.getTileWidth();
+		mRightX = (x + getWidth() - 1 - getRightOffsetBoundingBox()) / map.getTileWidth();
 		// Fila de arriba del personaje.
-		mUpY = (y + mTopOffsetBoundingBox) / map.getTileHeight();
+		mUpY = (y + getTopOffsetBoundingBox()) / map.getTileHeight();
 		// Fila de los pies del personaje.
-		mDownY = (y + getHeight() - 1 - mBottomOffsetBoundingBox) / map.getTileHeight();
+		mDownY = (y + getHeight() - 1 - getBottomOffsetBoundingBox()) / map.getTileHeight();
 
 		mTileTopLeft = map.getTile(mLeftX, mUpY).isWalkable();
 		mTileTopRight = map.getTile(mRightX, mUpY).isWalkable();
@@ -573,7 +573,7 @@ public class CGameObject
 		mBottomOffsetBoundingBox = aYOffsetBoundingBox;
 	}
 
-	public int getLeftOffsetBoundingBox()
+	virtual public int getLeftOffsetBoundingBox()
 	{
 		return mLeftOffsetBoundingBox;
 	}
@@ -583,7 +583,7 @@ public class CGameObject
 		return mTopOffsetBoundingBox;
 	}
 
-	public int getRightOffsetBoundingBox()
+	virtual public int getRightOffsetBoundingBox()
 	{
 		return mRightOffsetBoundingBox;
 	}

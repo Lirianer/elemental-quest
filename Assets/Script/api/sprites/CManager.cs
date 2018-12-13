@@ -92,6 +92,19 @@ public class CManager
 		return results;
 	}
 
+	public CGameObject collidesRect(CGameObject aGameObject)
+	{
+		for (int i = mArray.Count - 1; i >= 0; i --) 
+		{
+			if (aGameObject.collidesRect(mArray[i]))
+			{
+				return mArray[i];
+			}
+		}
+
+		return null;
+	}
+
 	public int getLength()
 	{
 		return mArray.Count;

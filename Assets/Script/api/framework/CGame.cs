@@ -7,7 +7,7 @@ public class CGame : MonoBehaviour
 	private CGameState mState;
 	private CCamera mCamera;
 
-	private CPlayer mPlayer;
+	private CAndy mPlayer;
 	private CTileMap mMap;
 
 	// Punto de entrada del programa.
@@ -101,12 +101,12 @@ public class CGame : MonoBehaviour
 		return mState;
 	}
 
-	public void setPlayer(CPlayer aPlayer)
+	public void setPlayer(CAndy aPlayer)
 	{
 		mPlayer = aPlayer;
 	}
 
-	public CPlayer getPlayer()
+	public CAndy getPlayer()
 	{
 		return mPlayer;
 	}

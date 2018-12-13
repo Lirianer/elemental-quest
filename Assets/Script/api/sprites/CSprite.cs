@@ -235,4 +235,14 @@ public class CSprite : CGameObject
 	{
 		return this.mSprite;
 	}
+
+	override public int getLeftOffsetBoundingBox() 
+	{
+		return mFlip ? base.getRightOffsetBoundingBox() : base.getLeftOffsetBoundingBox();
+	}
+
+	override public int getRightOffsetBoundingBox() 
+	{
+		return mFlip ? base.getLeftOffsetBoundingBox() : base.getRightOffsetBoundingBox();
+	}
 }
