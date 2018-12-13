@@ -15,7 +15,7 @@ public class CGolemTierra : CEnemy
     public CGolemTierra(int aType)
     {
         setType(aType);
-        setFrames(Resources.LoadAll<Sprite>("Sprites/enemyGolemtierra"));
+        setFrames(Resources.LoadAll<Sprite>("Sprites/enemies/earth-golem"));
         setName("GolemTierra");
         setSortingLayerName("Enemies");
         setScale(1.0f);

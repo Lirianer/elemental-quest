@@ -17,7 +17,7 @@ public class CSalamandra : CEnemy
     public CSalamandra(int aType)
     {
         setType(aType);
-        setFrames(Resources.LoadAll<Sprite>("Sprites/enemySalamandrafuego"));
+        setFrames(Resources.LoadAll<Sprite>("Sprites/enemies/fire-salamander"));
         setName("Salamandra");
         setSortingLayerName("Enemies");
         setScale(0.5f);
@@ -34,7 +34,7 @@ public class CSalamandra : CEnemy
         setTopOffsetBoundingBox(23);
 
         tongue = new CAnimatedSprite();
-        tongue.setFrames(Resources.LoadAll<Sprite>("Sprites/enemySalamandrafuego/tongue"));
+        tongue.setFrames(Resources.LoadAll<Sprite>("Sprites/enemies/fire-salamander/tongue"));
         tongue.setName("Lengua");
         tongue.setSortingLayerName("Enemies");
         tongue.setRegistration(CSprite.REG_TOP_LEFT);

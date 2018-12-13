@@ -15,7 +15,7 @@ public class CElementalAgua : CEnemy
     public CElementalAgua(int aType)
     {
         setType(aType);
-        setFrames(Resources.LoadAll<Sprite>("Sprites/enemyElementalagua"));
+        setFrames(Resources.LoadAll<Sprite>("Sprites/enemies/water-elemental"));
         setName("Elemental Agua");
         setSortingLayerName("Enemies");
         setScale(2.0f);
