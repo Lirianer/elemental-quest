@@ -157,12 +157,9 @@ public class CTileMap
         }
         //Cargo a lo mobs en la pantalla
 
-        /* 
-		
 		CGolemTierra g = new CGolemTierra(CGolemTierra.TYPE_DONT_FALL);
         g.setXY(700, 300);
         CEnemyManager.inst().add(g);
-		*/
 
         CSalamandra sal = new CSalamandra(CSalamandra.TYPE_DONT_FALL);
         sal.setXY(900, 300);
