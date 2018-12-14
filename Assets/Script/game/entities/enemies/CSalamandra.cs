@@ -24,9 +24,9 @@ public class CSalamandra : CEnemy
         setRegistration(CSprite.REG_TOP_LEFT);
         setWidth((int)(WIDTH * 0.5f));
         setHeight((int)(HEIGHT * 0.5f));
-        setState(STATE_STAND);
         velocityBeforeFalling = 400f;
         setMovable(true);
+        setSortingOrder(1);
 
         horizontalDetectRange = 2;
 
@@ -44,6 +44,9 @@ public class CSalamandra : CEnemy
         tongue.setVisible(false);
         tongue.gotoAndStop(1);
         CEnemyManager.inst().add(tongue);
+
+        
+        setState(STATE_STAND);
     }
 
     private void setOldYPosition()
@@ -319,6 +322,13 @@ public class CSalamandra : CEnemy
             velocityBeforeFalling = getVelX() != 0 ? getVelX() : 400;
             stopMove();
             initAnimation(10, 11, 6, false);
+        }
+
+        if(getState() != STATE_ATTACKING)
+        {
+            tongue.setVisible(false);
+            tongue.setWidth(0);
+            tongue.setHeight(0);
         }
     }
 }
