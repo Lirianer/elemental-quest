@@ -32,7 +32,7 @@ public class CMainMenuState : CGameState
 
 
 		mButtonPlay = new CButtonSprite ("Play");
-        mButtonPlay.setFrames(Resources.LoadAll<Sprite>("Sprites/button/play00"));
+        mButtonPlay.setFrames(Resources.LoadAll<Sprite>("Sprites/button"));
         mButtonPlay.setName("PlayImage");
         mButtonPlay.setXY (CGameConstants.SCREEN_WIDTH / 2 +700 , CGameConstants.SCREEN_HEIGHT / 2 - 150 );
         mButtonPlay.setScale(500);
@@ -41,7 +41,7 @@ public class CMainMenuState : CGameState
 
 
         exitButton = new CButtonSprite("Exit");
-        exitButton.setFrames(Resources.LoadAll<Sprite>("Sprites/button/play00"));
+        exitButton.setFrames(Resources.LoadAll<Sprite>("Sprites/button"));
         exitButton.setName("ExitImage");
         exitButton.setXY(mButtonPlay.getX(), CGameConstants.SCREEN_HEIGHT / 3 * 2 -10);
 

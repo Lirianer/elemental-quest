@@ -39,20 +39,17 @@ public class CButtonSprite : CAnimatedSprite
 		{
 			if (mIsMouseOver) 
 			{
-				scale = 0.9f;
-				frame = 2;
+				frame = 3;
 			}
 		} 
 		else 
 		{
 			if (mIsMouseOver)
 			{
-				scale = 1.1f;
-				frame = 1;
+				frame = 2;
 			}
 			else
 			{
-				scale = 1.0f;
 				frame = 1;
 			}
 		}
