@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-
+using System.Reflection;
 using AudioClipMap = System.Collections.Generic.Dictionary<string, UnityEngine.AudioClip>;
 using AudioSourceMap = System.Collections.Generic.Dictionary<CGameObject, CAudioSource>;
 
@@ -104,11 +104,13 @@ public class CAudioManager
 	/// Adds an Audio Source to the list managed by AudioManager.
 	/// </summary>
 	/// <param name="aObject"></param>
-	public void addAudioSource(CGameObject aObject)
+	public CAudioSource addAudioSource(CGameObject aObject)
 	{
 		CAudioSource source = new CAudioSource(aObject);
 		source.setAs3DSource();
 		addAudioSource(aObject, source);
+
+		return source;
 	}
 
 	
@@ -190,6 +192,13 @@ public class CAudioManager
 			source.PlayOneShot(clip, vol);
 			mTestTimer = 0.0f;
 		}
+	}
+
+	public void setPrimaryParent(GameObject gameObject)
+	{
+		mListenerSourceFX.gameObject.transform.SetParent(gameObject.transform);
+		mListenerSourceMusic.gameObject.transform.SetParent(gameObject.transform);
+		mAudioListener.gameObject.transform.SetParent(gameObject.transform);
 	}
 }
 

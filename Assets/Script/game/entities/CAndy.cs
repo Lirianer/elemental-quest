@@ -51,10 +51,11 @@ public class CAndy : CAnimatedSprite
 
 		// TODO: PASAR A LA CAMARA CUANDO SE IMPLEMENTE.
 		CAudioManager.Inst.setAudioListener(this);
+		CAudioManager.Inst.setPrimaryParent(this.getGameObject());
 
 		// Agregate al audio manager como audio source.
 		// Este objeto emite sonido.
-		CAudioManager.Inst.addAudioSource(this);
+		CAudioManager.Inst.addAudioSource(this).gameObject.transform.SetParent(this.getGameObject().transform);
 
 		setState (STATE_STAND);
 
