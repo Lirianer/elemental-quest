@@ -10,7 +10,7 @@ public class Fire : Power
     private const float FIRE_COOLDOWN = 0.9f;
     private const int DASH_VELOCITY = 2500;
   
-    private CSprite mRect2;
+    private CSprite shield;
 
     private const int WIDTH = 64 * 4;
     private const int HEIGHT = 74 * 4;
@@ -30,19 +30,20 @@ public class Fire : Power
 
 
 
-        mRect2 = new CSprite();
-        mRect2.setImage(Resources.Load<Sprite>("Sprites/ui/pixel"));
-        mRect2.setSortingLayerName("Player");
-        mRect2.setSortingOrder(20);
-        mRect2.setColor(Color.red);
-        mRect2.setAlpha(0.5f);
-        mRect2.setName("Segundo Poder Escudo");
+        shield = new CSprite();
+        shield.setImage(Resources.Load<Sprite>("Sprites/ui/pixel"));
+        shield.setSortingLayerName("Player");
+        shield.setSortingOrder(20);
+        shield.setColor(Color.red);
+        shield.setAlpha(0.5f);
+        shield.setName("Fire - Shield");
+        shield.setParent(this.player.getGameObject());
         //Seteo la escala para el persona
 
-        mRect2.setScaleX(WIDTH);
-        mRect2.setScaleY(HEIGHT);
+        shield.setScaleX(WIDTH);
+        shield.setScaleY(HEIGHT);
         //Pongo el poder a false
-        mRect2.setVisible(false);
+        shield.setVisible(false);
 
         currentTime = 0;
     }
@@ -56,7 +57,7 @@ public class Fire : Power
         if (burning)
         {
             //Seteo el poder en el medio del personaje 
-            mRect2.setXY(player.getX() + player.getWidth() / 2 - WIDTH / 2, player.getY() - (HEIGHT - player.getHeight()));
+            shield.setXY(player.getX() + player.getWidth() / 2 - WIDTH / 2, player.getY() - (HEIGHT - player.getHeight()));
             if (currentTime < BURNING_TIME)
             {
                 currentTime++;
@@ -65,14 +66,14 @@ public class Fire : Power
             {
                 //Si el tiempo se pone en 0 se pone no visiblee el cuadradodo
 
-                mRect2.setVisible(false);
+                shield.setVisible(false);
                 burning = false;
                 currentTime = 0;
             }
         }
 
  
-        mRect2.update();
+        shield.update();
 
 
     }
@@ -83,7 +84,7 @@ public class Fire : Power
         //Si Current time 
         if (currentTime == 0)
         {
-            mRect2.setVisible(true);
+            shield.setVisible(true);
             burning = true;
         }
         
@@ -120,7 +121,7 @@ public class Fire : Power
          // MOSTRAR TODA EL AREA DEL DIBUJO.
      
 
-        mRect2.render();
+        shield.render();
 
     }
 
@@ -128,7 +129,7 @@ public class Fire : Power
     {
         base.destroy();
 
-        mRect2.destroy();
-        mRect2 = null;
+        shield.destroy();
+        shield = null;
     }
 }

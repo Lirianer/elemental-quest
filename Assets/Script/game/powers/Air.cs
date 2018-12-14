@@ -7,7 +7,6 @@ public class Air : Power
     private const float DASH_COOLDOWN = 1.5f;
     private const float FIRE_COOLDOWN = 0.9f;
     private const int DASH_VELOCITY = 833;
-    private CSprite mRect;
     private const int WIDTH = 64 * 2;
     private const int HEIGHT = 74 * 2;
 
@@ -17,22 +16,11 @@ public class Air : Power
         this.player = player;
         this.rightPowerBaseCooldown = DASH_COOLDOWN;
         this.leftPowerBaseCooldown = FIRE_COOLDOWN;
-
-        
-
-
-        mRect = new CSprite();
-        mRect.setImage(Resources.Load<Sprite>("Sprites/ui/pixel"));
-        mRect.setSortingLayerName("Player");
-        mRect.setSortingOrder(20);
-        mRect.setAlpha(0.5f);
-        mRect.setName("Segundo poder");
     }
 
     override public void update()
     {
         base.update();
-        mRect.update();
     }
 
     
@@ -82,13 +70,6 @@ public class Air : Power
     override public void render()
     {
         base.render();
-
-        // MOSTRAR TODA EL AREA DEL DIBUJO.
-        mRect.setXY(player.getX(), player.getY());
-        mRect.setScaleX(WIDTH);
-        mRect.setScaleY(HEIGHT);
-        
-        //mRect.render();
     }
 
     override public void destroy()

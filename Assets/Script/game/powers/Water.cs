@@ -4,20 +4,12 @@ public class Water : Power
 {
     private const int MAX_ICE_TILES = 1;
     private int iceTileCounter = 0;
-    private CSprite mRect;
     private CAndy player;
 
     public Water(CAndy player)
     {
         this.name = "Water";
         this.player = player;
-
-        mRect = new CSprite();
-        mRect.setImage(Resources.Load<Sprite>("Sprites/ui/pixel"));
-        mRect.setSortingLayerName("Player");
-        mRect.setSortingOrder(20);
-        mRect.setAlpha(0.5f);
-        mRect.setName("Segundo poder");
     }
 
     override public void update()
