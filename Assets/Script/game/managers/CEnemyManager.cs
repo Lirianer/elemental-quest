@@ -53,7 +53,7 @@ public class CEnemyManager : CManager
 	public void spawnEnemy(float x, float y, int type = 0)
 	{
 		CEnemy enemy = new CEnemy();
-
+		enemy.destroy();
 		type = type == 0 ? CMath.randomIntBetween(1, 3) : type;
 
 		switch (type) {

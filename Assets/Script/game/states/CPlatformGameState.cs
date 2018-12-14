@@ -13,6 +13,8 @@ public class CPlatformGameState : CGameState
 	private CBulletManager mBulletManager;
 	private CParticleManager mParticleManger;
 
+	private CSprite mBackground;
+
     private CAndy mAndy;
 
 	public CPlatformGameState()
@@ -36,18 +38,16 @@ public class CPlatformGameState : CGameState
 		CGame.inst ().setMap (mMap);
 
 		mAndy = new CAndy ();
-        //Referenci Map a Andy 
         mAndy.muestro = mMap;
 		mAndy.setXY (400, 400);
 		mAndy.setCheckpoint(400, 400);
 		CGame.inst().setPlayer(mAndy);
 
-
-        //createAsteroids ();
-
-        /*CEnemyShip e = new CEnemyShip ();
-		e.setXY (200, 200);
-		CEnemyManager.inst ().add (e);*/
+		mBackground = new CSprite();
+		mBackground.setImage(Resources.Load<Sprite>("Sprites/background/background"));
+		mBackground.setName("Background");
+		mBackground.setRegistration(CSprite.REG_CENTER);
+		mBackground.setParent(CCamera.inst().getTransform());
 
 		CCamera.inst().setSize(mMap.getTileHeight() * 8);
 		CCamera.inst().setBounds(0, 0, mMap.getMapWidth() * mMap.getTileWidth(), mMap.getMapHeight() * mMap.getTileHeight());
@@ -67,20 +67,12 @@ public class CPlatformGameState : CGameState
 		mItemManager.update ();
 		mBulletManager.update ();
 		mParticleManger.update ();
-
-		if (CEnemyManager.inst ().getLength () == 0) 
-		{
-			//Debug.Log ("WIN");
-		}
-
-
-     
 	}
 
 	override public void render()
 	{
 		base.render ();
-
+		
 		mMap.render ();
 
 		mAndy.render ();
@@ -112,23 +104,8 @@ public class CPlatformGameState : CGameState
 
 		mParticleManger.destroy ();
 		mParticleManger = null;
+
+		mBackground.destroy();
+		mBackground = null;
     }
-
-    /*private void createAsteroids()
-	{
-		CAsteroid asteroid;
-
-		for (int i = 0; i < 10; i++) 
-		{
-			asteroid = new CAsteroid (CAsteroid.TYPE_BIG, CMath.randomIntBetween(1, 3));
-			asteroid.setXY (CMath.randomIntBetween(0, CGameConstants.SCREEN_WIDTH), CMath.randomIntBetween(0, CGameConstants.SCREEN_HEIGHT));
-			asteroid.setVelX (CMath.randomFloatBetween(-500, 500));
-			asteroid.setVelY (CMath.randomFloatBetween(-500, 500));
-			CEnemyManager.inst ().add (asteroid);
-		}
-
-	}*/
-
-
-
 }

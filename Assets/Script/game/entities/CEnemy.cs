@@ -25,8 +25,8 @@ public class CEnemy : CAnimatedSprite
     public CEnemy() 
     {
 		attackRange = new CSprite();
-		attackRange.setImage(Resources.Load<Sprite>("Sprites/ui/pixel"));
-		attackRange.setAlpha(0f);
+        attackRange.setName("Attack Range");
+        attackRange.setParent(this.getGameObject());
 
         if(this.debug) {
 			mRect = new CSprite();

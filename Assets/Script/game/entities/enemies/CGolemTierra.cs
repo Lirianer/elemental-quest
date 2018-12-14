@@ -166,32 +166,32 @@ public class CGolemTierra : CEnemy
 
             switch (this.getCurrentFrame())
             {
-                case 16:
+                case 15:
                     setLeftOffsetBoundingBox(148);
                     setTopOffsetBoundingBox(100);
                     setRightOffsetBoundingBox(110);
                 break;
-                case 17:
+                case 16:
                     setLeftOffsetBoundingBox(168);
                     setTopOffsetBoundingBox(135);
                     setRightOffsetBoundingBox(15);
                 break;
-                case 18:
+                case 17:
                     setLeftOffsetBoundingBox(168);
                     setTopOffsetBoundingBox(44);
                     setRightOffsetBoundingBox(52);
                 break;
-                case 19:
+                case 18:
                     setLeftOffsetBoundingBox(132);
                     setTopOffsetBoundingBox(15);
                     setRightOffsetBoundingBox(151);
                 break;
-                case 20:
+                case 19:
                     setLeftOffsetBoundingBox(30);
                     setTopOffsetBoundingBox(10);
                     setRightOffsetBoundingBox(164);
                 break;
-                case 21:
+                case 20:
                     setLeftOffsetBoundingBox(17);
                     setTopOffsetBoundingBox(100);
                     setRightOffsetBoundingBox(165);
@@ -267,7 +267,7 @@ public class CGolemTierra : CEnemy
         else if(getState() == STATE_ATTACKING)
         {
             stopMove();
-            initAnimation(10, 21, 9, false);
+            initAnimation(10, 21, 12, false);
         }
     }
 }

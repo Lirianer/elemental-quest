@@ -156,4 +156,9 @@ public class CCamera : CGameObject
 	{
 		return mMaxSize;
 	}
+
+	public Transform getTransform()
+	{
+		return mTransform;
+	}
 }
