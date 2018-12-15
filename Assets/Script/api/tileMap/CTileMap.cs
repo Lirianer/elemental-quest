@@ -466,4 +466,18 @@ public class CTileMap
 
 		tile.setImage(mTiles[imageIndex]);
 	}
+
+	public List<CTile> getTilesCollidingRect(float x, float y, float width, float height)
+	{
+		List<CTile> result = new List<CTile>();
+		for (int i = (int)(x / this.getTileWidth()) ; i < (x + width) / this.getTileWidth(); i++)
+		{
+			for (int z = (int)(y / this.getTileHeight()) ; z < (y + height) / this.getTileHeight(); z++)
+			{
+				result.Add(mMap[z][i]);
+			}	
+		}
+
+		return result;
+	}
 }

@@ -2,20 +2,24 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class AireDisparo : CSprite
+public class AireDisparo : CAnimatedSprite
 {
     public const float SPEED = 1000;
     private CSprite mRect;
     public AireDisparo()
     {
-        setImage (Resources.Load<Sprite> ("Sprites/powers/air"));
+        setFrames(Resources.LoadAll<Sprite> ("Sprites/powers/air"));
         setScale(2f);
-
-        setName("PlayerBullet");
+        initAnimation(1, 3, 12, true);
+        setName("AirShot");
         setSortingLayerName("Bullets");
 
         setBounds(0 - getWidth(), 0 - getHeight(), CGameConstants.SCREEN_WIDTH + getWidth(), CGameConstants.SCREEN_HEIGHT + getHeight());
         setBoundAction(CGameObject.DIE);
+        setLeftOffsetBoundingBox(105);
+        setBottomOffsetBoundingBox(12);
+        setRightOffsetBoundingBox(7);
+        setRightOffsetBoundingBox(12);
 
         mRect = new CSprite ();
 		mRect.setImage (Resources.Load<Sprite> ("Sprites/ui/pixel"));
@@ -23,6 +27,9 @@ public class AireDisparo : CSprite
 		mRect.setSortingOrder (20);
 		mRect.setAlpha (0.5f);
 		mRect.setName ("Aire Disparo");
+        mRect.setParent(this.getGameObject());
+        mRect.setX(this.getLeftOffsetBoundingBox());
+        mRect.setY(-getHeight() / 2);
 
         render();
     }
@@ -57,13 +64,24 @@ public class AireDisparo : CSprite
                 
             }
         }
+
+        List<CTile> tiles = CTileMap.Instance.getTilesCollidingRect(getX() + getLeftOffsetBoundingBox(), getY() + getTopOffsetBoundingBox(), getWidth() - getRightOffsetBoundingBox(), getHeight() - getBottomOffsetBoundingBox());
+
+        foreach (var tile in tiles)
+        {
+            if(tile.getTileType() != CTile.Type.AIR) 
+            {
+                this.setDead(true);
+                break;
+            }
+        }
     }
 
     override public void render()
     {
         base.render();
 
-        mRect.setXY (getX(), getY());
+        mRect.setXY (getX(), getY() - getHeight());
 		mRect.setScaleX(getWidth());
 		mRect.setScaleY(getHeight());
         mRect.setRotation(getRotation());
