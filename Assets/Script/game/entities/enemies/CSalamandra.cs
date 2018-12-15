@@ -29,6 +29,7 @@ public class CSalamandra : CEnemy
         setSortingOrder(1);
 
         horizontalDetectRange = 2;
+        verticalDetectRange = 2;
 
         setBottomOffsetBoundingBox(34);
         setTopOffsetBoundingBox(23);

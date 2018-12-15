@@ -3,8 +3,8 @@ using System.Collections;
 
 public class CElementalAgua : CEnemy
 {
-    private const int WIDTH = 538;
-    private const int HEIGHT = 324;
+    private const int WIDTH = 640;
+    private const int HEIGHT = 394;
 
     // coordenada y que tenia en el frame anterior. Usada para chequear en la horizontal antes que en la vertical...
     private float mOldY;
@@ -24,7 +24,8 @@ public class CElementalAgua : CEnemy
         setState(STATE_STAND);
         velocityBeforeFalling = 400f;
 
-        verticalDetectRange = 4;
+        verticalDetectRange = 3;
+        horizontalDetectRange = 8;
     }
 
     private void setOldYPosition()
@@ -219,7 +220,14 @@ public class CElementalAgua : CEnemy
         else if(getState() == STATE_ATTACKING)
         {
             stopMove();
-            initAnimation(8, 11, 12, false);
+            initAnimation(12, 23, 12, false);
+        }
+
+        if(getState() != STATE_ATTACKING)
+        {
+            setTopOffsetBoundingBox(90);
+            setRightOffsetBoundingBox(33);
+            setLeftOffsetBoundingBox(210);
         }
     }
 }

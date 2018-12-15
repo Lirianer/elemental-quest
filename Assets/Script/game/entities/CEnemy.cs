@@ -50,6 +50,7 @@ public class CEnemy : CAnimatedSprite
 			attackRange.setColor(Color.blue);
 			attackRange.setAlpha(0.5f);
 			attackRange.setName(this.getName() + "_debug_attack_range");
+            attackRange.setImage(Resources.Load<Sprite>("Sprites/ui/pixel"));
         }
 
         this.setParent(this.getGameObject());
@@ -64,7 +65,7 @@ public class CEnemy : CAnimatedSprite
             //Obtener los dos tiles (en vertical) que están adelante mío
             List<CTile> frontTiles = new List<CTile>();
             CAndy player = CGame.inst().getPlayer();
-            int yFrom = (int)((getY()));
+            int yFrom = (int)(getY() + getHeight() - verticalDetectRange * CTileMap.Instance.getTileHeight());
             int xFrom = 0;
 
             if(getFlip())
