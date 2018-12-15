@@ -110,8 +110,6 @@ public class Fire : Power
         bullet.setVelXY(FuegoDisparo.SPEED * Mathf.Cos(angRad), FuegoDisparo.SPEED * Mathf.Sin(angRad));
         bullet.setBounds(0, 0, CTileMap.Instance.getMapWidth() * CTileMap.Instance.getTileWidth(), CTileMap.Instance.getMapHeight() * CTileMap.Instance.getTileHeight());
         CBulletManager.inst().add(bullet);
-
-        Debug.Log("Ya hice todo y se supone estoy disparando wn maraca ql");
     }
 
     override public void render()

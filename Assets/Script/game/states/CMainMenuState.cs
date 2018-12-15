@@ -24,7 +24,7 @@ public class CMainMenuState : CGameState
 		base.init ();
 
 		mBackground = new CSprite ();
-		mBackground.setImage (Resources.Load<Sprite> ("Sprites/menu/fondo"));
+		mBackground.setImage (Resources.Load<Sprite> ("Sprites/ui/menu/fondo"));
 		mBackground.setXY (0, 0);
 		mBackground.setSortingLayerName("Background");
 		mBackground.setName ("background");
@@ -32,7 +32,7 @@ public class CMainMenuState : CGameState
 
 
 		mButtonPlay = new CButtonSprite ("Play");
-        mButtonPlay.setFrames(Resources.LoadAll<Sprite>("Sprites/button"));
+        mButtonPlay.setFrames(Resources.LoadAll<Sprite>("Sprites/ui/menu/button"));
         mButtonPlay.setName("PlayImage");
         mButtonPlay.setXY (CGameConstants.SCREEN_WIDTH / 2 +700 , CGameConstants.SCREEN_HEIGHT / 2 - 150 );
         mButtonPlay.setScale(500);
@@ -41,7 +41,7 @@ public class CMainMenuState : CGameState
 
 
         exitButton = new CButtonSprite("Exit");
-        exitButton.setFrames(Resources.LoadAll<Sprite>("Sprites/button"));
+        exitButton.setFrames(Resources.LoadAll<Sprite>("Sprites/ui/menu/button"));
         exitButton.setName("ExitImage");
         exitButton.setXY(mButtonPlay.getX(), CGameConstants.SCREEN_HEIGHT / 3 * 2 -10);
 
